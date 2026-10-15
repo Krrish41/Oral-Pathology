@@ -3,52 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='32' y2='32'%3E%3Cstop offset='0%25' stop-color='%238b5cf6'/%3E%3Cstop offset='100%25' stop-color='%236d28d9'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Cpath d='M16 6v20M6 16h20' stroke='%23ffffff' stroke-width='3.5' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='16' r='3.5' fill='%23e9d5ff'/%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='32' y2='32'%3E%3Cstop offset='0%25' stop-color='%230284c7'/%3E%3Cstop offset='100%25' stop-color='%230369a1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Cpath d='M16 6v20M6 16h20' stroke='%23ffffff' stroke-width='3.5' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='16' r='3.5' fill='%23bae6fd'/%3E%3C/svg%3E">
     <title>Oral Pathology Master Portal — University Exam Companion</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-base: #fdfcf9;
+            --bg-base: #fbfbfa;
             --bg-surface: #ffffff;
             --bg-card: #ffffff;
-            --bg-card-hover: #eef2ff;
+            --bg-card-hover: rgba(3, 105, 161, 0.04);
             --border-color: #e2e8f0;
-            --border-active: #6366f1;
+            --border-active: #0284c7;
+            --border-strong: #cbd5e1;
             --text-primary: #0f172a;
-            --text-secondary: #334155;
+            --text-secondary: #475569;
             --text-muted: #64748b;
-            --accent-primary: #6366f1;
-            --accent-primary-dark: #4f46e5;
-            --accent-light: #eef2ff;
-            --accent-glow: rgba(99, 102, 241, 0.16);
-            --border-accent: rgba(99, 102, 241, 0.28);
-            --header-bg: rgba(253, 252, 249, 0.94);
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
-            --shadow-md: 0 4px 14px rgba(0,0,0,0.08);
-            --shadow-lg: 0 10px 30px rgba(0,0,0,0.12);
+            --accent-primary: #0369a1;
+            --accent-primary-dark: #075985;
+            --accent-light: rgba(3, 105, 161, 0.08);
+            --accent-glow: rgba(2, 132, 199, 0.2);
+            --accent-border: rgba(3, 105, 161, 0.22);
+            --header-bg: rgba(251, 251, 250, 0.94);
+            --accent-amber: #d97706;
+            --accent-amber-light: rgba(217, 119, 6, 0.1);
+            --accent-crimson: #be123c;
+            --success: #059669;
+            --success-light: rgba(5, 150, 105, 0.1);
+            --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+            --shadow-md: 0 4px 14px rgba(15, 23, 42, 0.08);
+            --shadow-lg: 0 10px 30px rgba(15, 23, 42, 0.12);
         }
 
         body.dark {
-            --bg-base: #0f172a;
-            --bg-surface: #1e1b4b;
-            --bg-card: #1e1b4b;
-            --bg-card-hover: #2e1065;
-            --border-color: rgba(255, 255, 255, 0.12);
-            --border-active: #818cf8;
+            --bg-base: #090d16;
+            --bg-surface: #0f172a;
+            --bg-card: #0f172a;
+            --bg-card-hover: #1e293b;
+            --border-color: #1e293b;
+            --border-active: #38bdf8;
+            --border-strong: #334155;
             --text-primary: #f8fafc;
-            --text-secondary: #cbd5e1;
-            --text-muted: #94a3b8;
-            --accent-primary: #818cf8;
-            --accent-primary-dark: #6366f1;
-            --accent-light: rgba(99, 102, 241, 0.16);
-            --accent-glow: rgba(99, 102, 241, 0.28);
-            --border-accent: rgba(99, 102, 241, 0.38);
-            --header-bg: rgba(15, 23, 42, 0.94);
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
-            --shadow-md: 0 4px 14px rgba(0,0,0,0.4);
-            --shadow-lg: 0 10px 30px rgba(0,0,0,0.6);
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --accent-primary: #38bdf8;
+            --accent-primary-dark: #0284c7;
+            --accent-light: rgba(56, 189, 248, 0.12);
+            --accent-glow: rgba(56, 189, 248, 0.28);
+            --accent-border: rgba(56, 189, 248, 0.32);
+            --header-bg: rgba(9, 13, 22, 0.94);
+            --accent-amber: #f59e0b;
+            --accent-amber-light: rgba(245, 158, 11, 0.15);
+            --accent-crimson: #fb7185;
+            --success: #10b981;
+            --success-light: rgba(16, 185, 129, 0.14);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+            --shadow-md: 0 4px 14px rgba(0,0,0,0.55);
+            --shadow-lg: 0 10px 30px rgba(0,0,0,0.7);
         }
 
         /* Ultra-thin surgical scrollbar */
@@ -60,31 +72,44 @@
             background: transparent;
         }
         ::-webkit-scrollbar-thumb {
-            background: rgba(148, 163, 184, 0.35);
+            background: rgba(15, 23, 42, 0.16);
             border-radius: 999px;
             border: 1px solid transparent;
             background-clip: content-box;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: rgba(100, 116, 139, 0.6);
+            background: var(--accent-primary);
         }
         body.dark ::-webkit-scrollbar-thumb {
-            background: rgba(148, 163, 184, 0.25);
+            background: rgba(255, 255, 255, 0.2);
         }
         body.dark ::-webkit-scrollbar-thumb:hover {
-            background: rgba(148, 163, 184, 0.45);
+            background: var(--accent-primary);
         }
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
             scrollbar-width: thin;
-            scrollbar-color: rgba(148, 163, 184, 0.35) transparent;
+            scrollbar-color: rgba(15, 23, 42, 0.16) transparent;
+        }
+        body.dark * {
+            scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
         }
 
         /* Tactile button feedback */
         .btn:active, .nav-btn:active, .speed-pill:active, .mobile-bottom-tab:active, .filter-chip:active {
             transform: scale(0.96) translateY(1px);
+        }
+
+        /* Editorial Medical Heading Typography */
+        h1, h2, h3, .brand-title, .dash-hero-title, .topic-title-display, .section-title, .card-title {
+            font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
+            letter-spacing: -0.015em;
+            font-weight: 700;
+        }
+        code, pre, .stat-val, .table-cell-numeric, .audio-time-label, .score-badge, .formula-box, table.data-table td, table.data-table th, .exam-clock {
+            font-variant-numeric: tabular-nums;
         }
 
         body {
@@ -126,15 +151,15 @@
         .brand-badge {
             width: 36px;
             height: 36px;
-            background: linear-gradient(135deg, #9333ea, #7e22ce);
+            background: linear-gradient(135deg, #0284c7, #0369a1);
             border-radius: 9px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 800;
-            font-size: 1.05rem;
+            font-size: 1.15rem;
             color: #ffffff;
-            box-shadow: 0 4px 10px rgba(147, 51, 234, 0.25);
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35);
         }
 
         .brand-title h1 {
@@ -186,7 +211,7 @@
             border-color: transparent;
         }
         .nav-btn-primary:hover {
-            background: #7e22ce;
+            background: var(--accent-primary-dark);
         }
 
         /* Main App Grid Layout */
@@ -835,7 +860,7 @@
             box-shadow: 0 0 0 3px var(--accent-glow);
         }
 
-        /* Modern Floating Island Audio Player Dock */
+        /* Modern Floating Island Audio Player Dock (Surgery Pro Style) */
         .audio-dock {
             position: fixed;
             bottom: 20px;
@@ -847,7 +872,7 @@
             background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(28px) saturate(180%);
             -webkit-backdrop-filter: blur(28px) saturate(180%);
-            border: 1px solid rgba(147, 51, 234, 0.25);
+            border: 1px solid rgba(2, 132, 199, 0.25);
             border-radius: 22px;
             box-shadow: 0 16px 42px -6px rgba(15, 23, 42, 0.25), 0 4px 16px rgba(0, 0, 0, 0.05);
             padding: 12px 22px;
@@ -855,9 +880,9 @@
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
         }
         body.dark .audio-dock {
-            background: rgba(21, 18, 38, 0.94);
-            border: 1px solid rgba(192, 132, 252, 0.25);
-            box-shadow: 0 20px 50px -8px rgba(0, 0, 0, 0.75), 0 0 24px rgba(147, 51, 234, 0.18);
+            background: rgba(15, 23, 42, 0.94);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            box-shadow: 0 20px 50px -8px rgba(0, 0, 0, 0.75), 0 0 24px rgba(2, 132, 199, 0.18);
         }
         .audio-dock.hidden {
             transform: translate(-50%, 150%);
@@ -883,20 +908,21 @@
             width: 42px;
             height: 42px;
             border-radius: 12px;
-            background: linear-gradient(135deg, #9333ea 0%, #7e22ce 100%);
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
             color: #fff;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            box-shadow: 0 4px 12px rgba(147, 51, 234, 0.3);
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+            transition: transform 0.2s ease;
         }
         .audio-dock.is-playing .audio-dock-track-icon {
             animation: pulseTrackIcon 2.4s ease-in-out infinite;
         }
         @keyframes pulseTrackIcon {
-            0%, 100% { transform: scale(1); box-shadow: 0 4px 12px rgba(147, 51, 234, 0.3); }
-            50% { transform: scale(1.05); box-shadow: 0 6px 18px rgba(147, 51, 234, 0.45); }
+            0%, 100% { transform: scale(1); box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3); }
+            50% { transform: scale(1.05); box-shadow: 0 6px 18px rgba(2, 132, 199, 0.45); }
         }
         .audio-dock-track-title {
             font-size: 9pt;
@@ -905,10 +931,11 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            letter-spacing: -0.2px;
         }
         .audio-dock-chapter-title {
             font-size: 7.5pt;
-            color: var(--text-secondary);
+            color: var(--text-muted);
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -925,14 +952,15 @@
         .audio-dock-buttons {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
         .audio-control-btn {
             background: transparent;
             border: none;
             color: var(--text-primary);
             cursor: pointer;
-            padding: 6px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -940,34 +968,41 @@
             transition: all 0.2s ease;
         }
         .audio-control-btn:hover {
-            background: var(--bg-card-hover);
+            background: var(--accent-light);
             color: var(--accent-primary);
+            transform: scale(1.1);
         }
         .audio-btn-playpause {
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
-            background: var(--accent-primary);
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
             color: #ffffff !important;
-            box-shadow: 0 4px 14px var(--accent-glow);
+            box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .audio-btn-playpause:hover {
-            background: #7e22ce;
-            transform: scale(1.04);
+            background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+            transform: scale(1.08);
+            box-shadow: 0 6px 20px rgba(2, 132, 199, 0.45);
         }
         .audio-dock-progress-wrap {
             display: flex;
             align-items: center;
             gap: 10px;
             width: 100%;
-            max-width: 440px;
+            max-width: 460px;
         }
         .audio-time-label {
             font-family: 'JetBrains Mono', monospace;
             font-size: 7.5pt;
-            color: var(--text-secondary);
+            color: var(--text-muted);
             min-width: 36px;
-            font-weight: 600;
         }
         .audio-scrubber {
             flex: 1;
@@ -978,22 +1013,32 @@
             background: #cbd5e1;
             outline: none;
             cursor: pointer;
+            transition: height 0.15s ease;
+        }
+        .audio-scrubber:hover {
+            height: 6px;
         }
         body.dark .audio-scrubber {
             background: #334155;
         }
         .audio-scrubber::-webkit-slider-thumb {
             -webkit-appearance: none;
-            width: 12px;
-            height: 12px;
+            width: 13px;
+            height: 13px;
             border-radius: 50%;
-            background: var(--accent-primary);
+            background: #ffffff;
+            border: 2px solid #0284c7;
+            box-shadow: 0 2px 6px rgba(2, 132, 199, 0.35);
             cursor: pointer;
+            transition: transform 0.15s ease;
+        }
+        .audio-scrubber:hover::-webkit-slider-thumb {
+            transform: scale(1.25);
         }
         .audio-dock-options {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             flex-shrink: 0;
         }
         .audio-voice-select {
@@ -1011,35 +1056,36 @@
         .audio-speed-selector {
             display: flex;
             align-items: center;
-            gap: 4px;
-            background: var(--bg-base);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 3px 6px;
+            gap: 2px;
+            background: rgba(2, 132, 199, 0.08);
+            border: 1px solid rgba(2, 132, 199, 0.18);
+            border-radius: 9999px;
+            padding: 3px;
         }
-        .speed-label {
-            font-size: 7.5pt;
-            color: var(--text-primary);
-            font-weight: 700;
-            margin-right: 2px;
+        body.dark .audio-speed-selector {
+            background: rgba(2, 132, 199, 0.12);
+            border: 1px solid rgba(2, 132, 199, 0.25);
         }
         .speed-pill {
             background: transparent;
             border: none;
-            color: var(--text-secondary);
+            color: var(--text-muted);
             font-size: 7.5pt;
-            font-weight: 700;
-            padding: 3px 6px;
-            border-radius: 4px;
+            font-weight: 600;
+            padding: 4px 9px;
+            border-radius: 9999px;
             cursor: pointer;
-            transition: all 0.15s ease;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            line-height: 1;
         }
         .speed-pill:hover {
             color: var(--accent-primary);
         }
         .speed-pill.active {
-            background: var(--accent-primary);
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
             color: #ffffff;
+            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(2, 132, 199, 0.35);
         }
         .audio-dock-close {
             background: transparent;
@@ -1051,10 +1097,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: all 0.2s ease;
         }
         .audio-dock-close:hover {
-            background: var(--bg-card-hover);
-            color: #ef4444;
+            background: var(--accent-light);
+            color: var(--accent-crimson);
+            transform: scale(1.1);
         }
 
         /* Mobile Bottom Floating Bar */
@@ -1266,9 +1314,9 @@
         }
 
         .callout-alert.alert-note {
-            background: rgba(99, 102, 241, 0.08);
-            border: 1px solid rgba(99, 102, 241, 0.25);
-            border-left: 4px solid #6366f1;
+            background: rgba(3, 105, 161, 0.08);
+            border: 1px solid rgba(3, 105, 161, 0.25);
+            border-left: 4px solid #0284c7;
             color: var(--text-primary);
         }
 
@@ -1309,7 +1357,7 @@
         }
 
         .inline-code {
-            background: rgba(99, 102, 241, 0.1);
+            background: rgba(3, 105, 161, 0.08);
             color: var(--accent-primary);
             padding: 2px 6px;
             border-radius: 4px;
@@ -1317,9 +1365,9 @@
             font-size: 0.85em;
         }
 
-        /* Dashboard Specific Styles matching General Surgery */
+        /* Dashboard Specific Styles matching Surgery Pro */
         .dash-hero-card {
-            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 60%, #4338ca 100%);
+            background: linear-gradient(135deg, #090d16 0%, #0f172a 60%, #1e293b 100%);
             border-radius: 14px;
             padding: 26px 30px;
             margin-bottom: 22px;
@@ -1328,8 +1376,8 @@
             justify-content: space-between;
             gap: 24px;
             color: #ffffff;
-            box-shadow: 0 6px 24px rgba(30, 27, 75, 0.35);
-            border: 1px solid rgba(167, 139, 250, 0.35);
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.25);
+            border: 1px solid rgba(56, 189, 248, 0.25);
         }
 
         .dash-hero-badge {
@@ -1338,16 +1386,17 @@
             font-weight: 700;
             letter-spacing: 1.2px;
             text-transform: uppercase;
-            background: rgba(255, 255, 255, 0.15);
-            color: #e0e7ff;
+            background: rgba(56, 189, 248, 0.2);
+            color: #7dd3fc;
             padding: 4px 12px;
             border-radius: 9999px;
             margin-bottom: 12px;
         }
 
         .dash-hero-title {
+            font-family: 'Cinzel', serif;
             font-size: 1.9rem;
-            font-weight: 800;
+            font-weight: 700;
             color: #ffffff;
             margin: 0 0 8px 0;
             letter-spacing: -0.02em;
@@ -1356,7 +1405,7 @@
 
         .dash-hero-sub {
             font-size: 0.95rem;
-            color: #c7d2fe;
+            color: #bae6fd;
             margin: 0 0 16px 0;
             line-height: 1.5;
         }
@@ -1390,7 +1439,7 @@
         }
 
         .dash-cheat-sheet-card {
-            background: linear-gradient(135deg, #2e1065 0%, #3b0764 100%);
+            background: linear-gradient(135deg, #042f2e 0%, #0f172a 100%);
             border-radius: 14px;
             padding: 20px 24px;
             margin-bottom: 24px;
@@ -1399,8 +1448,8 @@
             justify-content: space-between;
             gap: 20px;
             color: #ffffff;
-            box-shadow: 0 4px 20px rgba(46, 16, 101, 0.3);
-            border: 1px solid rgba(192, 132, 252, 0.35);
+            box-shadow: 0 4px 20px rgba(4, 47, 46, 0.25);
+            border: 1px solid rgba(20, 184, 166, 0.35);
             flex-wrap: wrap;
         }
 
@@ -1460,15 +1509,15 @@
             width: 100%;
             height: 9px;
             background-color: var(--border-color);
-            border-radius: 999px;
+            border-radius: 9999px;
             overflow: hidden;
             margin-top: 10px;
         }
 
         .progress-bar-fill-dash {
             height: 100%;
-            background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 50%, #10b981 100%);
-            border-radius: 999px;
+            background: linear-gradient(90deg, #0284c7 0%, #0369a1 50%, #10b981 100%);
+            border-radius: 9999px;
             width: 0%;
             transition: width 0.4s ease;
         }
@@ -1570,7 +1619,7 @@
     <!-- Top Header -->
     <header class="navbar">
         <div class="brand" onclick="showDashboard()">
-            <div class="brand-badge" style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 36 36"><defs><linearGradient id="logoG" x1="0" y1="0" x2="36" y2="36"><stop offset="0%" stop-color="#6366f1"/><stop offset="100%" stop-color="#4338ca"/></linearGradient></defs><rect width="36" height="36" rx="9" fill="url(#logoG)"/><path d="M11 26h14M8 29h20M19 29a7 7 0 1 0-7-7h1" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" fill="none"/><circle cx="14" cy="14" r="2" fill="#e0e7ff"/><path d="m19 12 3-3 2.5 2.5-3 3" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+            <div class="brand-badge" style="background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 36 36"><defs><linearGradient id="logoG" x1="0" y1="0" x2="36" y2="36"><stop offset="0%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient></defs><rect width="36" height="36" rx="9" fill="url(#logoG)"/><path d="M11 26h14M8 29h20M19 29a7 7 0 1 0-7-7h1" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" fill="none"/><circle cx="14" cy="14" r="2" fill="#bae6fd"/><path d="m19 12 3-3 2.5 2.5-3 3" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
             <div class="brand-title">
                 <h1>PATHOLOGY PRO</h1>
                 <span>BDS &amp; MDS CLINICAL MONOGRAPH</span>
@@ -2006,7 +2055,7 @@
             utterance.rate = audioPlaybackSpeed || 1.0;
             if (selectedVoice) utterance.voice = selectedVoice;
 
-            btn.style.color = '#c084fc';
+            btn.style.color = 'var(--accent-primary)';
             utterance.onend = () => { btn.style.color = ''; };
             utterance.onerror = () => { btn.style.color = ''; };
             window.speechSynthesis.speak(utterance);
@@ -2110,19 +2159,19 @@
                     </div>
                     <div class="dash-hero-image-box">
                         <svg viewBox="0 0 260 140" width="260" height="140" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="260" height="140" fill="#1e1b4b" rx="8"/>
-                            <path d="M70 115H190" stroke="#818cf8" stroke-width="3" stroke-linecap="round"/>
-                            <path d="M130 115V85" stroke="#818cf8" stroke-width="3"/>
-                            <path d="M130 85A30 30 0 0 0 160 55V35H140" stroke="#818cf8" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-                            <rect x="135" y="25" width="22" height="14" rx="2" fill="#a78bfa"/>
-                            <line x1="146" y1="39" x2="146" y2="60" stroke="#c084fc" stroke-width="3"/>
-                            <rect x="100" y="68" width="60" height="4" rx="1" fill="#f43f5e"/>
+                            <rect width="260" height="140" fill="#090d16" rx="8"/>
+                            <path d="M70 115H190" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
+                            <path d="M130 115V85" stroke="#38bdf8" stroke-width="3"/>
+                            <path d="M130 85A30 30 0 0 0 160 55V35H140" stroke="#38bdf8" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                            <rect x="135" y="25" width="22" height="14" rx="2" fill="#0284c7"/>
+                            <line x1="146" y1="39" x2="146" y2="60" stroke="#7dd3fc" stroke-width="3"/>
+                            <rect x="100" y="68" width="60" height="4" rx="1" fill="#0284c7"/>
                             <circle cx="146" cy="70" r="3" fill="#38bdf8"/>
-                            <circle cx="210" cy="50" r="16" fill="rgba(192, 132, 252, 0.15)" stroke="#c084fc" stroke-width="1.5"/>
-                            <circle cx="210" cy="50" r="6" fill="#818cf8"/>
-                            <circle cx="225" cy="85" r="12" fill="rgba(244, 63, 94, 0.15)" stroke="#f43f5e" stroke-width="1.5"/>
-                            <circle cx="225" cy="85" r="4" fill="#f43f5e"/>
-                            <text x="130" y="130" fill="#c7d2fe" font-size="10.5" font-family="'Plus Jakarta Sans',sans-serif" font-weight="700" text-anchor="middle">HISTOPATHOLOGY &amp; SPOTTERS</text>
+                            <circle cx="210" cy="50" r="16" fill="rgba(56, 189, 248, 0.15)" stroke="#38bdf8" stroke-width="1.5"/>
+                            <circle cx="210" cy="50" r="6" fill="#0284c7"/>
+                            <circle cx="225" cy="85" r="12" fill="rgba(14, 165, 233, 0.15)" stroke="#38bdf8" stroke-width="1.5"/>
+                            <circle cx="225" cy="85" r="4" fill="#0284c7"/>
+                            <text x="130" y="130" fill="#bae6fd" font-size="10.5" font-family="'Plus Jakarta Sans',sans-serif" font-weight="700" text-anchor="middle">HISTOPATHOLOGY &amp; SPOTTERS</text>
                         </svg>
                     </div>
                 </div>
@@ -2135,14 +2184,14 @@
                             </svg>
                         </div>
                         <div>
-                            <div style="font-size: 0.72rem; font-weight: 700; color: #e9d5ff; text-transform: uppercase; letter-spacing: 0.08em;">Exam Night Rapid Revision</div>
+                            <div style="font-size: 0.72rem; font-weight: 700; color: #5eead4; text-transform: uppercase; letter-spacing: 0.08em;">Exam Night Rapid Revision</div>
                             <div style="font-size: 1.15rem; font-weight: 800; color: #ffffff;">Chapter 21: Master Oral Pathology Rapid Revision Cheat Sheet</div>
-                            <div style="font-size: 0.84rem; color: #e0e7fe; margin-top: 2px;">
+                            <div style="font-size: 0.84rem; color: #ccfbf1; margin-top: 2px;">
                                 Histopathological pathognomonic criteria, Broders grading, OKC vs Ameloblastoma matrices &amp; syndromic associations.
                             </div>
                         </div>
                     </div>
-                    <button class="nav-btn nav-btn-primary" onclick="selectChapter(0)" style="background: #ffffff; color: #4f46e5 !important; font-weight: 700; padding: 10px 20px; font-size: 0.88rem; box-shadow: 0 4px 14px rgba(0,0,0,0.25);">
+                    <button class="nav-btn nav-btn-primary" onclick="selectChapter(0)" style="background: #ffffff; color: #042f2e !important; font-weight: 700; padding: 10px 20px; font-size: 0.88rem; box-shadow: 0 4px 14px rgba(0,0,0,0.25);">
                         Open Cheat Sheet →
                     </button>
                 </div>
@@ -2183,7 +2232,7 @@
                         <button class="filter-chip ${currentDashFilter === 'pending' ? 'active' : ''}" onclick="setDashFilter('pending')">Pending (${remaining})</button>
                         <button class="filter-chip ${currentDashFilter === 'completed' ? 'active' : ''}" onclick="setDashFilter('completed')">Completed (${completed})</button>
                         <button class="filter-chip ${currentDashFilter === 'notes' ? 'active' : ''}" onclick="setDashFilter('notes')">Has Notes (${notesCount})</button>
-                        <button class="filter-chip" onclick="selectChapter(0)" style="background: linear-gradient(135deg, #7c3aed, #4f46e5); color: #ffffff; border: none;">⚡ Cheat Sheet</button>
+                        <button class="filter-chip" onclick="selectChapter(0)" style="background: linear-gradient(135deg, #0284c7, #0369a1); color: #ffffff; border: none;">⚡ Cheat Sheet</button>
                     </div>
                 </div>
 
@@ -2203,7 +2252,7 @@
                         <div>
                             <div class="dash-card-header-row">
                                 <span class="dash-card-chapter-tag">Chapter ${idx + 1}</span>
-                                ${hasNote ? '<span style="font-size: 0.72rem; background: rgba(99, 102, 241, 0.12); color: #818cf8; padding: 2px 7px; border-radius: 4px; font-weight: 600;">Note Saved</span>' : ''}
+                                ${hasNote ? '<span style="font-size: 0.72rem; background: rgba(3, 105, 161, 0.12); color: var(--accent-primary); padding: 2px 7px; border-radius: 4px; font-weight: 600;">Note Saved</span>' : ''}
                             </div>
                             <div class="dash-card-title-text">${ch.title}</div>
                             <div class="dash-card-source-text">${ch.category} • ${ch.reading_time}</div>
@@ -2705,7 +2754,7 @@
             if (isFlashcardFlipped) {
                 textEl.innerText = card.a;
                 tagEl.innerText = `ANSWER (CARD ${currentFlashcardIdx + 1} OF ${ch.flashcards.length})`;
-                tagEl.style.color = '#c084fc';
+                tagEl.style.color = 'var(--accent-primary)';
             } else {
                 textEl.innerText = card.q;
                 tagEl.innerText = `QUESTION (CARD ${currentFlashcardIdx + 1} OF ${ch.flashcards.length})`;
