@@ -1,0 +1,38 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.class
+
+# Caches & temporary files
+.pytest_cache/
+*.tmp
+*.log
+.user_uploaded/
+.system_generated/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Agent / Workspace rules (keep local, do not upload to GitHub)
+GEMINI.md
+guidelines.md
+
+# Scratch helper scripts
+generate_*.py
+test_*.py
+
+# Raw extracted page images, scans & OCR text dumps
+extracted_diagrams/
+extracted_preview/
+*.txt
+
+# Raw source lecture PDFs (Preserve only compiled master monograph)
+*.pdf
+!Oral_Pathology_Master_Notes.pdf
+
+# Browser test screenshots & scratch artifacts
+test_screen_*.png
+test_*.mjs
+scratch/
