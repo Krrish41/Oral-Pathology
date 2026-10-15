@@ -34,5 +34,6 @@ extracted_preview/
 
 # Browser test screenshots & scratch artifacts
 test_screen_*.png
+*.png
 test_*.mjs
 scratch/

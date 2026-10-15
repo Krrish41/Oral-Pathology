@@ -13,15 +13,17 @@
             --bg-base: #fdfcf9;
             --bg-surface: #ffffff;
             --bg-card: #ffffff;
-            --bg-card-hover: #fdf4ff;
-            --border-color: #cbd5e1;
-            --border-active: #9333ea;
+            --bg-card-hover: #eef2ff;
+            --border-color: #e2e8f0;
+            --border-active: #6366f1;
             --text-primary: #0f172a;
             --text-secondary: #334155;
-            --text-muted: #475569;
-            --accent-primary: #9333ea;
-            --accent-light: #faf5ff;
-            --accent-glow: rgba(147, 51, 234, 0.18);
+            --text-muted: #64748b;
+            --accent-primary: #6366f1;
+            --accent-primary-dark: #4f46e5;
+            --accent-light: #eef2ff;
+            --accent-glow: rgba(99, 102, 241, 0.16);
+            --border-accent: rgba(99, 102, 241, 0.28);
             --header-bg: rgba(253, 252, 249, 0.94);
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
             --shadow-md: 0 4px 14px rgba(0,0,0,0.08);
@@ -29,19 +31,21 @@
         }
 
         body.dark {
-            --bg-base: #0d0b18;
-            --bg-surface: #151226;
-            --bg-card: #1c1833;
-            --bg-card-hover: #272247;
-            --border-color: rgba(255, 255, 255, 0.14);
-            --border-active: #c084fc;
+            --bg-base: #0f172a;
+            --bg-surface: #1e1b4b;
+            --bg-card: #1e1b4b;
+            --bg-card-hover: #2e1065;
+            --border-color: rgba(255, 255, 255, 0.12);
+            --border-active: #818cf8;
             --text-primary: #f8fafc;
-            --text-secondary: #e2e8f0;
-            --text-muted: #cbd5e1;
-            --accent-primary: #c084fc;
-            --accent-light: rgba(192, 132, 252, 0.15);
-            --accent-glow: rgba(192, 132, 252, 0.25);
-            --header-bg: rgba(13, 11, 24, 0.94);
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --accent-primary: #818cf8;
+            --accent-primary-dark: #6366f1;
+            --accent-light: rgba(99, 102, 241, 0.16);
+            --accent-glow: rgba(99, 102, 241, 0.28);
+            --border-accent: rgba(99, 102, 241, 0.38);
+            --header-bg: rgba(15, 23, 42, 0.94);
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
             --shadow-md: 0 4px 14px rgba(0,0,0,0.4);
             --shadow-lg: 0 10px 30px rgba(0,0,0,0.6);
@@ -1164,16 +1168,412 @@
                 display: none;
             }
         }
+
+        /* Responsive Data Tables */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            margin: 18px 0 24px 0;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-surface);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+            line-height: 1.5;
+            text-align: left;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .data-table th, .data-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .data-table th {
+            background: var(--bg-surface);
+            color: var(--accent-primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.74rem;
+            letter-spacing: 0.06em;
+            border-bottom: 2px solid var(--accent-primary);
+        }
+
+        .data-table tbody tr:nth-child(even) {
+            background: rgba(99, 102, 241, 0.03);
+        }
+
+        body.dark .data-table tbody tr:nth-child(even) {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .data-table tbody tr:hover {
+            background: rgba(99, 102, 241, 0.08);
+        }
+
+        /* Clinical Formula Callout Box */
+        .formula-card {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.04) 100%);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-left: 4px solid var(--accent-primary);
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin: 16px 0;
+        }
+
+        .formula-header {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 6px;
+        }
+
+        .formula-equation {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            padding: 4px 0;
+        }
+
+        /* Callout Alerts */
+        .callout-alert {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 14px 18px;
+            border-radius: 10px;
+            margin: 16px 0;
+            font-size: 0.92rem;
+            line-height: 1.55;
+        }
+
+        .callout-alert.alert-tip {
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            border-left: 4px solid #10b981;
+            color: var(--text-primary);
+        }
+
+        .callout-alert.alert-note {
+            background: rgba(99, 102, 241, 0.08);
+            border: 1px solid rgba(99, 102, 241, 0.25);
+            border-left: 4px solid #6366f1;
+            color: var(--text-primary);
+        }
+
+        .callout-alert.alert-important {
+            background: rgba(245, 158, 11, 0.08);
+            border: 1px solid rgba(245, 158, 11, 0.25);
+            border-left: 4px solid #f59e0b;
+            color: var(--text-primary);
+        }
+
+        .content-list, .content-list-ordered {
+            padding-left: 24px;
+            margin: 10px 0 16px 0;
+        }
+
+        .content-list li, .content-list-ordered li {
+            margin-bottom: 6px;
+            line-height: 1.55;
+            color: var(--text-secondary);
+        }
+
+        .content-para {
+            margin-bottom: 12px;
+            line-height: 1.65;
+            color: var(--text-secondary);
+        }
+
+        .algorithm-block {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 14px 16px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+            margin: 16px 0;
+            color: var(--text-primary);
+        }
+
+        .inline-code {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--accent-primary);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85em;
+        }
+
+        /* Dashboard Specific Styles matching General Surgery */
+        .dash-hero-card {
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 60%, #4338ca 100%);
+            border-radius: 14px;
+            padding: 26px 30px;
+            margin-bottom: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            color: #ffffff;
+            box-shadow: 0 6px 24px rgba(30, 27, 75, 0.35);
+            border: 1px solid rgba(167, 139, 250, 0.35);
+        }
+
+        .dash-hero-badge {
+            display: inline-block;
+            font-size: 0.74rem;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            background: rgba(255, 255, 255, 0.15);
+            color: #e0e7ff;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            margin-bottom: 12px;
+        }
+
+        .dash-hero-title {
+            font-size: 1.9rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin: 0 0 8px 0;
+            letter-spacing: -0.02em;
+            line-height: 1.25;
+        }
+
+        .dash-hero-sub {
+            font-size: 0.95rem;
+            color: #c7d2fe;
+            margin: 0 0 16px 0;
+            line-height: 1.5;
+        }
+
+        .dash-hero-meta {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .dash-hero-stat {
+            font-size: 0.84rem;
+            background: rgba(255, 255, 255, 0.12);
+            padding: 5px 14px;
+            border-radius: 9999px;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .dash-hero-image-box {
+            flex-shrink: 0;
+            width: 260px;
+            height: 140px;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .dash-cheat-sheet-card {
+            background: linear-gradient(135deg, #2e1065 0%, #3b0764 100%);
+            border-radius: 14px;
+            padding: 20px 24px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            color: #ffffff;
+            box-shadow: 0 4px 20px rgba(46, 16, 101, 0.3);
+            border: 1px solid rgba(192, 132, 252, 0.35);
+            flex-wrap: wrap;
+        }
+
+        .cheat-sheet-badge-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: #ffffff;
+        }
+
+        .stats-grid-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .stat-card-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 18px 20px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .stat-card-label {
+            font-size: 0.76rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .stat-card-val {
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: var(--accent-primary);
+            line-height: 1.2;
+        }
+
+        .progress-banner-dash {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 18px 22px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .progress-bar-bg-dash {
+            width: 100%;
+            height: 9px;
+            background-color: var(--border-color);
+            border-radius: 999px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .progress-bar-fill-dash {
+            height: 100%;
+            background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 50%, #10b981 100%);
+            border-radius: 999px;
+            width: 0%;
+            transition: width 0.4s ease;
+        }
+
+        .dashboard-topic-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 16px;
+        }
+
+        .dash-topic-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.25s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .dash-topic-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .dash-topic-card.completed {
+            border-color: rgba(16, 185, 129, 0.4);
+            background: rgba(16, 185, 129, 0.02);
+        }
+
+        .dash-card-header-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .dash-card-chapter-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .dash-card-title-text {
+            font-size: 1.02rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.35;
+            margin-bottom: 6px;
+        }
+
+        .dash-card-source-text {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .dash-card-footer-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .toggle-complete-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.78rem;
+            padding: 6px 12px;
+            border-radius: 7px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .toggle-complete-btn:hover {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+        }
+
+        .toggle-complete-btn.is-completed {
+            background: rgba(16, 185, 129, 0.1);
+            border-color: #10b981;
+            color: #10b981;
+        }
     </style>
 </head>
 <body>
     <!-- Top Header -->
     <header class="navbar">
         <div class="brand" onclick="showDashboard()">
-            <div class="brand-badge">OP</div>
+            <div class="brand-badge" style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 36 36"><defs><linearGradient id="logoG" x1="0" y1="0" x2="36" y2="36"><stop offset="0%" stop-color="#6366f1"/><stop offset="100%" stop-color="#4338ca"/></linearGradient></defs><rect width="36" height="36" rx="9" fill="url(#logoG)"/><path d="M11 26h14M8 29h20M19 29a7 7 0 1 0-7-7h1" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" fill="none"/><circle cx="14" cy="14" r="2" fill="#e0e7ff"/><path d="m19 12 3-3 2.5 2.5-3 3" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
             <div class="brand-title">
-                <h1>ORAL PATHOLOGY</h1>
-                <span>Clinical &amp; Spotter Suite</span>
+                <h1>PATHOLOGY PRO</h1>
+                <span>BDS &amp; MDS CLINICAL MONOGRAPH</span>
             </div>
         </div>
         <div class="nav-actions">
@@ -1195,6 +1595,14 @@
         <!-- Sidebar Navigation -->
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
+                <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+                    <button class="nav-btn nav-btn-primary" id="sidebarDashBtn" onclick="showDashboard()" style="flex: 1; justify-content: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg> Dashboard
+                    </button>
+                    <button class="nav-btn" onclick="openPdfModal()" style="flex: 1; justify-content: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M10 13v-2a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1z"/><path d="M10 18h4"/></svg> Open PDF
+                    </button>
+                </div>
                 <div class="search-box">
                     <input type="text" id="searchInput" class="search-input" placeholder="Search lesions, signs, stains..." oninput="onSearchInput()">
                     <span class="search-kbd">/</span>
@@ -1324,7 +1732,8 @@
         const MATRICES = [{"id": "matrix_cysts_tumors", "title": "Odontogenic Lesion Triad: Ameloblastoma vs. OKC vs. Dentigerous Cyst", "headers": ["Diagnostic Feature", "Conventional Ameloblastoma", "Odontogenic Keratocyst (OKC)", "Dentigerous Cyst"], "rows": [["Primary Origin", "Enamel organ / Dental lamina remnants", "Dental lamina remnants (rests of Serres)", "Reduced Enamel Epithelium (REE)"], ["Usual Age & Gender", "30\u201350 years (Mean 35); M = F", "20\u201330 years; Slight Male predilection", "10\u201330 years; Male predilection (3:2)"], ["Predominant Site", "Mandible (80\u201385%), molar-ramus area", "Mandible (70\u201380%), angle and ramus", "Mandibular 3rd molar (70%), Maxillary canine"], ["Pattern of Expansion", "BUCCO-LINGUAL cortical expansion early", "ANTERO-POSTERIOR medullary expansion; minimal cortical expansion early", "Uniform slow expansion surrounding tooth crown"], ["Radiographic Hallmark", "Multilocular 'Soap-bubble' or 'Honeycomb' with knife-edge root resorption", "Multilocular or unilocular with smooth scalloped corticated margins; minimal resorption", "Unilocular pericoronal radiolucency attached at cementoenamel junction (CEJ)"], ["Lining / Epithelium", "Peripheral tall columnar cells (Vickers-Gorlin) + central stellate reticulum", "Uniform 6\u20138 cell layers of parakeratinized stratified squamous epithelium; wavy corrugation", "Thin 2\u20134 cell layers of non-keratinized cuboidal/columnar epithelium"], ["Basal Cell Layer", "Palisaded with reversed nuclear polarity & subnuclear vacuolization", "Palisaded hyperchromatic 'Picket-fence' or 'Tombstone' arrangement", "Flat, indistinct basal layer without palisading"], ["Lumen Contents", "Solid tumor / straw-colored cystic fluid", "Cheesy, foul-smelling keratin squames (low protein <4 g/dL)", "Clear, amber, transudative fluid with high protein"], ["Syndrome Association", "Rare", "Gorlin-Goltz Syndrome (Nevoid Basal Cell Carcinoma)", "Cleidocranial Dysplasia (multiple)"], ["Recurrence Rate", "60\u201390% with curettage; <5% with radical resection", "30\u201360% with enucleation; <10% with Carnoy's / ostectomy", "Extremely rare (<1%) with enucleation"], ["Definitive Surgery", "Segmental/marginal mandibulectomy (1-1.5 cm safe bone margin)", "Enucleation + Peripheral Ostectomy + Carnoy's solution / Cryotherapy", "Enucleation with extraction of the impacted unerupted tooth"]]}, {"id": "matrix_pemphigus_pemphigoid", "title": "Vesiculobullous Master Matrix: Pemphigus Vulgaris vs. Mucous Membrane Pemphigoid", "headers": ["Clinical / Pathological Marker", "Pemphigus Vulgaris", "Mucous Membrane Pemphigoid (Cicatricial)"], "rows": [["Target Autoantigen", "Desmoglein 3 (oral) & Desmoglein 1 (skin)", "BP180 (Type XVII Collagen), BP230, Laminin 332 (Laminin 5)"], ["Ultrastructural Target", "Desmosomes (intercellular spinous adherence)", "Hemidesmosomes & Basement Membrane Zone (BMZ)"], ["Histological Level of Split", "INTRAPITHELIAL (Suprabasal Cleavage)", "SUBEPITHELIAL (Lamina Lucida / BMZ Cleavage)"], ["Bulla Morphology", "Thin-roofed, flaccid, fragile; bursts immediately leaving ragged raw ulcers", "Thick-roofed, tense; persists intact for days before rupturing"], ["Tzanck Smear Cytology", "POSITIVE: Abundant rounded, nucleated acantholytic Tzanck cells", "NEGATIVE: No acantholytic cells (only normal intact cells + PMNs)"], ["Tombstone Appearance", "Present: Single row of intact basal cells attached to basement membrane", "Absent: Entire basal layer lifts up with the epithelial roof"], ["Direct Immunofluorescence (DIF)", "Intercellular 'FISHNET' or 'CHICKEN-WIRE' IgG & C3 pattern in spinous layer", "Continuous smooth LINEAR BAND of IgG & C3 along the Basement Membrane"], ["Oral Mucosal Involvement", "First site of presentation in 70% ('First to show, last to go')", "Classic Desquamative Gingivitis (erythematous attached gingiva)"], ["Ocular Involvement", "Rare (<5%), non-scarring conjunctivitis", "HIGH RISK (Symblepharon, entropion, trichiasis, corneal opacity, blindness)"], ["Nikolsky Sign", "Strongly Positive", "Positive on perilesional gingiva"], ["Primary Medical Therapy", "High-dose Systemic Corticosteroids (Prednisone 1-2 mg/kg) + Rituximab/Azathioprine", "Topical potent steroids (Clobetasol gel); Dapsone / Systemic steroids if ocular"]]}, {"id": "matrix_fibrous_paget", "title": "Fibro-Osseous & Metabolic Matrix: Fibrous Dysplasia vs. Paget's Disease of Bone", "headers": ["Parameter", "Fibrous Dysplasia (Monostotic/Polyostotic)", "Paget's Disease of Bone (Osteitis Deformans)"], "rows": [["Etiology & Genetics", "Postzygotic activating somatic mutation in GNAS gene (chromosome 20q13)", "Genetic (SQSTM1 mutation) + Slow viral infection (Paramyxovirus/Measles)"], ["Typical Age of Onset", "Children & young adults (1st\u20132nd decade; halts after puberty)", "Elderly adults (>60 years; progressive lifelong disease)"], ["Jaw Predilection", "Maxilla affected twice as often as Mandible", "Maxilla affected much more commonly than Mandible"], ["Facial Presentation", "Unilateral painless facial asymmetry; orbital displacement", "Bilateral symmetrical enlargement (Leontiasis ossea; 'Dentures too tight')"], ["Skull / Cranial Signs", "Bulging cortex; sphenoid/ethmoid sclerosis", "Massive cranium enlargement ('Hat size increases'); cranial nerve compressions"], ["Radiographic Texture", "'Ground-Glass', 'Orange-Peel' (Peau d'orange), blending imperceptibly", "Triphasic: Osteolytic -> Mixed -> 'Cotton-Wool' radiopaque clumps"], ["Dental Radiograph", "Loss of lamina dura; displacement of tooth roots", "Generalized HYPERCEMENTOSIS and loss of lamina dura"], ["Histological Pattern", "'Chinese Characters' curvilinear woven bone WITHOUT osteoblastic rimming", "'Jigsaw Puzzle' / 'Mosaic' lamellar bone with deeply basophilic reversal lines"], ["Serum Alkaline Phosphatase", "Normal (or slightly elevated during rapid growth)", "MARKATELY ELEVATED (10 to 20 times normal limit)"], ["Malignant Risk", "Rare (<1%, often following obsolete radiation)", "Significant (~1% progress to highly aggressive Osteosarcoma)"]]}];
         const SPOTTERS = [{"id": "spotter_vickers_gorlin", "title": "Vickers-Gorlin Sign", "condition": "Ameloblastoma (Follicular Variant)", "features": ["Peripheral tall columnar cells resembling pre-ameloblasts.", "Basal palisading with hyperchromatic nuclei.", "Reversed nuclear polarity (nuclei oriented away from basement membrane).", "Subnuclear cytoplasmic vacuolization.", "Central core of loose stellate cells resembling stellate reticulum."], "viva_tip": "Vickers-Gorlin criteria are essential to distinguish true ameloblastoma islands from non-neoplastic odontogenic rests or cystic linings."}, {"id": "spotter_liesegang_rings", "title": "Liesegang Rings & Apple-Green Birefringence", "condition": "Calcifying Epithelial Odontogenic Tumor (CEOT / Pindborg Tumor)", "features": ["Sheets and polyhedral islands of eosinophilic epithelial cells with prominent intercellular bridges.", "Globular extracellular eosinophilic amyloid-like proteinaceous material.", "Congo Red positive exhibiting pathognomonic Apple-Green Birefringence under polarized light.", "Concentric calcified calcospherites known as Liesegang Rings."], "viva_tip": "Pindborg tumor is famous for nuclear pleomorphism without clinical malignancy! The amyloid-like protein is derived from ameloblast-associated odontogenic protein (ODAM)."}, {"id": "spotter_okc_picket_fence", "title": "Corrugated Parakeratin & Picket-Fence Basal Layer", "condition": "Odontogenic Keratocyst (OKC / KCOT)", "features": ["Uniform 6 to 8 cell layers thickness of stratified squamous epithelium.", "Prominent, wavy, corrugated parakeratinized luminal surface.", "Palisaded basal layer with polarized, hyperchromatic cylindrical nuclei ('Picket-fence' or 'Tombstone' pattern).", "Flat epithelial-connective tissue interface lacking rete pegs.", "Detachment of epithelial lining from underlying fibrous capsule."], "viva_tip": "The thin friable lining and micro-satellite/daughter cysts in the capsule explain the notorious 30-60% recurrence rate if enucleated without chemical cauterization (Carnoy's solution)."}, {"id": "spotter_pleomorphic_adenoma", "title": "Chondromyxoid Stroma & Plasmacytoid Myoepithelial Cells", "condition": "Pleomorphic Adenoma (Benign Mixed Tumor)", "features": ["Ductal epithelial structures containing eosinophilic PAS-positive coagulum.", "Proliferation of myoepithelial cells with plasmacytoid (eccentric nucleus) and spindle morphologies.", "Extensive loose basophilic chondromyxoid matrix with myoepithelial cells residing within false chondroid lacunae.", "Incomplete pseudocapsule with microscopic bosselated pseudopods."], "viva_tip": "Enucleation is strictly contraindicated due to capsular pseudopods; superficial parotidectomy with facial nerve preservation is mandatory!"}, {"id": "spotter_adenoid_cystic", "title": "Cribriform 'Swiss-Cheese' Pattern & Perineural Infiltration", "condition": "Adenoid Cystic Carcinoma (AdCC / Cylindroma)", "features": ["Basaloid tumor cells arranged in large nests punched out by rounded cylindrical spaces ('Swiss-Cheese' or Cribriform pattern).", "Cylindrical pseudocysts contain reduplicated basement membrane material and basophilic glycosaminoglycans.", "Remarkable Neurotropism: Infiltration into epineurium and perineural spaces of peripheral nerves.", "High late distant metastasis to lungs (cannonball metastases)."], "viva_tip": "Patients present with unprovoked pain and numbness before a palpable lump appears due to early perineural invasion."}, {"id": "spotter_chinese_letter", "title": "Chinese Letter Pattern without Osteoblastic Rimming", "condition": "Fibrous Dysplasia (FD)", "features": ["Cellular fibrous connective tissue stroma composed of benign spindle fibroblasts.", "Irregular, curvilinear, C-shaped or fishhook-shaped trabeculae of immature woven bone.", "Resembles Chinese ideograms / Chinese alphabet characters.", "Complete ABSENCE of osteoblastic rimming along the margins of woven bone trabeculae.", "Radiograph shows ground-glass or orange-peel opacity blending imperceptibly into normal bone."], "viva_tip": "Driven by activating somatic mutations in GNAS (chromosome 20q13). McCune-Albright syndrome includes polyostotic FD + caf\u00e9-au-lait spots + precocious puberty."}, {"id": "spotter_mosaic_paget", "title": "Mosaic (Jigsaw Puzzle) Pattern with Reversal Lines", "condition": "Paget's Disease of Bone (Osteitis Deformans)", "features": ["Thick, chaotic trabeculae of lamellar bone.", "Prominent, scalloped, deeply basophilic Reversal Lines demarcating previous bone resorption bays.", "Gives bone a classic Jigsaw-Puzzle or Mosaic tile appearance.", "Highly vascular osteogenic fibrous marrow spaces.", "Teeth demonstrate striking generalized Hypercementosis on radiographs."], "viva_tip": "Serum Alkaline Phosphatase is massively elevated (10-20x normal), but serum calcium and phosphate are normal! Carries a 1% risk of transformation to osteosarcoma."}, {"id": "spotter_saw_tooth_lichen", "title": "Saw-Tooth Rete Pegs & Civatte Bodies", "condition": "Oral Lichen Planus (OLP)", "features": ["Hyperparakeratosis or hyperorthokeratosis with granular layer thickening.", "Hydropic degeneration and liquefaction necrosis of the basal cell layer.", "Pointed, triangular 'Saw-Tooth' rete ridges.", "Civatte (colloid/cytoid) bodies: Shrunken apoptotic basal keratinocytes extruded into superficial dermis.", "Dense, band-like horizontal T-lymphocytic infiltrate strictly hugging the basement membrane."], "viva_tip": "Direct Immunofluorescence (DIF) shows shaggy deposition of Fibrinogen along the basement membrane zone. Wickham's striae present bilaterally on posterior buccal mucosa."}, {"id": "spotter_tzanck_acantholysis", "title": "Suprabasal Cleft & Acantholytic Tzanck Cells", "condition": "Pemphigus Vulgaris", "features": ["Intraepithelial suprabasal split due to loss of desmosomal adhesion (acantholysis).", "Single intact row of basal cells attached to basement membrane ('Row of Tombstones').", "Rounded, detached acantholytic Tzanck cells with hyperchromatic nuclei floating in vesicle fluid.", "DIF reveals intercellular 'Fishnet' or 'Chicken-wire' pattern of IgG and C3 throughout spinous layer."], "viva_tip": "Autoantibodies target Desmoglein 3 (oral) and Desmoglein 1 (skin). Nikolsky sign is positive. Oral lesions precede skin blisters in 70% of cases!"}, {"id": "spotter_sulfur_granule", "title": "Sulfur Granule & Splendore-Hoeppli Phenomenon", "condition": "Cervicofacial Actinomycosis ('Lumpy Jaw')", "features": ["Macroscopic 1 to 2 mm yellowish-tan colony of entangled bacterial filaments.", "Central Gram-positive branching filamentous organisms (Actinomyces israelii).", "Radiating, club-shaped eosinophilic peripheral fringe representing host immunoglobulins (Splendore-Hoeppli phenomenon).", "Surrounded by a dense sea of neutrophils forming acute microabscesses.", "Multiple cutaneous draining sinuses over the angle of the mandible."], "viva_tip": "Actinomyces is a Gram-positive anaerobic BACTERIUM, not a fungus! Treatment requires prolonged high-dose Penicillin (6 to 12 months)."}, {"id": "spotter_verocay_bodies", "title": "Antoni A Areas & Verocay Bodies", "condition": "Schwannoma (Neurilemoma)", "features": ["Encapsulated benign neural sheath neoplasm arising from Schwann cells.", "Antoni A Areas: Densely cellular regions of spindle cells with palisading nuclei.", "Verocay Bodies: Eosinophilic, acellular zones consisting of cytoplasmic processes bordered on both sides by parallel palisading nuclei.", "Antoni B Areas: Hypocellular, loose, myxoid disorganized tissue with microcysts."], "viva_tip": "The tongue is the most common intraoral site. In contrast to Neurofibroma, Schwannoma is encapsulated and can be shelled out without sacrificing the nerve trunk."}];
 
-        let currentChapterIdx = 0;
+        let currentChapterIdx = -1;
+        let currentDashFilter = 'all';
         let activeTab = 'master';
         let currentCategory = 'All';
         let completedTopics = JSON.parse(localStorage.getItem('oral_pathology_completed_topics') || '{}');
@@ -1647,65 +2056,172 @@
 
         function selectChapter(idx) {
             currentChapterIdx = idx;
+            const dashBtn = document.getElementById('sidebarDashBtn');
+            if (dashBtn) dashBtn.classList.remove('nav-btn-primary');
             renderSidebar();
             renderChapterView();
             toggleMobileSidebar(false);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function showDashboard() {
             currentChapterIdx = -1;
+            const dashBtn = document.getElementById('sidebarDashBtn');
+            if (dashBtn) dashBtn.classList.add('nav-btn-primary');
             renderSidebar();
+            renderDashboard();
+            toggleMobileSidebar(false);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function setDashFilter(filter) {
+            currentDashFilter = filter;
             renderDashboard();
         }
 
         function renderDashboard() {
+            currentChapterIdx = -1;
             const main = document.getElementById('mainContent');
             const total = CHAPTERS.length;
             const completed = Object.keys(completedTopics).length;
             const remaining = total - completed;
             const pct = Math.round((completed / total) * 100);
 
-            main.innerHTML = `
-                <div class="dash-hero">
-                    <div>
-                        <span class="dash-badge">BDS 3RD YEAR &amp; MDS PATHOLOGY MONOGRAPH</span>
-                        <h2 class="dash-title">Oral Pathology Master Exam Hub</h2>
-                        <p class="dash-subtitle">15-Mark Essay Blueprints • Histopathological Criteria • Microscopic Spotter Flashcards</p>
-                    </div>
-                    <button class="nav-btn nav-btn-primary" onclick="selectChapter(0)">Explore Lesions →</button>
-                </div>
+            let notesCount = 0;
+            CHAPTERS.forEach(ch => {
+                if ((localStorage.getItem('oral_pathology_notes_' + ch.id) || '').trim().length > 0) notesCount++;
+            });
 
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-val">${total}</div>
-                        <div class="stat-lbl">Total Topics</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-val" style="color: #a855f7;">${completed}</div>
-                        <div class="stat-lbl">Completed</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-val" style="color: #f59e0b;">${remaining}</div>
-                        <div class="stat-lbl">Remaining</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-val" style="color: #38bdf8;">${pct}%</div>
-                        <div class="stat-lbl">Syllabus Ready</div>
-                    </div>
-                </div>
+            const dashBtn = document.getElementById('sidebarDashBtn');
+            if (dashBtn) dashBtn.classList.add('nav-btn-primary');
+            document.querySelectorAll('.topic-item').forEach(el => el.classList.remove('active'));
 
-                <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 14px;">Curriculum Pathological Entities</h3>
-                <div class="types-grid">
-                    ${CHAPTERS.map((ch, idx) => `
-                        <div class="type-card" onclick="selectChapter(${idx})" style="cursor: pointer;">
-                            <span class="type-card-badge">${ch.category}</span>
-                            <div class="type-card-title">${idx + 1}. ${ch.title}</div>
-                            <div class="type-card-stat">${ch.badge} • ${ch.reading_time}</div>
-                            <div class="type-card-summary">${ch.clinical_pearl}</div>
+            let html = `
+                <div class="dash-hero-card">
+                    <div style="flex: 1;">
+                        <span class="dash-hero-badge">BDS 3RD YEAR &amp; MDS ORAL PATHOLOGY PORTAL</span>
+                        <h1 class="dash-hero-title">Oral Pathology Master Exam Hub</h1>
+                        <p class="dash-hero-sub">15-Mark University Essay Blueprints • Histopathological Criteria • Microscopic Spotter Flashcards</p>
+                        <div class="dash-hero-meta">
+                            <span class="dash-hero-stat"><strong>${total}</strong> University Topics</span>
+                            <span class="dash-hero-stat"><strong style="color: #4ade80;">${completed}</strong> Completed</span>
+                            <span class="dash-hero-stat"><strong style="color: #a78bfa;">${pct}%</strong> Syllabus Ready</span>
                         </div>
-                    `).join('')}
+                    </div>
+                    <div class="dash-hero-image-box">
+                        <svg viewBox="0 0 260 140" width="260" height="140" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="260" height="140" fill="#1e1b4b" rx="8"/>
+                            <path d="M70 115H190" stroke="#818cf8" stroke-width="3" stroke-linecap="round"/>
+                            <path d="M130 115V85" stroke="#818cf8" stroke-width="3"/>
+                            <path d="M130 85A30 30 0 0 0 160 55V35H140" stroke="#818cf8" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                            <rect x="135" y="25" width="22" height="14" rx="2" fill="#a78bfa"/>
+                            <line x1="146" y1="39" x2="146" y2="60" stroke="#c084fc" stroke-width="3"/>
+                            <rect x="100" y="68" width="60" height="4" rx="1" fill="#f43f5e"/>
+                            <circle cx="146" cy="70" r="3" fill="#38bdf8"/>
+                            <circle cx="210" cy="50" r="16" fill="rgba(192, 132, 252, 0.15)" stroke="#c084fc" stroke-width="1.5"/>
+                            <circle cx="210" cy="50" r="6" fill="#818cf8"/>
+                            <circle cx="225" cy="85" r="12" fill="rgba(244, 63, 94, 0.15)" stroke="#f43f5e" stroke-width="1.5"/>
+                            <circle cx="225" cy="85" r="4" fill="#f43f5e"/>
+                            <text x="130" y="130" fill="#c7d2fe" font-size="10.5" font-family="'Plus Jakarta Sans',sans-serif" font-weight="700" text-anchor="middle">HISTOPATHOLOGY &amp; SPOTTERS</text>
+                        </svg>
+                    </div>
                 </div>
+
+                <div class="dash-cheat-sheet-card">
+                    <div style="display: flex; align-items: center; gap: 16px; flex: 1;">
+                        <div class="cheat-sheet-badge-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.72rem; font-weight: 700; color: #e9d5ff; text-transform: uppercase; letter-spacing: 0.08em;">Exam Night Rapid Revision</div>
+                            <div style="font-size: 1.15rem; font-weight: 800; color: #ffffff;">Chapter 21: Master Oral Pathology Rapid Revision Cheat Sheet</div>
+                            <div style="font-size: 0.84rem; color: #e0e7fe; margin-top: 2px;">
+                                Histopathological pathognomonic criteria, Broders grading, OKC vs Ameloblastoma matrices &amp; syndromic associations.
+                            </div>
+                        </div>
+                    </div>
+                    <button class="nav-btn nav-btn-primary" onclick="selectChapter(0)" style="background: #ffffff; color: #4f46e5 !important; font-weight: 700; padding: 10px 20px; font-size: 0.88rem; box-shadow: 0 4px 14px rgba(0,0,0,0.25);">
+                        Open Cheat Sheet →
+                    </button>
+                </div>
+
+                <div class="stats-grid-dashboard">
+                    <div class="stat-card-box">
+                        <div class="stat-card-label">Total University Topics</div>
+                        <div class="stat-card-val">${total}</div>
+                    </div>
+                    <div class="stat-card-box">
+                        <div class="stat-card-label">Topics Completed</div>
+                        <div class="stat-card-val" style="color: #10b981;">${completed}</div>
+                    </div>
+                    <div class="stat-card-box">
+                        <div class="stat-card-label">Topics Remaining</div>
+                        <div class="stat-card-val" style="color: #f59e0b;">${remaining}</div>
+                    </div>
+                    <div class="stat-card-box">
+                        <div class="stat-card-label">Topics with Notes</div>
+                        <div class="stat-card-val" style="color: var(--accent-primary);">${notesCount}</div>
+                    </div>
+                </div>
+
+                <div class="progress-banner-dash">
+                    <div style="display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 0.92rem;">
+                        <span>University Syllabus Completion</span>
+                        <span style="color: var(--accent-primary);">${pct}%</span>
+                    </div>
+                    <div class="progress-bar-bg-dash">
+                        <div class="progress-bar-fill-dash" style="width: ${pct}%;"></div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+                    <h2 style="font-size: 1.1rem; font-weight: 800; color: var(--text-primary);">Study Plan Topics</h2>
+                    <div class="category-scroll">
+                        <button class="filter-chip ${currentDashFilter === 'all' ? 'active' : ''}" onclick="setDashFilter('all')">All Topics (${total})</button>
+                        <button class="filter-chip ${currentDashFilter === 'pending' ? 'active' : ''}" onclick="setDashFilter('pending')">Pending (${remaining})</button>
+                        <button class="filter-chip ${currentDashFilter === 'completed' ? 'active' : ''}" onclick="setDashFilter('completed')">Completed (${completed})</button>
+                        <button class="filter-chip ${currentDashFilter === 'notes' ? 'active' : ''}" onclick="setDashFilter('notes')">Has Notes (${notesCount})</button>
+                        <button class="filter-chip" onclick="selectChapter(0)" style="background: linear-gradient(135deg, #7c3aed, #4f46e5); color: #ffffff; border: none;">⚡ Cheat Sheet</button>
+                    </div>
+                </div>
+
+                <div class="dashboard-topic-cards-grid">
             `;
+
+            CHAPTERS.forEach((ch, idx) => {
+                const isDone = !!completedTopics[ch.id];
+                const hasNote = ((localStorage.getItem('oral_pathology_notes_' + ch.id) || '').trim().length > 0);
+
+                if (currentDashFilter === 'completed' && !isDone) return;
+                if (currentDashFilter === 'pending' && isDone) return;
+                if (currentDashFilter === 'notes' && !hasNote) return;
+
+                html += `
+                    <div class="dash-topic-card ${isDone ? 'completed' : ''}">
+                        <div>
+                            <div class="dash-card-header-row">
+                                <span class="dash-card-chapter-tag">Chapter ${idx + 1}</span>
+                                ${hasNote ? '<span style="font-size: 0.72rem; background: rgba(99, 102, 241, 0.12); color: #818cf8; padding: 2px 7px; border-radius: 4px; font-weight: 600;">Note Saved</span>' : ''}
+                            </div>
+                            <div class="dash-card-title-text">${ch.title}</div>
+                            <div class="dash-card-source-text">${ch.category} • ${ch.reading_time}</div>
+                        </div>
+                        <div class="dash-card-footer-row">
+                            <button class="toggle-complete-btn ${isDone ? 'is-completed' : ''}" onclick="toggleTopicComplete('${ch.id}')">
+                                ${isDone ? '✓ Completed' : '○ Mark Done'}
+                            </button>
+                            <button class="nav-btn nav-btn-primary" onclick="selectChapter(${idx})" style="padding: 6px 14px; font-size: 0.8rem;">
+                                Study →
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            html += `</div>`;
+            main.innerHTML = html;
         }
 
         function renderChapterView() {
@@ -1718,6 +2234,15 @@
             const main = document.getElementById('mainContent');
 
             main.innerHTML = `
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+                    <button class="nav-btn" onclick="showDashboard()">
+                        ← Back to Dashboard
+                    </button>
+                    <div style="font-size: 0.82rem; color: var(--text-muted); font-weight: 600;">
+                        Chapter ${currentChapterIdx + 1} of ${CHAPTERS.length}
+                    </div>
+                </div>
+
                 <div class="chapter-header">
                     <span class="chapter-top-badge">${ch.category} • ${ch.badge}</span>
                     <h2 class="chapter-title-display">${ch.title}</h2>
@@ -1937,16 +2462,195 @@
 
         function parseMarkdown(md) {
             if (!md) return '';
-            let html = md
-                .replace(/^### (.*$)/gim, '<h4>$1</h4>')
-                .replace(/^## (.*$)/gim, '<h3 style="font-size:1.15rem; font-weight:700; margin:18px 0 8px 0; color:var(--text-primary);">$1</h3>')
-                .replace(/^# (.*$)/gim, '<h2 style="font-size:1.3rem; font-weight:800; margin:20px 0 10px 0; color:var(--text-primary);">$1</h2>')
-                .replace(/\*\*(.*?)\*\*/gim, '<strong style="color:var(--text-primary);">$1</strong>')
-                .replace(/\*(.*?)\*/gim, '<em>$1</em>')
-                .replace(/```([\s\S]*?)```/gim, '<pre>$1</pre>')
-                .replace(/^\* (.*$)/gim, '<li>$1</li>')
-                .replace(/\n/gim, '<br>');
-            return html;
+
+            // Clean LaTeX and medical notations
+            let text = md
+                .replace(/\\times(?![a-zA-Z])/g, '×')
+                .replace(/\\pm(?![a-zA-Z])/g, '±')
+                .replace(/\\ge(?![a-zA-Z])/g, '≥')
+                .replace(/\\le(?![a-zA-Z])/g, '≤')
+                .replace(/\\to(?![a-zA-Z])/g, '→')
+                .replace(/\\rightarrow(?![a-zA-Z])/g, '→')
+                .replace(/\\leftarrow(?![a-zA-Z])/g, '←')
+                .replace(/\\uparrow(?![a-zA-Z])/g, '↑')
+                .replace(/\\downarrow(?![a-zA-Z])/g, '↓')
+                .replace(/\\Delta(?![a-zA-Z])/g, 'Δ')
+                .replace(/\\circ(?![a-zA-Z])/g, '°')
+                .replace(/\\mu(?![a-zA-Z])/g, 'µ')
+                .replace(/\\alpha(?![a-zA-Z])/g, 'α')
+                .replace(/\\beta(?![a-zA-Z])/g, 'β')
+                .replace(/\\gamma(?![a-zA-Z])/g, 'γ')
+                .replace(/\\text\{([^\}]+)\}/g, ' $1')
+                .replace(/\bHbA1[cC]\b/g, 'HbA<sub>1c</sub>')
+                .replace(/\bFiO_?2\b/g, 'FiO<sub>2</sub>')
+                .replace(/\bPaO_?2\b/g, 'PaO<sub>2</sub>')
+                .replace(/\bPaCO_?2\b/g, 'PaCO<sub>2</sub>')
+                .replace(/\bSpO_?2\b/g, 'SpO<sub>2</sub>')
+                .replace(/\bCO_?2\b/g, 'CO<sub>2</sub>')
+                .replace(/\bO_?2\b/g, 'O<sub>2</sub>')
+                .replace(/\bH_?2O\b/g, 'H<sub>2</sub>O')
+                .replace(/\bNa\^\+/g, 'Na⁺')
+                .replace(/\bK\^\+/g, 'K⁺')
+                .replace(/\bCa\^2\+/g, 'Ca²⁺');
+
+            // Format formula blocks ($$...$$)
+            text = text.replace(/\$\$([\s\S]*?)\$\$/g, (m, formula) => {
+                return `<div class="formula-card"><div class="formula-header"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/></svg> CLINICAL FORMULA</div><div class="formula-equation">${formula.trim()}</div></div>`;
+            });
+
+            // Preserve code blocks
+            const codeBlocks = [];
+            text = text.replace(/```([\s\S]*?)```/g, (m, code) => {
+                const id = `__CODE_BLOCK_${codeBlocks.length}__`;
+                codeBlocks.push(`<pre class="algorithm-block"><code>${code.trim()}</code></pre>`);
+                return id;
+            });
+
+            const lines = text.split('\n');
+            const result = [];
+            let inTable = false;
+            let tableLines = [];
+            let inUl = false;
+            let inOl = false;
+
+            function closeLists() {
+                if (inUl) { result.push('</ul>'); inUl = false; }
+                if (inOl) { result.push('</ol>'); inOl = false; }
+            }
+
+            function formatInline(str) {
+                return str
+                    .replace(/\*\*(.*?)\*\*/g, '<strong style="color:var(--text-primary); font-weight:700;">$1</strong>')
+                    .replace(/(?<!\*)\*([^*]+?)\*(?!\*)/g, '<em>$1</em>')
+                    .replace(/`([^`]+)`/g, '<code class="inline-code">$1</code>')
+                    .replace(/\$([^$]+)\$/g, '<span class="inline-math">$1</span>');
+            }
+
+            function flushTable() {
+                if (tableLines.length < 2) {
+                    tableLines = [];
+                    return;
+                }
+                const headers = tableLines[0].split('|').slice(1, -1).map(h => h.trim());
+                let startRow = 1;
+                if (tableLines.length > 1 && tableLines[1].includes('---')) {
+                    startRow = 2;
+                }
+
+                let html = '<div class="table-responsive"><table class="data-table"><thead><tr>';
+                headers.forEach(h => {
+                    html += `<th>${formatInline(h)}</th>`;
+                });
+                html += '</tr></thead><tbody>';
+
+                for (let i = startRow; i < tableLines.length; i++) {
+                    const line = tableLines[i].trim();
+                    if (!line || !line.includes('|')) continue;
+                    const cols = line.split('|').slice(1, -1).map(c => c.trim());
+                    html += '<tr>';
+                    cols.forEach(c => {
+                        html += `<td>${formatInline(c)}</td>`;
+                    });
+                    html += '</tr>';
+                }
+                html += '</tbody></table></div>';
+                result.push(html);
+                tableLines = [];
+            }
+
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i];
+                const trimmed = line.trim();
+
+                if (trimmed.startsWith('|') && trimmed.endsWith('|')) {
+                    closeLists();
+                    inTable = true;
+                    tableLines.push(trimmed);
+                    continue;
+                } else if (inTable) {
+                    inTable = false;
+                    flushTable();
+                }
+
+                if (!trimmed) {
+                    closeLists();
+                    continue;
+                }
+
+                if (trimmed.startsWith('#### ')) {
+                    closeLists();
+                    result.push(`<h5 class="essay-subheading" style="font-size:1.02rem; font-weight:700; margin:14px 0 6px 0; color:var(--text-primary);">${formatInline(trimmed.substring(5))}</h5>`);
+                    continue;
+                }
+                if (trimmed.startsWith('### ')) {
+                    closeLists();
+                    result.push(`<h4 class="essay-section-title" style="font-size:1.1rem; font-weight:700; margin:18px 0 8px 0; color:var(--accent-primary);">${formatInline(trimmed.substring(4))}</h4>`);
+                    continue;
+                }
+                if (trimmed.startsWith('## ')) {
+                    closeLists();
+                    result.push(`<h3 class="essay-major-title" style="font-size:1.22rem; font-weight:800; margin:22px 0 10px 0; color:var(--text-primary);">${formatInline(trimmed.substring(3))}</h3>`);
+                    continue;
+                }
+
+                if (trimmed.startsWith('> [!TIP]')) {
+                    closeLists();
+                    const tipText = formatInline(trimmed.replace('> [!TIP]', '').replace('**Histopathological Pearl:**', '').replace('**Clinical Pearl:**', '').trim());
+                    result.push(`<div class="callout-alert alert-tip"><div class="alert-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div><strong>Pathology Pearl:</strong> ${tipText}</div></div>`);
+                    continue;
+                }
+                if (trimmed.startsWith('> [!NOTE]')) {
+                    closeLists();
+                    const noteText = formatInline(trimmed.replace('> [!NOTE]', '').trim());
+                    result.push(`<div class="callout-alert alert-note"><div class="alert-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div><div>${noteText}</div></div>`);
+                    continue;
+                }
+                if (trimmed.startsWith('> [!IMPORTANT]')) {
+                    closeLists();
+                    const impText = formatInline(trimmed.replace('> [!IMPORTANT]', '').trim());
+                    result.push(`<div class="callout-alert alert-important"><div class="alert-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><div>${impText}</div></div>`);
+                    continue;
+                }
+                if (trimmed.startsWith('> ')) {
+                    closeLists();
+                    result.push(`<blockquote class="clinical-quote" style="border-left: 3px solid var(--accent-primary); padding-left: 14px; margin: 12px 0; color: var(--text-secondary); font-style: italic;">${formatInline(trimmed.substring(2))}</blockquote>`);
+                    continue;
+                }
+
+                const olMatch = trimmed.match(/^(\d+)\.\s+(.*)$/);
+                if (olMatch) {
+                    if (inUl) { result.push('</ul>'); inUl = false; }
+                    if (!inOl) {
+                        result.push(`<ol class="content-list-ordered" start="${olMatch[1]}">`);
+                        inOl = true;
+                    }
+                    result.push(`<li>${formatInline(olMatch[2])}</li>`);
+                    continue;
+                }
+
+                if (trimmed.startsWith('- ') || trimmed.startsWith('* ')) {
+                    if (inOl) { result.push('</ol>'); inOl = false; }
+                    if (!inUl) {
+                        result.push('<ul class="content-list">');
+                        inUl = true;
+                    }
+                    result.push(`<li>${formatInline(trimmed.substring(2))}</li>`);
+                    continue;
+                }
+
+                closeLists();
+                result.push(`<p class="content-para">${formatInline(trimmed)}</p>`);
+            }
+
+            if (inTable) flushTable();
+            closeLists();
+
+            let finalHtml = result.join('\n');
+            codeBlocks.forEach((code, idx) => {
+                finalHtml = finalHtml.replace(`__CODE_BLOCK_${idx}__`, code);
+            });
+
+            return finalHtml;
         }
 
         function toggleTopicComplete(chId) {
