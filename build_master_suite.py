@@ -2009,7 +2009,7 @@ def generate_interactive_dashboard(chapters):
 </head>
 <body class="dark">
     <!-- Top Header -->
-    <header class="navbar">
+    <header class="navbar" data-testid="topbar">
         <div style="display: flex; align-items: center; gap: 14px;">
             <a href="https://krrish41.github.io/bds-vault/" class="back-to-vault-link" data-testid="back-to-vault" title="Back to BDS Clinical Vault Hub">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
@@ -2026,7 +2026,7 @@ def generate_interactive_dashboard(chapters):
             </div>
         </div>
         <div class="nav-actions">
-            <button class="nav-btn" data-testid="voice-walk" onclick="togglePlayPauseAudio()" title="Continuous Audio Walk (1x-2x)">
+            <button class="nav-btn" data-testid="audio-walkthrough" data-action="voice-walk" onclick="togglePlayPauseAudio()" title="Continuous Audio Walk (1x-2x)">
                 {ICONS["headphones"]}
                 <span>Audio Walk</span>
             </button>
@@ -2036,6 +2036,9 @@ def generate_interactive_dashboard(chapters):
                     <span id="focusTimerDisplay">25:00</span>
                 </button>
             </div>
+            <button class="nav-btn" data-testid="palette" onclick="openCmdkFromDashboard()" title="Command Palette (Ctrl+K)">
+                <kbd style="font-family: monospace; font-size: 0.72rem; padding: 2px 6px; background: rgba(255,255,255,0.08); border-radius: 4px;">⌘K</kbd>
+            </button>
             <button class="nav-btn" data-testid="open-pdf" onclick="openPdfModal()" title="View Master PDF">
                 {ICONS["pdf"]}
                 <span>Master PDF</span>
@@ -2195,7 +2198,7 @@ def generate_interactive_dashboard(chapters):
         let currentDashFilter = 'all';
         let activeTab = 'master';
         let currentCategory = 'All';
-        let completedTopics = JSON.parse(localStorage.getItem('oral_pathology_completed_topics') || '{{}}');
+        let completedTopics = JSON.parse(localStorage.getItem('bds.pathology.progress') || localStorage.getItem('oral_pathology_completed_topics') || '{{}}');
         let currentFlashcardIdx = 0;
         let isFlashcardFlipped = false;
 
@@ -2513,8 +2516,48 @@ def generate_interactive_dashboard(chapters):
             }});
         }}
 
-        function selectChapter(idx) {{
+        function getSlugForChapter(idx) {{
+            if (idx < 0 || idx >= CHAPTERS.length) return '';
+            const ch = CHAPTERS[idx];
+            const cleanTitle = (ch.title || '').replace(/^(chapter\s*\d+[:.]*|\d+[\.:\s]+)/i, '').trim();
+            return cleanTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+        }}
+
+        function handleHashRoute() {{
+            const hash = window.location.hash || '';
+            if (!hash || hash === '#' || hash === '#/') {{
+                if (currentChapterIdx !== -1) showDashboard(false);
+                return;
+            }}
+            if (hash.startsWith('#/topic/')) {{
+                const targetSlug = hash.replace('#/topic/', '').toLowerCase();
+                const foundIdx = CHAPTERS.findIndex((ch, i) => {{
+                    const s = getSlugForChapter(i);
+                    return s === targetSlug || (ch.id && ch.id.toLowerCase() === targetSlug) || ('chap' + (i + 1) === targetSlug) || (String(i + 1) === targetSlug);
+                }});
+                if (foundIdx !== -1) {{
+                    if (currentChapterIdx !== foundIdx) {{
+                        selectChapter(foundIdx, false);
+                    }}
+                }} else {{
+                    console.warn('Unknown topic slug:', targetSlug);
+                    showDashboard(false);
+                }}
+            }} else if (hash === '#/simulator') {{
+                launchExamSimFromDashboard();
+            }} else if (hash === '#/spotters') {{
+                openDiagramSpotterFromDashboard();
+            }}
+        }}
+
+        function selectChapter(idx, updateHash = true) {{
             currentChapterIdx = idx;
+            if (updateHash) {{
+                const slug = getSlugForChapter(idx);
+                if (slug && window.location.hash !== `#/topic/${{slug}}`) {{
+                    history.pushState(null, '', `#/topic/${{slug}}`);
+                }}
+            }}
             const dashBtn = document.getElementById('sidebarDashBtn');
             if (dashBtn) dashBtn.classList.remove('nav-btn-primary');
             renderSidebar();
@@ -2523,8 +2566,11 @@ def generate_interactive_dashboard(chapters):
             window.scrollTo({{ top: 0, behavior: 'smooth' }});
         }}
 
-        function showDashboard() {{
+        function showDashboard(updateHash = true) {{
             currentChapterIdx = -1;
+            if (updateHash && window.location.hash && window.location.hash !== '#/' && window.location.hash !== '#') {{
+                history.pushState(null, '', '#/');
+            }}
             const dashBtn = document.getElementById('sidebarDashBtn');
             if (dashBtn) dashBtn.classList.add('nav-btn-primary');
             renderSidebar();
@@ -3125,6 +3171,7 @@ def generate_interactive_dashboard(chapters):
         function toggleTopicComplete(chId) {{
             if (completedTopics[chId]) delete completedTopics[chId];
             else completedTopics[chId] = true;
+            localStorage.setItem('bds.pathology.progress', JSON.stringify(completedTopics));
             localStorage.setItem('oral_pathology_completed_topics', JSON.stringify(completedTopics));
             renderSidebar();
             if (currentChapterIdx === -1) {{
@@ -3345,7 +3392,12 @@ def generate_interactive_dashboard(chapters):
         }}
         initVoiceList();
         renderSidebar();
-        renderChapterView();
+        window.addEventListener('hashchange', handleHashRoute);
+        if (window.location.hash && window.location.hash.startsWith('#/topic/')) {{
+            handleHashRoute();
+        }} else {{
+            renderDashboard();
+        }}
     </script>
 </body>
 </html>
@@ -3379,6 +3431,29 @@ def main():
     with open(app_html_path, "w", encoding="utf-8") as f:
         f.write(app_html_content)
     print(f"Interactive App HTML generated: {len(app_html_content)} characters.")
+
+    # 4. Emit topics.json registry
+    topics_registry = []
+    import re
+    for idx, ch in enumerate(ALL_CHAPTERS):
+        title = ch["title"]
+        clean_title = re.sub(r'^(Chapter\s*\d+[:.]*|\d+[\.:\s]+)', '', title, flags=re.IGNORECASE).strip()
+        slug = re.sub(r'[^a-zA-Z0-9]+', '-', clean_title).strip('-').lower()
+        is_cheat_sheet = "cheat sheet" in title.lower() or "rapid revision" in title.lower()
+        topics_registry.append({
+            "id": slug,
+            "title": title,
+            "portal": "pathology",
+            "portalName": "Oral Pathology Pro",
+            "paper": "Paper III · Pathology",
+            "chapter": idx + 1,
+            "type": "cheat-sheet" if is_cheat_sheet else "essay",
+            "url": f"https://krrish41.github.io/Oral-Pathology/#/topic/{slug}",
+            "order": idx + 1
+        })
+    with open(os.path.join(base_dir, "topics.json"), "w", encoding="utf-8") as f:
+        json.dump(topics_registry, f, indent=2)
+    print(f"Emitted topics.json ({len(topics_registry)} topics).")
 
     # 4. Compile PDF via Headless Edge
     pdf_path = os.path.join(base_dir, "Oral_Pathology_Master_Notes.pdf")

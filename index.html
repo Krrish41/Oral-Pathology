@@ -1669,7 +1669,7 @@
 </head>
 <body class="dark">
     <!-- Top Header -->
-    <header class="navbar">
+    <header class="navbar" data-testid="topbar">
         <div style="display: flex; align-items: center; gap: 14px;">
             <a href="https://krrish41.github.io/bds-vault/" class="back-to-vault-link" data-testid="back-to-vault" title="Back to BDS Clinical Vault Hub">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
@@ -1686,7 +1686,7 @@
             </div>
         </div>
         <div class="nav-actions">
-            <button class="nav-btn" data-testid="voice-walk" onclick="togglePlayPauseAudio()" title="Continuous Audio Walk (1x-2x)">
+            <button class="nav-btn" data-testid="audio-walkthrough" data-action="voice-walk" onclick="togglePlayPauseAudio()" title="Continuous Audio Walk (1x-2x)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
                 <span>Audio Walk</span>
             </button>
@@ -1696,6 +1696,9 @@
                     <span id="focusTimerDisplay">25:00</span>
                 </button>
             </div>
+            <button class="nav-btn" data-testid="palette" onclick="openCmdkFromDashboard()" title="Command Palette (Ctrl+K)">
+                <kbd style="font-family: monospace; font-size: 0.72rem; padding: 2px 6px; background: rgba(255,255,255,0.08); border-radius: 4px;">⌘K</kbd>
+            </button>
             <button class="nav-btn" data-testid="open-pdf" onclick="openPdfModal()" title="View Master PDF">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M10 13v-2a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1z"/><path d="M10 18h4"/></svg>
                 <span>Master PDF</span>
@@ -1855,7 +1858,7 @@
         let currentDashFilter = 'all';
         let activeTab = 'master';
         let currentCategory = 'All';
-        let completedTopics = JSON.parse(localStorage.getItem('oral_pathology_completed_topics') || '{}');
+        let completedTopics = JSON.parse(localStorage.getItem('bds.pathology.progress') || localStorage.getItem('oral_pathology_completed_topics') || '{}');
         let currentFlashcardIdx = 0;
         let isFlashcardFlipped = false;
 
@@ -2173,8 +2176,48 @@
             });
         }
 
-        function selectChapter(idx) {
+        function getSlugForChapter(idx) {
+            if (idx < 0 || idx >= CHAPTERS.length) return '';
+            const ch = CHAPTERS[idx];
+            const cleanTitle = (ch.title || '').replace(/^(chapter\s*\d+[:.]*|\d+[\.:\s]+)/i, '').trim();
+            return cleanTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+        }
+
+        function handleHashRoute() {
+            const hash = window.location.hash || '';
+            if (!hash || hash === '#' || hash === '#/') {
+                if (currentChapterIdx !== -1) showDashboard(false);
+                return;
+            }
+            if (hash.startsWith('#/topic/')) {
+                const targetSlug = hash.replace('#/topic/', '').toLowerCase();
+                const foundIdx = CHAPTERS.findIndex((ch, i) => {
+                    const s = getSlugForChapter(i);
+                    return s === targetSlug || (ch.id && ch.id.toLowerCase() === targetSlug) || ('chap' + (i + 1) === targetSlug) || (String(i + 1) === targetSlug);
+                });
+                if (foundIdx !== -1) {
+                    if (currentChapterIdx !== foundIdx) {
+                        selectChapter(foundIdx, false);
+                    }
+                } else {
+                    console.warn('Unknown topic slug:', targetSlug);
+                    showDashboard(false);
+                }
+            } else if (hash === '#/simulator') {
+                launchExamSimFromDashboard();
+            } else if (hash === '#/spotters') {
+                openDiagramSpotterFromDashboard();
+            }
+        }
+
+        function selectChapter(idx, updateHash = true) {
             currentChapterIdx = idx;
+            if (updateHash) {
+                const slug = getSlugForChapter(idx);
+                if (slug && window.location.hash !== `#/topic/${slug}`) {
+                    history.pushState(null, '', `#/topic/${slug}`);
+                }
+            }
             const dashBtn = document.getElementById('sidebarDashBtn');
             if (dashBtn) dashBtn.classList.remove('nav-btn-primary');
             renderSidebar();
@@ -2183,8 +2226,11 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function showDashboard() {
+        function showDashboard(updateHash = true) {
             currentChapterIdx = -1;
+            if (updateHash && window.location.hash && window.location.hash !== '#/' && window.location.hash !== '#') {
+                history.pushState(null, '', '#/');
+            }
             const dashBtn = document.getElementById('sidebarDashBtn');
             if (dashBtn) dashBtn.classList.add('nav-btn-primary');
             renderSidebar();
@@ -2785,6 +2831,7 @@
         function toggleTopicComplete(chId) {
             if (completedTopics[chId]) delete completedTopics[chId];
             else completedTopics[chId] = true;
+            localStorage.setItem('bds.pathology.progress', JSON.stringify(completedTopics));
             localStorage.setItem('oral_pathology_completed_topics', JSON.stringify(completedTopics));
             renderSidebar();
             if (currentChapterIdx === -1) {
@@ -3005,7 +3052,12 @@
         }
         initVoiceList();
         renderSidebar();
-        renderChapterView();
+        window.addEventListener('hashchange', handleHashRoute);
+        if (window.location.hash && window.location.hash.startsWith('#/topic/')) {
+            handleHashRoute();
+        } else {
+            renderDashboard();
+        }
     </script>
 </body>
 </html>
