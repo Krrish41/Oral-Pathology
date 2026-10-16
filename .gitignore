@@ -37,3 +37,10 @@ test_screen_*.png
 *.png
 test_*.mjs
 scratch/
+
+# UI Consistency audit and tests
+_ui_audit/
+tests_ui_consistency/
+CHANGELOG_CONSISTENCY.md
+
+DESIGN.md
