@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#c056d3"/>
-      <stop offset="100%" stop-color="#86198f"/>
+      <stop offset="0%" stop-color="#d946ef"/>
+      <stop offset="100%" stop-color="#a21caf"/>
     </linearGradient>
   </defs>
   <rect width="512" height="512" rx="112" fill="url(#bg)" stroke="rgba(255,255,255,0.22)" stroke-width="16"/>
-  <!-- Microscope Vector -->
+  <!-- Microscope Vector Matching User Spec -->
   <g transform="translate(64, 64) scale(16)" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
     <path d="M6 18h8"/>
     <path d="M3 22h18"/>

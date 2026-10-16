@@ -249,7 +249,7 @@ li {{
 </head>
 <body>
 <div class="cover-page">
-    <div style="width: 50px; height: 50px; background: #c056d3; border-radius: 12px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 24pt; font-weight: 800;">OP</div>
+    <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #d946ef, #a21caf); border-radius: 12px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 24pt; font-weight: 800;">OP</div>
     <div class="cover-title">Oral Pathology &amp; Microbiology</div>
     <div class="cover-subtitle">15-Mark University Examination Master Monograph</div>
     <div class="cover-meta">
@@ -371,16 +371,16 @@ def generate_interactive_dashboard(chapters):
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
     <style>
         :root {{
-            /* Per-portal Accent: Oral Pathology Calibrated Plum */
-            --accent-primary: #c056d3;
-            --accent-primary-dark: #a83ec0;
-            --accent-light: rgba(192, 86, 211, 0.12);
-            --accent-glow: rgba(192, 86, 211, 0.14);
-            --border-accent: rgba(192, 86, 211, 0.28);
+            /* Per-portal Accent: Oral Pathology Pinkish-Purple (Matching Vault) */
+            --accent-primary: #d946ef;
+            --accent-primary-dark: #c026d3;
+            --accent-light: rgba(217, 70, 239, 0.14);
+            --accent-glow: rgba(217, 70, 239, 0.22);
+            --border-accent: rgba(217, 70, 239, 0.32);
             --accent-text: #f5d0fe;
-            --accent-contrast: #2e0854;
-            --primary: #c056d3;
-            --primary-dark: #a83ec0;
+            --accent-contrast: #4a044e;
+            --primary: #d946ef;
+            --primary-dark: #c026d3;
 
             /* Shared Neutral Tokens (Obsidian Dark Default) */
             --bg-base: #090a12;
@@ -389,7 +389,7 @@ def generate_interactive_dashboard(chapters):
             --bg-card-hover: #171b30;
             --border-color: rgba(255, 255, 255, 0.09);
             --border-strong: rgba(255, 255, 255, 0.18);
-            --border-active: #c056d3;
+            --border-active: #d946ef;
             --text-primary: #f8fafc;
             --text-secondary: #cbd5e1;
             --text-muted: #94a3b8;
@@ -407,7 +407,7 @@ def generate_interactive_dashboard(chapters):
             --bg-card-hover: #f1f5f9;
             --border-color: #e2e8f0;
             --border-strong: #cbd5e1;
-            --border-active: #c056d3;
+            --border-active: #d946ef;
             --text-primary: #0f172a;
             --text-secondary: #334155;
             --text-muted: #64748b;
@@ -424,14 +424,14 @@ def generate_interactive_dashboard(chapters):
             --bg-card-hover: #171b30;
             --border-color: rgba(255, 255, 255, 0.09);
             --border-strong: rgba(255, 255, 255, 0.18);
-            --border-active: #c056d3;
+            --border-active: #d946ef;
             --text-primary: #f8fafc;
             --text-secondary: #cbd5e1;
             --text-muted: #94a3b8;
-            --accent-primary: #c056d3;
-            --accent-primary-dark: #a83ec0;
-            --accent-light: rgba(192, 86, 211, 0.12);
-            --accent-glow: rgba(192, 86, 211, 0.14);
+            --accent-primary: #d946ef;
+            --accent-primary-dark: #c026d3;
+            --accent-light: rgba(217, 70, 239, 0.14);
+            --accent-glow: rgba(217, 70, 239, 0.22);
             --header-bg: rgba(9, 10, 18, 0.94);
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
             --shadow-md: 0 4px 14px rgba(0,0,0,0.5);
@@ -1653,9 +1653,9 @@ def generate_interactive_dashboard(chapters):
         }}
 
         .callout-alert.alert-note {{
-            background: rgba(99, 102, 241, 0.08);
-            border: 1px solid rgba(99, 102, 241, 0.25);
-            border-left: 4px solid #c056d3;
+            background: rgba(217, 70, 239, 0.08);
+            border: 1px solid rgba(217, 70, 239, 0.25);
+            border-left: 4px solid #d946ef;
             color: var(--text-primary);
         }}
 
@@ -1706,7 +1706,7 @@ def generate_interactive_dashboard(chapters):
 
         /* Dashboard Specific Styles matching General Surgery */
         .dash-hero-card {{
-            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 60%, #4338ca 100%);
+            background: linear-gradient(135deg, #2e0854 0%, #4a044e 50%, #701a75 100%);
             border-radius: 14px;
             padding: 26px 30px;
             margin-bottom: 22px;
@@ -1715,8 +1715,8 @@ def generate_interactive_dashboard(chapters):
             justify-content: space-between;
             gap: 24px;
             color: #ffffff;
-            box-shadow: 0 6px 24px rgba(30, 27, 75, 0.35);
-            border: 1px solid rgba(167, 139, 250, 0.35);
+            box-shadow: 0 6px 24px rgba(74, 4, 78, 0.35);
+            border: 1px solid rgba(217, 70, 239, 0.35);
         }}
 
         .dash-hero-badge {{
@@ -1726,7 +1726,7 @@ def generate_interactive_dashboard(chapters):
             letter-spacing: 1.2px;
             text-transform: uppercase;
             background: rgba(255, 255, 255, 0.15);
-            color: #e0e7ff;
+            color: #f5d0fe;
             padding: 4px 12px;
             border-radius: 9999px;
             margin-bottom: 12px;
@@ -1743,7 +1743,7 @@ def generate_interactive_dashboard(chapters):
 
         .dash-hero-sub {{
             font-size: 0.95rem;
-            color: #c7d2fe;
+            color: #f5d0fe;
             margin: 0 0 16px 0;
             line-height: 1.5;
         }}
@@ -1854,7 +1854,7 @@ def generate_interactive_dashboard(chapters):
 
         .progress-bar-fill-dash {{
             height: 100%;
-            background: linear-gradient(90deg, #c056d3 0%, #86198f 50%, #10b981 100%);
+            background: linear-gradient(90deg, #d946ef 0%, #c026d3 50%, #10b981 100%);
             border-radius: 999px;
             width: 0%;
             transition: width 0.4s ease;
@@ -2564,24 +2564,24 @@ def generate_interactive_dashboard(chapters):
                         <div class="dash-hero-meta">
                             <span class="dash-hero-stat"><strong>${{total}}</strong> University Topics</span>
                             <span class="dash-hero-stat"><strong style="color: #4ade80;">${{completed}}</strong> Completed</span>
-                            <span class="dash-hero-stat"><strong style="color: #a78bfa;">${{pct}}%</strong> Syllabus Ready</span>
+                            <span class="dash-hero-stat"><strong style="color: #f5d0fe;">${{pct}}%</strong> Syllabus Ready</span>
                         </div>
                     </div>
                     <div class="dash-hero-image-box">
                         <svg viewBox="0 0 260 140" width="260" height="140" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="260" height="140" fill="#1e1b4b" rx="8"/>
-                            <path d="M70 115H190" stroke="#c056d3" stroke-width="3" stroke-linecap="round"/>
-                            <path d="M130 115V85" stroke="#c056d3" stroke-width="3"/>
-                            <path d="M130 85A30 30 0 0 0 160 55V35H140" stroke="#c056d3" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-                            <rect x="135" y="25" width="22" height="14" rx="2" fill="#a78bfa"/>
-                            <line x1="146" y1="39" x2="146" y2="60" stroke="#c084fc" stroke-width="3"/>
+                            <rect width="260" height="140" fill="#2e0854" rx="8"/>
+                            <path d="M70 115H190" stroke="#d946ef" stroke-width="3" stroke-linecap="round"/>
+                            <path d="M130 115V85" stroke="#d946ef" stroke-width="3"/>
+                            <path d="M130 85A30 30 0 0 0 160 55V35H140" stroke="#d946ef" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                            <rect x="135" y="25" width="22" height="14" rx="2" fill="#f5d0fe"/>
+                            <line x1="146" y1="39" x2="146" y2="60" stroke="#e879f9" stroke-width="3"/>
                             <rect x="100" y="68" width="60" height="4" rx="1" fill="#f43f5e"/>
-                            <circle cx="146" cy="70" r="3" fill="#38bdf8"/>
-                            <circle cx="210" cy="50" r="16" fill="rgba(192, 132, 252, 0.15)" stroke="#c084fc" stroke-width="1.5"/>
-                            <circle cx="210" cy="50" r="6" fill="#c056d3"/>
+                            <circle cx="146" cy="70" r="3" fill="#f5d0fe"/>
+                            <circle cx="210" cy="50" r="16" fill="rgba(217, 70, 239, 0.18)" stroke="#d946ef" stroke-width="1.5"/>
+                            <circle cx="210" cy="50" r="6" fill="#d946ef"/>
                             <circle cx="225" cy="85" r="12" fill="rgba(244, 63, 94, 0.15)" stroke="#f43f5e" stroke-width="1.5"/>
                             <circle cx="225" cy="85" r="4" fill="#f43f5e"/>
-                            <text x="130" y="130" fill="#c7d2fe" font-size="10.5" font-family="'Plus Jakarta Sans',sans-serif" font-weight="700" text-anchor="middle">HISTOPATHOLOGY &amp; SPOTTERS</text>
+                            <text x="130" y="130" fill="#f5d0fe" font-size="10.5" font-family="'Plus Jakarta Sans',sans-serif" font-weight="700" text-anchor="middle">HISTOPATHOLOGY &amp; SPOTTERS</text>
                         </svg>
                     </div>
                 </div>
@@ -2594,14 +2594,14 @@ def generate_interactive_dashboard(chapters):
                             </svg>
                         </div>
                         <div>
-                            <div style="font-size: 0.72rem; font-weight: 700; color: #e9d5ff; text-transform: uppercase; letter-spacing: 0.08em;">Exam Night Rapid Revision</div>
+                            <div style="font-size: 0.72rem; font-weight: 700; color: #f5d0fe; text-transform: uppercase; letter-spacing: 0.08em;">Exam Night Rapid Revision</div>
                             <div style="font-size: 1.15rem; font-weight: 800; color: #ffffff;">Chapter 21: Master Oral Pathology Rapid Revision Cheat Sheet</div>
-                            <div style="font-size: 0.84rem; color: #e0e7fe; margin-top: 2px;">
+                            <div style="font-size: 0.84rem; color: #f5d0fe; margin-top: 2px;">
                                 Histopathological pathognomonic criteria, Broders grading, OKC vs Ameloblastoma matrices &amp; syndromic associations.
                             </div>
                         </div>
                     </div>
-                    <button class="nav-btn nav-btn-primary" onclick="selectChapter(0)" style="background: #ffffff; color: #4f46e5 !important; font-weight: 700; padding: 10px 20px; font-size: 0.88rem; box-shadow: 0 4px 14px rgba(0,0,0,0.25);">
+                    <button class="nav-btn nav-btn-primary" onclick="selectChapter(0)" style="background: #ffffff; color: #a21caf !important; font-weight: 700; padding: 10px 20px; font-size: 0.88rem; box-shadow: 0 4px 14px rgba(0,0,0,0.25);">
                         Open Cheat Sheet →
                     </button>
                 </div>
@@ -2644,7 +2644,7 @@ def generate_interactive_dashboard(chapters):
                         <button class="filter-chip ${{currentDashFilter === 'notes' ? 'active' : ''}}" onclick="setDashFilter('notes')">Has Notes (${{notesCount}})</button>
                         <button class="filter-chip" data-testid="exam-simulator" onclick="launchExamSimFromDashboard()">⏱️ Exam Simulator</button>
                         <button class="filter-chip" data-testid="spotters" onclick="openDiagramSpotterFromDashboard()">🎯 Spotters</button>
-                        <button class="filter-chip" onclick="selectChapter(0)" style="background: linear-gradient(135deg, #c056d3, #86198f); color: #ffffff; border: none;">⚡ Cheat Sheet</button>
+                        <button class="filter-chip" onclick="selectChapter(0)" style="background: linear-gradient(135deg, #d946ef, #a21caf); color: #ffffff; border: none;">⚡ Cheat Sheet</button>
                     </div>
                 </div>
 
