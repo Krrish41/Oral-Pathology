@@ -165,6 +165,13 @@ pre {
     overflow-x: auto;
     white-space: pre-wrap;
     line-height: 1.4;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+.clinical-flowchart-card, .formula-card, .pearl-box, .layman-box, table, tr, pre, code {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
 }
 
 ul, ol {
@@ -272,17 +279,7 @@ li {
 <li value="4"><strong>Hyperchromatic, Elongated Nuclei</strong>.</li>
 <li value="5"><strong>Central Core of Stellate Reticulum-like Cells</strong>: Loosely arranged, star-shaped cells with cytoplasmic processes anastomosing across intercellular fluid spaces.</li>
 </ol>
-<p class="content-para">```</p>
-<p class="content-para">┌────────────────────────────────────────────────────────┐</p>
-<p class="content-para">│ PERIPHERAL TALL COLUMNAR AMELOBLAST-LIKE CELLS │</p>
-<p class="content-para">│ • Palisaded nuclei (Reversed polarity away from BM) │</p>
-<p class="content-para">│ • Subnuclear clear vacuoles │</p>
-<p class="content-para">├────────────────────────────────────────────────────────┤</p>
-<p class="content-para">│ CENTRAL STELLATE RETICULUM │</p>
-<p class="content-para">│ • Star-shaped cells with loose intercellular bridges │</p>
-<p class="content-para">│ • Prone to microcystic degeneration & cyst formation │</p>
-<p class="content-para">└────────────────────────────────────────────────────────┘</p>
-<p class="content-para">```</p>
+<div class="table-responsive"><table class="data-table"><thead><tr><th>Architectural Zone</th><th>Diagnostic Histological Features (The Vickers-Gorlin Sign)</th></tr></thead><tbody><tr><td><strong>Peripheral Layer: Tall Columnar Cells</strong></td><td>• Palisaded basal nuclei arranged in a picket-fence pattern<br>• <strong>Reversed nuclear polarity</strong> (nuclei polarized away from basement membrane toward cell center)<br>• Subnuclear clear cytoplasmic vacuolization<br>• Hyperchromatic, elongated columnar nuclei</td></tr><tr><td><strong>Central Core: Stellate Reticulum-like Network</strong></td><td>• Star-shaped anastomosing cells with loose intercellular cytoplasmic bridges<br>• Fluid-filled intercellular spaces closely mimicking the dental enamel organ<br>• High propensity for liquefactive microcystic degeneration<br>• May exhibit squamous metaplasia (Acanthomatous) or granular change</td></tr></tbody></table></div>
 <h4 class="sub-heading">Major Histological Variants</h4>
 <ol class="content-list-ordered" start="1">
 <li value="1"><strong>Follicular Ameloblastoma (Most Common)</strong>: Discrete islands and follicles of odontogenic epithelium embedded in a mature cellular fibrous stroma. Central stellate cells frequently undergo liquefactive necrosis, forming intra-follicular microcysts.</li>
@@ -397,25 +394,23 @@ li {
 </ul>
 <h3 class="section-title">2. Molecular Pathogenesis & Genetics: PTCH1 & Hedgehog</h3>
 <p class="content-para">The hallmark molecular driver of both sporadic and syndromic OKCs is the mutational inactivation of the <strong>PTCH1 (Patched-1) gene</strong> located on chromosome <strong>9q22.3-q31</strong>:</p>
-<p class="content-para">```</p>
-<p class="content-para">Normal State:</p>
-<p class="content-para">Unbound PTCH1 transmembrane receptor inhibits SMO (Smoothened) ──► Pathway OFF</p>
-<p class="content-para">│</p>
-<p class="content-para">▼</p>
-<p class="content-para">Loss-of-Function Inactivation / Mutation of PTCH1 (Two-Hit Hypothesis)</p>
-<p class="content-para">│</p>
-<p class="content-para">▼</p>
-<p class="content-para">Loss of inhibition on SMO (Smoothened oncoprotein)</p>
-<p class="content-para">│</p>
-<p class="content-para">▼</p>
-<p class="content-para">SMO activates GLI Transcription Factors (GLI1, GLI2)</p>
-<p class="content-para">│</p>
-<p class="content-para">▼</p>
-<p class="content-para">Nuclear translocation of GLI ──► Overexpression of Cyclin D1, Bcl-2 & VEGF</p>
-<p class="content-para">│</p>
-<p class="content-para">▼</p>
-<p class="content-para">UNRESTRICTED BASAL EPITHELIAL PROLIFERATION & SATELLITE CYST FORMATION</p>
-<p class="content-para">```</p>
+<div class="clinical-flowchart-card" style="margin: 16px 0; border: 1.5px solid #c4b5fd; border-left: 5px solid #7c3aed; border-radius: 10px; background: #fdf4ff; padding: 14px 18px; break-inside: avoid; page-break-inside: avoid;"><div class="flowchart-header" style="font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #6d28d9; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M2 12h20"/></svg>CLINICAL ALGORITHM / SCHEMATIC FLOWCHART</div><pre class="flowchart-pre" style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 8pt; line-height: 1.45; overflow-x: auto; color: #1e1b4b; white-space: pre; background: transparent; border: none; padding: 0;"><code>Normal State:
+Unbound PTCH1 transmembrane receptor inhibits SMO (Smoothened) ──► Pathway OFF
+ │
+ ▼
+Loss-of-Function Inactivation / Mutation of PTCH1 (Two-Hit Hypothesis)
+ │
+ ▼
+Loss of inhibition on SMO (Smoothened oncoprotein)
+ │
+ ▼
+SMO activates GLI Transcription Factors (GLI1, GLI2)
+ │
+ ▼
+Nuclear translocation of GLI ──► Overexpression of Cyclin D1, Bcl-2 &amp; VEGF
+ │
+ ▼
+UNRESTRICTED BASAL EPITHELIAL PROLIFERATION &amp; SATELLITE CYST FORMATION</code></pre></div>
 <ul class="content-list">
 <li><strong>Syndromic OKCs (Gorlin-Goltz Syndrome)</strong>: Germline mutation in <em>PTCH1</em> followed by a somatic 'second-hit' deletion of the remaining wild-type allele.</li>
 <li><strong>Sporadic OKCs</strong>: Bilateral somatic mutations occurring within a single odontogenic progenitor cell.</li>
@@ -433,27 +428,26 @@ li {
 </ul>
 <h3 class="section-title">4. Detailed Histopathology (The 6 Diagnostic Criteria)</h3>
 <p class="content-para">The histopathological diagnosis of an OKC requires identifying the classical, pathognomonic epithelial architecture:</p>
-<p class="content-para">```</p>
-<p class="content-para">PARAKERATIN SURFACE</p>
-<p class="content-para">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ (Wavy / Corrugated appearance)</p>
-<p class="content-para">┌───────────────────────────────┐</p>
-<p class="content-para">│ UNIFORM EPITHELIAL THICKNESS │</p>
-<p class="content-para">│ (6 to 8 cell layers thick) │</p>
-<p class="content-para">│ No intercellular edema │</p>
-<p class="content-para">├───────────────────────────────┤</p>
-<p class="content-para">│ PALISADED BASAL CELL LAYER │</p>
-<p class="content-para">│ • Columnar / Cuboidal cells │</p>
-<p class="content-para">│ • Hyperchromatic nuclei │</p>
-<p class="content-para">│ • 'Picket-fence' / Tombstones │</p>
-<p class="content-para">└───────────────────────────────┘</p>
-<p class="content-para">═════════════════════════════════ FLAT BASEMENT MEMBRANE (No rete pegs)</p>
-<p class="content-para">┌───────────────────────────────┐</p>
-<p class="content-para">│ THIN, FRIABLE FIBROUS WALL │</p>
-<p class="content-para">│ • Scant inflammatory cells │</p>
-<p class="content-para">│ • SATELLITE / DAUGHTER CYSTS │</p>
-<p class="content-para">│ • Dental lamina rests │</p>
-<p class="content-para">└───────────────────────────────┘</p>
-<p class="content-para">```</p>
+<div class="clinical-flowchart-card" style="margin: 16px 0; border: 1.5px solid #c4b5fd; border-left: 5px solid #7c3aed; border-radius: 10px; background: #fdf4ff; padding: 14px 18px; break-inside: avoid; page-break-inside: avoid;"><div class="flowchart-header" style="font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #6d28d9; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M2 12h20"/></svg>CLINICAL ALGORITHM / SCHEMATIC FLOWCHART</div><pre class="flowchart-pre" style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 8pt; line-height: 1.45; overflow-x: auto; color: #1e1b4b; white-space: pre; background: transparent; border: none; padding: 0;"><code>PARAKERATIN SURFACE
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ (Wavy / Corrugated appearance)
+ ┌───────────────────────────────┐
+ │ UNIFORM EPITHELIAL THICKNESS │
+ │ (6 to 8 cell layers thick) │
+ │ No intercellular edema │
+ ├───────────────────────────────┤
+ │ PALISADED BASAL CELL LAYER │
+ │ • Columnar / Cuboidal cells │
+ │ • Hyperchromatic nuclei │
+ │ • 'Picket-fence' / Tombstones │
+ └───────────────────────────────┘
+ ═════════════════════════════════ FLAT BASEMENT MEMBRANE (No rete pegs)
+ 
+ ┌───────────────────────────────┐
+ │ THIN, FRIABLE FIBROUS WALL │
+ │ • Scant inflammatory cells │
+ │ • SATELLITE / DAUGHTER CYSTS │
+ │ • Dental lamina rests │
+ └───────────────────────────────┘</code></pre></div>
 <ol class="content-list-ordered" start="1">
 <li value="1"><strong>Uniform Epithelial Lining</strong>: Stratified squamous epithelium of remarkably uniform thickness, consistently <strong>6 to 8 cell layers thick</strong>, throughout the entire cyst.</li>
 <li value="2"><strong>Corrugated Parakeratin Surface</strong>: Prominently wavy, rippled, or <strong>corrugated parakeratinized</strong> luminal surface.</li>
@@ -666,19 +660,17 @@ li {
 <p class="content-para">Salivary neoplasms arise from the secretory acini, intercalated ducts, striated ducts, or excretory ducts of major and minor salivary glands.</p>
 <h4 class="sub-heading">The Rule of Proportions in Salivary Glands</h4>
 <div class="table-responsive"><table class="data-table"><thead><tr><th>Salivary Gland</th><th>Proportion of All Tumors</th><th>Benign vs. Malignant Ratio</th><th>Most Common Benign Neoplasm</th><th>Most Common Malignant Neoplasm</th></tr></thead><tbody><tr><td><strong>Parotid Gland</strong></td><td>~70–80%</td><td><strong>80% Benign : 20% Malignant</strong></td><td>Pleomorphic Adenoma (70%)</td><td>Mucoepidermoid Carcinoma</td></tr><tr><td><strong>Submandibular Gland</strong></td><td>~10–15%</td><td><strong>50% Benign : 50% Malignant</strong></td><td>Pleomorphic Adenoma (50%)</td><td>Adenoid Cystic Carcinoma</td></tr><tr><td><strong>Sublingual Gland</strong></td><td>~1–2%</td><td><strong>20% Benign : 80% Malignant</strong></td><td>Rare</td><td>Adenoid Cystic Carcinoma</td></tr><tr><td><strong>Minor Salivary Glands (Palate, Lips, Buccal)</strong></td><td>~10–15%</td><td><strong>50% Benign : 50% Malignant</strong></td><td>Pleomorphic Adenoma</td><td>Mucoepidermoid Carcinoma / AdCC</td></tr></tbody></table></div>
-<p class="content-para">```</p>
-<p class="content-para">SALIVARY GLAND BIOPSY PROTOCOL</p>
-<p class="content-para">│</p>
-<p class="content-para">┌────────────────────┴────────────────────┐</p>
-<p class="content-para">▼ ▼</p>
-<p class="content-para">MAJOR SALIVARY GLAND MINOR SALIVARY GLAND</p>
-<p class="content-para">(Parotid / Submandibular) (Palate / Buccal Mucosa)</p>
-<p class="content-para">│ │</p>
-<p class="content-para">• FNAC / Core Needle Biopsy • Incisional / Punch Biopsy</p>
-<p class="content-para">• CONTRAINDICATED: Open Incisional • Include normal margin</p>
-<p class="content-para">(Avoids facial nerve injury & • Do not tear deep capsule</p>
-<p class="content-para">widespread tumor seedling)</p>
-<p class="content-para">```</p>
+<div class="clinical-flowchart-card" style="margin: 16px 0; border: 1.5px solid #c4b5fd; border-left: 5px solid #7c3aed; border-radius: 10px; background: #fdf4ff; padding: 14px 18px; break-inside: avoid; page-break-inside: avoid;"><div class="flowchart-header" style="font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #6d28d9; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M2 12h20"/></svg>CLINICAL ALGORITHM / SCHEMATIC FLOWCHART</div><pre class="flowchart-pre" style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 8pt; line-height: 1.45; overflow-x: auto; color: #1e1b4b; white-space: pre; background: transparent; border: none; padding: 0;"><code>SALIVARY GLAND BIOPSY PROTOCOL
+ │
+ ┌────────────────────┴────────────────────┐
+ ▼ ▼
+ MAJOR SALIVARY GLAND MINOR SALIVARY GLAND
+ (Parotid / Submandibular) (Palate / Buccal Mucosa)
+ │ │
+ • FNAC / Core Needle Biopsy • Incisional / Punch Biopsy
+ • CONTRAINDICATED: Open Incisional • Include normal margin
+ (Avoids facial nerve injury &amp; • Do not tear deep capsule
+ widespread tumor seedling)</code></pre></div>
 <h3 class="section-title">2. Pleomorphic Adenoma (Benign Mixed Tumor)</h3>
 <p class="content-para"><strong>Definition</strong>: A benign, encapsulated epithelial salivary gland neoplasm characterized by cytological and architectural pleomorphism—exhibiting an intimate mixture of ductal epithelial cells, myoepithelial cells, and mesenchymal-like myxoid, chondroid, or hyaline matrix.</p>
 <h4 class="sub-heading">Clinical Features</h4>
@@ -688,21 +680,19 @@ li {
 <li><strong>Intraoral Site</strong>: Posterolateral <strong>Hard and Soft Palate</strong> junction (firm, non-ulcerated, covered by intact normal pink mucosa; non-mobile due to mucoperiosteal tethering).</li>
 </ul>
 <h4 class="sub-heading">Histopathological Characteristics</h4>
-<p class="content-para">```</p>
-<p class="content-para">MICROSCOPIC ARCHITECTURE OF PLEOMORPHIC ADENOMA</p>
-<p class="content-para">┌────────────────────────────────────────────────────────────────────────┐</p>
-<p class="content-para">│ [False/Incomplete Capsule with Pseudopods penetrating into parenchyma] │</p>
-<p class="content-para">│ │</p>
-<p class="content-para">│ (Ductal Lumens) (Myoepithelial Cells) (Chondromyxoid) │</p>
-<p class="content-para">│ ┌────────────┐ • Plasmacytoid cells • Abundant loose │</p>
-<p class="content-para">│ │ Cuboidal │ • Spindle cells • Basophilic ground │</p>
-<p class="content-para">│ │ Ductal │ • Clear cells substance │</p>
-<p class="content-para">│ │ Cells │ • Clustered in sheets • Lacunae containing│</p>
-<p class="content-para">│ └────────────┘ or cords chondrocyte-like │</p>
-<p class="content-para">│ (Contain eosinophilic cells │</p>
-<p class="content-para">│ PAS+ coagulum) │</p>
-<p class="content-para">└────────────────────────────────────────────────────────────────────────┘</p>
-<p class="content-para">```</p>
+<div class="clinical-flowchart-card" style="margin: 16px 0; border: 1.5px solid #c4b5fd; border-left: 5px solid #7c3aed; border-radius: 10px; background: #fdf4ff; padding: 14px 18px; break-inside: avoid; page-break-inside: avoid;"><div class="flowchart-header" style="font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #6d28d9; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M2 12h20"/></svg>CLINICAL ALGORITHM / SCHEMATIC FLOWCHART</div><pre class="flowchart-pre" style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 8pt; line-height: 1.45; overflow-x: auto; color: #1e1b4b; white-space: pre; background: transparent; border: none; padding: 0;"><code>MICROSCOPIC ARCHITECTURE OF PLEOMORPHIC ADENOMA
+ ┌────────────────────────────────────────────────────────────────────────┐
+ │ [False/Incomplete Capsule with Pseudopods penetrating into parenchyma] │
+ │ │
+ │ (Ductal Lumens) (Myoepithelial Cells) (Chondromyxoid) │
+ │ ┌────────────┐ • Plasmacytoid cells • Abundant loose │
+ │ │ Cuboidal │ • Spindle cells • Basophilic ground │
+ │ │ Ductal │ • Clear cells substance │
+ │ │ Cells │ • Clustered in sheets • Lacunae containing│
+ │ └────────────┘ or cords chondrocyte-like │
+ │ (Contain eosinophilic cells │
+ │ PAS+ coagulum) │
+ └────────────────────────────────────────────────────────────────────────┘</code></pre></div>
 <ol class="content-list-ordered" start="1">
 <li value="1"><strong>Epithelial Element</strong>:</li>
 <ul class="content-list nested-list" style="margin-top: 4px; margin-bottom: 8px; padding-left: 20px;">
@@ -769,23 +759,21 @@ li {
 <li><strong>Early Hallmark</strong>: <strong>Pain and Paresthesia</strong>! Because of its intense propensity for perineural invasion, patients frequently present with neural pain, facial tingling, or cranial nerve palsy (facial nerve paresis) before a visible lump is noticed.</li>
 </ul>
 <h4 class="sub-heading">Histopathological Growth Patterns</h4>
-<p class="content-para">```</p>
-<p class="content-para">ADENOID CYSTIC CARCINOMA PATTERNS</p>
-<p class="content-para">┌────────────────────────────────────────────────────────────────────────┐</p>
-<p class="content-para">│ 1. CRIBRIFORM PATTERN ("Swiss-Cheese" / Cylindromatous) │</p>
-<p class="content-para">│ • Large nests of basaloid cells punched out by numerous rounded │</p>
-<p class="content-para">│ cylindrical pseudocysts filled with PAS+ basophilic glycosamino- │</p>
-<p class="content-para">│ glycans and basement membrane reduplication (collagen type IV). │</p>
-<p class="content-para">│ │</p>
-<p class="content-para">│ 2. TUBULAR PATTERN (Best Prognosis) │</p>
-<p class="content-para">│ • Small, well-formed duct-like tubules lined by double-layered │</p>
-<p class="content-para">│ epithelial and myoepithelial cells. │</p>
-<p class="content-para">│ │</p>
-<p class="content-para">│ 3. SOLID PATTERN (Worst Prognosis) │</p>
-<p class="content-para">│ • Solid, sheet-like expanses of basaloid cells without lumens; │</p>
-<p class="content-para">│ high mitoses, central necrosis (> 30% solid = high grade). │</p>
-<p class="content-para">└────────────────────────────────────────────────────────────────────────┘</p>
-<p class="content-para">```</p>
+<div class="clinical-flowchart-card" style="margin: 16px 0; border: 1.5px solid #c4b5fd; border-left: 5px solid #7c3aed; border-radius: 10px; background: #fdf4ff; padding: 14px 18px; break-inside: avoid; page-break-inside: avoid;"><div class="flowchart-header" style="font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #6d28d9; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M2 12h20"/></svg>CLINICAL ALGORITHM / SCHEMATIC FLOWCHART</div><pre class="flowchart-pre" style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 8pt; line-height: 1.45; overflow-x: auto; color: #1e1b4b; white-space: pre; background: transparent; border: none; padding: 0;"><code>ADENOID CYSTIC CARCINOMA PATTERNS
+ ┌────────────────────────────────────────────────────────────────────────┐
+ │ 1. CRIBRIFORM PATTERN ("Swiss-Cheese" / Cylindromatous) │
+ │ • Large nests of basaloid cells punched out by numerous rounded │
+ │ cylindrical pseudocysts filled with PAS+ basophilic glycosamino- │
+ │ glycans and basement membrane reduplication (collagen type IV). │
+ │ │
+ │ 2. TUBULAR PATTERN (Best Prognosis) │
+ │ • Small, well-formed duct-like tubules lined by double-layered │
+ │ epithelial and myoepithelial cells. │
+ │ │
+ │ 3. SOLID PATTERN (Worst Prognosis) │
+ │ • Solid, sheet-like expanses of basaloid cells without lumens; │
+ │ high mitoses, central necrosis (&gt; 30% solid = high grade). │
+ └────────────────────────────────────────────────────────────────────────┘</code></pre></div>
 <h4 class="sub-heading">The Perineural Invasion Phenomenon</h4>
 <ul class="content-list">
 <li>Tumor cells show an uncanny chemotactic affinity for neural tissue, infiltrating through the epineurium, perineurium, and endoneurium.</li>
@@ -834,25 +822,23 @@ li {
         
 <h3 class="section-title">1. Mucus Extravasation Phenomenon vs. Mucus Retention Cyst</h3>
 <h4 class="sub-heading">Pathophysiological Distinction</h4>
-<p class="content-para">```</p>
-<p class="content-para">MUCOCELE PATHOPHYSIOLOGY</p>
-<p class="content-para">┌─────────────────────────────────┬─────────────────────────────────┐</p>
-<p class="content-para">│ EXTRAVASATION MUCOCELE (80-90%) │ RETENTION MUCOCELE (10-20%) │</p>
-<p class="content-para">├─────────────────────────────────┼─────────────────────────────────┤</p>
-<p class="content-para">│ Trauma (Lip biting, sucking) │ Ductal obstruction (Sialolith, │</p>
-<p class="content-para">│ │ │ stricture, mucus plug) │</p>
-<p class="content-para">│ ▼ │ │ │</p>
-<p class="content-para">│ Severed minor salivary duct │ ▼ │</p>
-<p class="content-para">│ │ │ Dilation of excretory duct │</p>
-<p class="content-para">│ ▼ │ │ │</p>
-<p class="content-para">│ Mucus pools in connective tissue│ ▼ │</p>
-<p class="content-para">│ │ │ Duct expands into cyst │</p>
-<p class="content-para">│ ▼ │ │ │</p>
-<p class="content-para">│ Lined by GRANULATION TISSUE │ ▼ │</p>
-<p class="content-para">│ (Foamy muciphages / Histiocytes)│ Lined by TRUE EPITHELIUM │</p>
-<p class="content-para">│ <strong>NO EPITHELIAL LINING</strong> │ (Cuboidal / columnar / bilayer) │</p>
-<p class="content-para">└─────────────────────────────────┴─────────────────────────────────┘</p>
-<p class="content-para">```</p>
+<div class="clinical-flowchart-card" style="margin: 16px 0; border: 1.5px solid #c4b5fd; border-left: 5px solid #7c3aed; border-radius: 10px; background: #fdf4ff; padding: 14px 18px; break-inside: avoid; page-break-inside: avoid;"><div class="flowchart-header" style="font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #6d28d9; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M2 12h20"/></svg>CLINICAL ALGORITHM / SCHEMATIC FLOWCHART</div><pre class="flowchart-pre" style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 8pt; line-height: 1.45; overflow-x: auto; color: #1e1b4b; white-space: pre; background: transparent; border: none; padding: 0;"><code>MUCOCELE PATHOPHYSIOLOGY
+ ┌─────────────────────────────────┬─────────────────────────────────┐
+ │ EXTRAVASATION MUCOCELE (80-90%) │ RETENTION MUCOCELE (10-20%) │
+ ├─────────────────────────────────┼─────────────────────────────────┤
+ │ Trauma (Lip biting, sucking) │ Ductal obstruction (Sialolith, │
+ │ │ │ stricture, mucus plug) │
+ │ ▼ │ │ │
+ │ Severed minor salivary duct │ ▼ │
+ │ │ │ Dilation of excretory duct │
+ │ ▼ │ │ │
+ │ Mucus pools in connective tissue│ ▼ │
+ │ │ │ Duct expands into cyst │
+ │ ▼ │ │ │
+ │ Lined by GRANULATION TISSUE │ ▼ │
+ │ (Foamy muciphages / Histiocytes)│ Lined by TRUE EPITHELIUM │
+ │ **NO EPITHELIAL LINING** │ (Cuboidal / columnar / bilayer) │
+ └─────────────────────────────────┴─────────────────────────────────┘</code></pre></div>
 <h4 class="sub-heading">Detailed Histopathology of Extravasation Mucocele</h4>
 <ul class="content-list">
 <li><strong>Cavitary Architecture</strong>: Circumscribed cavity containing pooling basophilic, amphophilic mucin.</li>
@@ -890,26 +876,24 @@ li {
 <li value="2"><strong>Duct Length & Caliber</strong>: Wharton's duct is the longest duct (~5 cm) with a tortuous bend around the posterior border of the mylohyoid muscle and a narrow punctum at the caruncle.</li>
 <li value="3"><strong>Chemical Composition of Saliva</strong>: Submandibular saliva has a <strong>higher mucin content</strong> (viscous, sticky), an <strong>alkaline pH</strong> (which precipitates calcium salts), and <strong>higher concentrations of calcium and phosphate</strong> compared to serous parotid saliva.</li>
 </ol>
-<p class="content-para">```</p>
-<p class="content-para">MEALTIME SYNDROME CYCLE</p>
-<p class="content-para">│</p>
-<p class="content-para">ANTIPATION / INTAKE OF FOOD</p>
-<p class="content-para">│</p>
-<p class="content-para">▼</p>
-<p class="content-para">Parasympathetic Salivary Surge</p>
-<p class="content-para">│</p>
-<p class="content-para">▼</p>
-<p class="content-para">High pressure behind impacted stone</p>
-<p class="content-para">│</p>
-<p class="content-para">▼</p>
-<p class="content-para">ACUTE EPISODIC COLICKY PAIN & RAPID GLAND SWELLING</p>
-<p class="content-para">│</p>
-<p class="content-para">▼</p>
-<p class="content-para">Gradual drainage / stone bypass</p>
-<p class="content-para">│</p>
-<p class="content-para">▼</p>
-<p class="content-para">Pain subsides 1-2 hours later</p>
-<p class="content-para">```</p>
+<div class="clinical-flowchart-card" style="margin: 16px 0; border: 1.5px solid #c4b5fd; border-left: 5px solid #7c3aed; border-radius: 10px; background: #fdf4ff; padding: 14px 18px; break-inside: avoid; page-break-inside: avoid;"><div class="flowchart-header" style="font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #6d28d9; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M2 12h20"/></svg>CLINICAL ALGORITHM / SCHEMATIC FLOWCHART</div><pre class="flowchart-pre" style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 8pt; line-height: 1.45; overflow-x: auto; color: #1e1b4b; white-space: pre; background: transparent; border: none; padding: 0;"><code>MEALTIME SYNDROME CYCLE
+ │
+ ANTIPATION / INTAKE OF FOOD
+ │
+ ▼
+ Parasympathetic Salivary Surge
+ │
+ ▼
+ High pressure behind impacted stone
+ │
+ ▼
+ ACUTE EPISODIC COLICKY PAIN &amp; RAPID GLAND SWELLING
+ │
+ ▼
+ Gradual drainage / stone bypass
+ │
+ ▼
+ Pain subsides 1-2 hours later</code></pre></div>
 <h4 class="sub-heading">Diagnostic Imaging</h4>
 <ul class="content-list">
 <li><strong>Mandibular Occlusal Radiograph</strong>: Standard projection for visualizing radiopaque calculi in the anterior and middle portions of Wharton's duct.</li>
@@ -1002,19 +986,17 @@ li {
 <li value="4"><strong>Human Papillomavirus (HPV)</strong>: High-risk genotypes (HPV-16, HPV-18).</li>
 <li value="5"><strong>Chronic Mechanical Friction</strong>: Ill-fitting dentures or fractured cusps (causes frictional keratosis; once the source is eliminated, it must resolve within 2 weeks or be biopsied).</li>
 </ol>
-<p class="content-para">```</p>
-<p class="content-para">CLINICAL SPECTRUM OF LEUKOPLAKIA</p>
-<p class="content-para">┌─────────────────────────────────┬─────────────────────────────────┐</p>
-<p class="content-para">│ HOMOGENEOUS LEUKOPLAKIA │ NON-HOMOGENEOUS LEUKOPLAKIA │</p>
-<p class="content-para">├─────────────────────────────────┼─────────────────────────────────┤</p>
-<p class="content-para">│ • Uniform, flat, thin or thick │ • High malignant transformation │</p>
-<p class="content-para">│ • Shallow cracks ("Cracked Mud")│ • Subtypes: │</p>
-<p class="content-para">│ • Low malignant potential (1-3%)│ 1. Speckled (Erythroleukoplakia)│</p>
-<p class="content-para">│ • Well-demarcated margins │ 2. Nodular (Granular/pebbly) │</p>
-<p class="content-para">│ │ 3. Verrucous (Warty/papillary)│</p>
-<p class="content-para">│ │ • Malignant transformation: 15-30%│</p>
-<p class="content-para">└─────────────────────────────────┴─────────────────────────────────┘</p>
-<p class="content-para">```</p>
+<div class="clinical-flowchart-card" style="margin: 16px 0; border: 1.5px solid #c4b5fd; border-left: 5px solid #7c3aed; border-radius: 10px; background: #fdf4ff; padding: 14px 18px; break-inside: avoid; page-break-inside: avoid;"><div class="flowchart-header" style="font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #6d28d9; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M2 12h20"/></svg>CLINICAL ALGORITHM / SCHEMATIC FLOWCHART</div><pre class="flowchart-pre" style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 8pt; line-height: 1.45; overflow-x: auto; color: #1e1b4b; white-space: pre; background: transparent; border: none; padding: 0;"><code>CLINICAL SPECTRUM OF LEUKOPLAKIA
+ ┌─────────────────────────────────┬─────────────────────────────────┐
+ │ HOMOGENEOUS LEUKOPLAKIA │ NON-HOMOGENEOUS LEUKOPLAKIA │
+ ├─────────────────────────────────┼─────────────────────────────────┤
+ │ • Uniform, flat, thin or thick │ • High malignant transformation │
+ │ • Shallow cracks ("Cracked Mud")│ • Subtypes: │
+ │ • Low malignant potential (1-3%)│ 1. Speckled (Erythroleukoplakia)│
+ │ • Well-demarcated margins │ 2. Nodular (Granular/pebbly) │
+ │ │ 3. Verrucous (Warty/papillary)│
+ │ │ • Malignant transformation: 15-30%│
+ └─────────────────────────────────┴─────────────────────────────────┘</code></pre></div>
 <h4 class="sub-heading">Proliferative Verrucous Leukoplakia (PVL)</h4>
 <ul class="content-list">
 <li>Disproportionately affects elderly females (F:M ~ 4:1) with <strong>NO history of tobacco or alcohol use</strong>!</li>
@@ -1035,24 +1017,22 @@ li {
 <h3 class="section-title">4. Histopathological Criteria for Epithelial Dysplasia</h3>
 <p class="content-para">Epithelial dysplasia represents the spectrum of architectural and cytological abnormalities indicating premalignant transformation of the stratified squamous epithelium.</p>
 <h4 class="sub-heading">The WHO 13 Criteria for Epithelial Dysplasia</h4>
-<p class="content-para">```</p>
-<p class="content-para">CRITERIA FOR DYSPLASIA</p>
-<p class="content-para">┌──────────────────────────────────┬──────────────────────────────────┐</p>
-<p class="content-para">│ ARCHITECTURAL DISTURBANCES │ CYTOLOGICAL ABNORMALITIES │</p>
-<p class="content-para">├──────────────────────────────────┼──────────────────────────────────┤</p>
-<p class="content-para">│ 1. Loss of basal cell polarity │ 1. Cellular pleomorphism │</p>
-<p class="content-para">│ 2. Drop-shaped / bulbous rete │ 2. Nuclear pleomorphism │</p>
-<p class="content-para">│ pegs (wider at base) │ 3. Nuclear hyperchromatism │</p>
-<p class="content-para">│ 3. Irregular epithelial │ 4. Increased nuclear:cytoplasmic │</p>
-<p class="content-para">│ stratification │ (N:C) ratio │</p>
-<p class="content-para">│ 4. Loss of intercellular │ 5. Increased mitotic figures │</p>
-<p class="content-para">│ adherence │ 6. Atypical / abnormal mitotic │</p>
-<p class="content-para">│ 5. Dyskeratosis (premature intra-│ figures (tripolar, tetrapolar)│</p>
-<p class="content-para">│ cellular keratinization) │ 7. Enlarged, prominent nucleoli │</p>
-<p class="content-para">│ 6. Keratin pearl formation within│ │</p>
-<p class="content-para">│ the spinous layer │ │</p>
-<p class="content-para">└──────────────────────────────────┴──────────────────────────────────┘</p>
-<p class="content-para">```</p>
+<div class="clinical-flowchart-card" style="margin: 16px 0; border: 1.5px solid #c4b5fd; border-left: 5px solid #7c3aed; border-radius: 10px; background: #fdf4ff; padding: 14px 18px; break-inside: avoid; page-break-inside: avoid;"><div class="flowchart-header" style="font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #6d28d9; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M2 12h20"/></svg>CLINICAL ALGORITHM / SCHEMATIC FLOWCHART</div><pre class="flowchart-pre" style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 8pt; line-height: 1.45; overflow-x: auto; color: #1e1b4b; white-space: pre; background: transparent; border: none; padding: 0;"><code>CRITERIA FOR DYSPLASIA
+ ┌──────────────────────────────────┬──────────────────────────────────┐
+ │ ARCHITECTURAL DISTURBANCES │ CYTOLOGICAL ABNORMALITIES │
+ ├──────────────────────────────────┼──────────────────────────────────┤
+ │ 1. Loss of basal cell polarity │ 1. Cellular pleomorphism │
+ │ 2. Drop-shaped / bulbous rete │ 2. Nuclear pleomorphism │
+ │ pegs (wider at base) │ 3. Nuclear hyperchromatism │
+ │ 3. Irregular epithelial │ 4. Increased nuclear:cytoplasmic │
+ │ stratification │ (N:C) ratio │
+ │ 4. Loss of intercellular │ 5. Increased mitotic figures │
+ │ adherence │ 6. Atypical / abnormal mitotic │
+ │ 5. Dyskeratosis (premature intra-│ figures (tripolar, tetrapolar)│
+ │ cellular keratinization) │ 7. Enlarged, prominent nucleoli │
+ │ 6. Keratin pearl formation within│ │
+ │ the spinous layer │ │
+ └──────────────────────────────────┴──────────────────────────────────┘</code></pre></div>
 <h4 class="sub-heading">Grading of Epithelial Dysplasia (Three-Tier System)</h4>
 <ul class="content-list">
 <li><strong>Mild Dysplasia</strong>: Architectural and cytological changes strictly confined to the <strong>basal and parabasal layers (lower 1/3)</strong> of the epithelium.</li>
@@ -1061,31 +1041,29 @@ li {
 <li><strong>Carcinoma In Situ (CIS)</strong>: Full-thickness cytological atypia spanning the entire height of the epithelium (top-to-bottom change) with complete loss of stratification, but <strong>the basement membrane remains intact without dermal invasion</strong>.</li>
 </ul>
 <h3 class="section-title">5. Diagnostic Workup & Management Algorithm</h3>
-<p class="content-para">```</p>
-<p class="content-para">MANAGEMENT ALGORITHM FOR SUSPECTED OPMD</p>
-<p class="content-para">│</p>
-<p class="content-para">Visual & Palpatory Inspection</p>
-<p class="content-para">│</p>
-<p class="content-para">Identify High-Risk Red / Non-Homogeneous Plaque</p>
-<p class="content-para">│</p>
-<p class="content-para">┌───────────────────┴───────────────────┐</p>
-<p class="content-para">▼ ▼</p>
-<p class="content-para">Eliminate Irritant Persisting > 14 Days</p>
-<p class="content-para">(Sharp tooth, ill-fitting denture) │</p>
-<p class="content-para">│ ▼</p>
-<p class="content-para">Review after 14-21 days VITAL STAINING / BIOPSY</p>
-<p class="content-para">(If healed -> Frictional keratosis) • Toluidine Blue Staining</p>
-<p class="content-para">• Punch or Scalpel Incisional Biopsy</p>
-<p class="content-para">│</p>
-<p class="content-para">┌───────────────────────────────┴───────────────────────────────┐</p>
-<p class="content-para">▼ ▼</p>
-<p class="content-para">NO / MILD DYSPLASIA MODERATE / SEVERE DYSPLASIA</p>
-<p class="content-para">│ │</p>
-<p class="content-para">• Cessation of tobacco & alcohol • Complete Surgical Excision</p>
-<p class="content-para">• Antioxidants (Beta-carotene, lycopene) (Cold scalpel or CO<sub>2</sub> laser)</p>
-<p class="content-para">• Close surveillance every 3-6 months • Histological margin clearance</p>
-<p class="content-para">• Lifelong surveillance</p>
-<p class="content-para">```</p>
+<div class="clinical-flowchart-card" style="margin: 16px 0; border: 1.5px solid #c4b5fd; border-left: 5px solid #7c3aed; border-radius: 10px; background: #fdf4ff; padding: 14px 18px; break-inside: avoid; page-break-inside: avoid;"><div class="flowchart-header" style="font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #6d28d9; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M2 12h20"/></svg>CLINICAL ALGORITHM / SCHEMATIC FLOWCHART</div><pre class="flowchart-pre" style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 8pt; line-height: 1.45; overflow-x: auto; color: #1e1b4b; white-space: pre; background: transparent; border: none; padding: 0;"><code>MANAGEMENT ALGORITHM FOR SUSPECTED OPMD
+ │
+ Visual &amp; Palpatory Inspection
+ │
+ Identify High-Risk Red / Non-Homogeneous Plaque
+ │
+ ┌───────────────────┴───────────────────┐
+ ▼ ▼
+ Eliminate Irritant Persisting &gt; 14 Days
+ (Sharp tooth, ill-fitting denture) │
+ │ ▼
+ Review after 14-21 days VITAL STAINING / BIOPSY
+ (If healed -&gt; Frictional keratosis) • Toluidine Blue Staining
+ • Punch or Scalpel Incisional Biopsy
+ │
+ ┌───────────────────────────────┴───────────────────────────────┐
+ ▼ ▼
+ NO / MILD DYSPLASIA MODERATE / SEVERE DYSPLASIA
+ │ │
+ • Cessation of tobacco &amp; alcohol • Complete Surgical Excision
+ • Antioxidants (Beta-carotene, lycopene) (Cold scalpel or CO2 laser)
+ • Close surveillance every 3-6 months • Histological margin clearance
+ • Lifelong surveillance</code></pre></div>
 </div>
 <div class="chapter-container" id="chap13_osmf_lichen_planus">
         <span class="chapter-badge">Oral Mucosal & Connective Tissue Pathology • 15-Mark Essay Model</span>
@@ -1098,31 +1076,29 @@ li {
 <h3 class="section-title">1. Oral Submucous Fibrosis: Etiopathogenesis & Copper Dynamics</h3>
 <p class="content-para"><strong>Definition</strong>: A chronic, insidious, debilitating disease of the oral cavity and oropharynx, characterized by fibroelastic change and inflammation of the lamina propria, leading to progressive mucosal stiffness, burning sensation, trismus, and a significantly increased risk of oral squamous cell carcinoma.</p>
 <h4 class="sub-heading">The Areca Nut Molecular Cascade</h4>
-<p class="content-para">```</p>
-<p class="content-para">ARECA NUT CHEWING (GUTKHA / PAN)</p>
-<p class="content-para">│</p>
-<p class="content-para">┌────────────────────────────────┼────────────────────────────────┐</p>
-<p class="content-para">▼ ▼ ▼</p>
-<p class="content-para">ARECA ALKALOIDS ARECA FLAVONOIDS COPPER IONS</p>
-<p class="content-para">(Arecoline, Arecaidine) (Tannins, Catechins) (Up to 300 ug/g)</p>
-<p class="content-para">│ │ │</p>
-<p class="content-para">▼ ▼ ▼</p>
-<p class="content-para">• Activates TGF-beta • Inhibits Collagenase • Activates Lysyl Oxidase</p>
-<p class="content-para">• Upregulates CTGF (MMP-1, MMP-8) (LOX enzyme)</p>
-<p class="content-para">• Drives Fibroblast Proliferation • Impairs collagen degradation • Induces irreversible</p>
-<p class="content-para">• Increases Procollagen I & III cross-linking of collagen</p>
-<p class="content-para">│ │ │</p>
-<p class="content-para">└────────────────────────────────┬────────────────────────────────┘</p>
-<p class="content-para">│</p>
-<p class="content-para">▼</p>
-<p class="content-para">ACCUMULATION OF INDESTRUCTIBLE FIBROUS COLLAGEN</p>
-<p class="content-para">│</p>
-<p class="content-para">▼</p>
-<p class="content-para">Mucosal Ischemia + Epithelial Atrophy + JUXTA-EPITHELIAL HYALINIZATION</p>
-<p class="content-para">│</p>
-<p class="content-para">▼</p>
-<p class="content-para">SEVERE TRISMUS & MALIGNANT TRANSFORMATION (7-10%)</p>
-<p class="content-para">```</p>
+<div class="clinical-flowchart-card" style="margin: 16px 0; border: 1.5px solid #c4b5fd; border-left: 5px solid #7c3aed; border-radius: 10px; background: #fdf4ff; padding: 14px 18px; break-inside: avoid; page-break-inside: avoid;"><div class="flowchart-header" style="font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #6d28d9; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M2 12h20"/></svg>CLINICAL ALGORITHM / SCHEMATIC FLOWCHART</div><pre class="flowchart-pre" style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 8pt; line-height: 1.45; overflow-x: auto; color: #1e1b4b; white-space: pre; background: transparent; border: none; padding: 0;"><code>ARECA NUT CHEWING (GUTKHA / PAN)
+ │
+ ┌────────────────────────────────┼────────────────────────────────┐
+ ▼ ▼ ▼
+ ARECA ALKALOIDS ARECA FLAVONOIDS COPPER IONS
+ (Arecoline, Arecaidine) (Tannins, Catechins) (Up to 300 ug/g)
+ │ │ │
+ ▼ ▼ ▼
+• Activates TGF-beta • Inhibits Collagenase • Activates Lysyl Oxidase
+• Upregulates CTGF (MMP-1, MMP-8) (LOX enzyme)
+• Drives Fibroblast Proliferation • Impairs collagen degradation • Induces irreversible
+• Increases Procollagen I &amp; III cross-linking of collagen
+ │ │ │
+ └────────────────────────────────┬────────────────────────────────┘
+ │
+ ▼
+ ACCUMULATION OF INDESTRUCTIBLE FIBROUS COLLAGEN
+ │
+ ▼
+ Mucosal Ischemia + Epithelial Atrophy + JUXTA-EPITHELIAL HYALINIZATION
+ │
+ ▼
+ SEVERE TRISMUS &amp; MALIGNANT TRANSFORMATION (7-10%)</code></pre></div>
 <h3 class="section-title">2. Clinical Staging & Pindborg's Histological Classification of OSMF</h3>
 <h4 class="sub-heading">Clinical Grading of Mouth Opening (Inter-Incisal Distance - IID)</h4>
 <ul class="content-list">
@@ -1139,44 +1115,40 @@ li {
 <li value="4"><strong>Advanced Stage</strong>: Complete loss of cellularity and vascularity; dense sheets of hyalinized collagen obliterating the lamina propria and submucosa; atrophy of overlying epithelium with total loss of rete ridges; compressed, constricted minor salivary gland ducts; muscle degenerated into dense scar.</li>
 </ol>
 <h3 class="section-title">3. Management of OSMF: Medical, Physiotherapeutic & Surgical</h3>
-<p class="content-para">```</p>
-<p class="content-para">OSMF MULTIMODAL MANAGEMENT</p>
-<p class="content-para">│</p>
-<p class="content-para">┌────────────────────────────────┼────────────────────────────────┐</p>
-<p class="content-para">▼ ▼ ▼</p>
-<p class="content-para">HABIT CESSATION MEDICAL THERAPY SURGICAL / SURGERY</p>
-<p class="content-para">• Immediate cessation of • Intralesional Injections: • Indicated in Group 3/4</p>
-<p class="content-para">gutkha, areca nut, tobacco, - Dexamethasone (4 mg) + (IID < 20 mm)</p>
-<p class="content-para">and alcohol Hyaluronidase (1500 IU) • Bilateral Fibrotomy:</p>
-<p class="content-para">• High-protein, antioxidant twice weekly for 6-8 weeks Incision of fibrous bands</p>
-<p class="content-para">diet (Lycopene 8 mg/day) • Placentrex injection (human • Reconstruction of defect:</p>
-<p class="content-para">• Oral Pentoxifylline placental extract) - Nasolabial flap</p>
-<p class="content-para">(400 mg TID) to improve • Turmeric / Curcumin extract - Buccal fat pad graft</p>
-<p class="content-para">microcirculation (anti-inflammatory) - Split-thickness skin graft</p>
-<p class="content-para">• Vigorous Physiotherapy • Post-op jaw stretching</p>
-<p class="content-para">```</p>
+<div class="clinical-flowchart-card" style="margin: 16px 0; border: 1.5px solid #c4b5fd; border-left: 5px solid #7c3aed; border-radius: 10px; background: #fdf4ff; padding: 14px 18px; break-inside: avoid; page-break-inside: avoid;"><div class="flowchart-header" style="font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #6d28d9; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M2 12h20"/></svg>CLINICAL ALGORITHM / SCHEMATIC FLOWCHART</div><pre class="flowchart-pre" style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 8pt; line-height: 1.45; overflow-x: auto; color: #1e1b4b; white-space: pre; background: transparent; border: none; padding: 0;"><code>OSMF MULTIMODAL MANAGEMENT
+ │
+ ┌────────────────────────────────┼────────────────────────────────┐
+ ▼ ▼ ▼
+HABIT CESSATION MEDICAL THERAPY SURGICAL / SURGERY
+• Immediate cessation of • Intralesional Injections: • Indicated in Group 3/4
+ gutkha, areca nut, tobacco, - Dexamethasone (4 mg) + (IID &lt; 20 mm)
+ and alcohol Hyaluronidase (1500 IU) • Bilateral Fibrotomy:
+• High-protein, antioxidant twice weekly for 6-8 weeks Incision of fibrous bands
+ diet (Lycopene 8 mg/day) • Placentrex injection (human • Reconstruction of defect:
+• Oral Pentoxifylline placental extract) - Nasolabial flap
+ (400 mg TID) to improve • Turmeric / Curcumin extract - Buccal fat pad graft
+ microcirculation (anti-inflammatory) - Split-thickness skin graft
+ • Vigorous Physiotherapy • Post-op jaw stretching</code></pre></div>
 <h3 class="section-title">4. Oral Lichen Planus: Immunopathogenesis</h3>
 <p class="content-para"><strong>Definition</strong>: A chronic, immune-mediated, mucocutaneous inflammatory disease of the stratified squamous epithelium that manifests in the oral mucosa as white reticular lace-like lines, papules, plaques, or painful atrophic and erosive lesions.</p>
 <h4 class="sub-heading">Pathogenesis (Cytotoxic T-Cell Mediated Basal Keratinocyte Apoptosis)</h4>
-<p class="content-para">```</p>
-<p class="content-para">KERATINOCYTE ANTIGEN UNMASKING (Autoantigen, viral, drug, or stress)</p>
-<p class="content-para">│</p>
-<p class="content-para">▼</p>
-<p class="content-para">Langerhans Cells Present Antigen to CD4+ Helper T-Cells via MHC-II</p>
-<p class="content-para">│</p>
-<p class="content-para">▼</p>
-<p class="content-para">IL-2, IFN-gamma, and TNF-alpha Release</p>
-<p class="content-para">│</p>
-<p class="content-para">▼</p>
-<p class="content-para">Recruitment & Activation of CD8+ Cytotoxic T-Lymphocytes</p>
-<p class="content-para">│</p>
-<p class="content-para">▼</p>
-<p class="content-para">CD8+ T-Cells bind to MHC-I on Basal Keratinocytes -> Secrete Perforin</p>
-<p class="content-para">and Granzyme B -> Trigger APOPTOSIS of Basal Cells (Civatte Bodies)</p>
-<p class="content-para">│</p>
-<p class="content-para">▼</p>
-<p class="content-para">Basement Membrane Disruption + Liquefaction Degeneration of Basal Layer</p>
-<p class="content-para">```</p>
+<div class="clinical-flowchart-card" style="margin: 16px 0; border: 1.5px solid #c4b5fd; border-left: 5px solid #7c3aed; border-radius: 10px; background: #fdf4ff; padding: 14px 18px; break-inside: avoid; page-break-inside: avoid;"><div class="flowchart-header" style="font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #6d28d9; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M2 12h20"/></svg>CLINICAL ALGORITHM / SCHEMATIC FLOWCHART</div><pre class="flowchart-pre" style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 8pt; line-height: 1.45; overflow-x: auto; color: #1e1b4b; white-space: pre; background: transparent; border: none; padding: 0;"><code>KERATINOCYTE ANTIGEN UNMASKING (Autoantigen, viral, drug, or stress)
+ │
+ ▼
+ Langerhans Cells Present Antigen to CD4+ Helper T-Cells via MHC-II
+ │
+ ▼
+ IL-2, IFN-gamma, and TNF-alpha Release
+ │
+ ▼
+ Recruitment &amp; Activation of CD8+ Cytotoxic T-Lymphocytes
+ │
+ ▼
+ CD8+ T-Cells bind to MHC-I on Basal Keratinocytes -&gt; Secrete Perforin
+ and Granzyme B -&gt; Trigger APOPTOSIS of Basal Cells (Civatte Bodies)
+ │
+ ▼
+ Basement Membrane Disruption + Liquefaction Degeneration of Basal Layer</code></pre></div>
 <h3 class="section-title">5. Clinical Types & Histopathological Hallmarks of OLP</h3>
 <h4 class="sub-heading">Clinical Variants</h4>
 <ol class="content-list-ordered" start="1">
@@ -1214,15 +1186,13 @@ li {
 <li value="4"><strong>Human Papillomavirus (HPV)</strong>: Especially HPV genotype 16 and 18 (dominates oropharyngeal carcinoma, base of tongue, and palatine tonsils; characterized by p16 overexpression).</li>
 <li value="5"><strong>Chronic Nutritional Deficiencies</strong>: Iron deficiency (Plummer-Vinson / Paterson-Kelly syndrome predisposing to postcricoid and oral carcinoma).</li>
 </ol>
-<p class="content-para">```</p>
-<p class="content-para">MOLECULAR MULTI-STEP CARCINOGENESIS</p>
-<p class="content-para">NORMAL EPITHELIUM ──> HYPERPLASIA ──> DYSPLASIA ──> CIS ──> INVASIVE OSCC</p>
-<p class="content-para">│ │ │ │ │</p>
-<p class="content-para">▼ ▼ ▼ ▼ ▼</p>
-<p class="content-para">Loss of Loss of Loss of p53 Loss Loss of</p>
-<p class="content-para">9p21 3p, 17p 11q13, 14q Mutation E-cadherin,</p>
-<p class="content-para">(CDKN2A/p16) (FHIT, TP53) (Cyclin D1) (TP53) MMP-2/9 Surge</p>
-<p class="content-para">```</p>
+<div class="clinical-flowchart-card" style="margin: 16px 0; border: 1.5px solid #c4b5fd; border-left: 5px solid #7c3aed; border-radius: 10px; background: #fdf4ff; padding: 14px 18px; break-inside: avoid; page-break-inside: avoid;"><div class="flowchart-header" style="font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #6d28d9; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M2 12h20"/></svg>CLINICAL ALGORITHM / SCHEMATIC FLOWCHART</div><pre class="flowchart-pre" style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 8pt; line-height: 1.45; overflow-x: auto; color: #1e1b4b; white-space: pre; background: transparent; border: none; padding: 0;"><code>MOLECULAR MULTI-STEP CARCINOGENESIS
+ NORMAL EPITHELIUM ──&gt; HYPERPLASIA ──&gt; DYSPLASIA ──&gt; CIS ──&gt; INVASIVE OSCC
+ │ │ │ │ │
+ ▼ ▼ ▼ ▼ ▼
+ Loss of Loss of Loss of p53 Loss Loss of
+ 9p21 3p, 17p 11q13, 14q Mutation E-cadherin,
+ (CDKN2A/p16) (FHIT, TP53) (Cyclin D1) (TP53) MMP-2/9 Surge</code></pre></div>
 <h3 class="section-title">2. Clinical Presentations & High-Risk Sites</h3>
 <h4 class="sub-heading">Common Clinical Morphologies</h4>
 <ol class="content-list-ordered" start="1">
@@ -1239,33 +1209,7 @@ li {
 </ul>
 <h3 class="section-title">3. Broders Histopathological Grading of OSCC</h3>
 <p class="content-para">Introduced by Albert Compton Broders in 1920; classifies OSCC into 4 grades based on the percentage of differentiated keratinizing cells versus undifferentiated, atypical cells.</p>
-<p class="content-para">```</p>
-<p class="content-para">BRODERS HISTOLOGICAL GRADES</p>
-<p class="content-para">┌─────────┬──────────────────────┬───────────────────────────────────────────┐</p>
-<p class="content-para">│ GRADE │ DIFFERENTIATION │ MICROSCOPIC FEATURES │</p>
-<p class="content-para">├─────────┼──────────────────────┼───────────────────────────────────────────┤</p>
-<p class="content-para">│ Grade 1 │ Well-Differentiated │ • 75% to 100% differentiated cells │</p>
-<p class="content-para">│ │ │ • Abundant <strong>Keratin Pearls</strong> (Epithelial │</p>
-<p class="content-para">│ │ │ pearls with concentric rings of keratin)│</p>
-<p class="content-para">│ │ │ • Distinct intercellular prickles/bridges │</p>
-<p class="content-para">│ │ │ • Minimal nuclear pleomorphism; rare mitosis│</p>
-<p class="content-para">├─────────┼──────────────────────┼───────────────────────────────────────────┤</p>
-<p class="content-para">│ Grade 2 │ Moderately Diff. │ • 50% to 75% differentiated cells │</p>
-<p class="content-para">│ │ │ • Immature keratin pearls; single cell │</p>
-<p class="content-para">│ │ │ dyskeratosis │</p>
-<p class="content-para">│ │ │ • Moderate nuclear atypia; atypical mitoses│</p>
-<p class="content-para">├─────────┼──────────────────────┼───────────────────────────────────────────┤</p>
-<p class="content-para">│ Grade 3 │ Poorly Differentiated│ • 25% to 50% differentiated cells │</p>
-<p class="content-para">│ │ │ • Keratin pearls are virtually ABSENT │</p>
-<p class="content-para">│ │ │ • Predominance of sheets of atypical cells│</p>
-<p class="content-para">│ │ │ • Marked pleomorphism; abundant mitoses │</p>
-<p class="content-para">├─────────┼──────────────────────┼───────────────────────────────────────────┤</p>
-<p class="content-para">│ Grade 4 │ Anaplastic / Undiff. │ • 0% to 25% differentiated cells │</p>
-<p class="content-para">│ │ │ • Total loss of squamous features │</p>
-<p class="content-para">│ │ │ • Multinucleated bizarre giant tumor cells│</p>
-<p class="content-para">│ │ │ • Resembles sarcoma or lymphoma │</p>
-<p class="content-para">└─────────┴──────────────────────┴───────────────────────────────────────────┘</p>
-<p class="content-para">```</p>
+<div class="table-responsive"><table class="data-table"><thead><tr><th>Grade</th><th>Degree of Differentiation</th><th>Key Microscopic Features & Cellular Hallmarks</th></tr></thead><tbody><tr><td><strong>Grade 1</strong></td><td>Well-Differentiated (75%–100% differentiated cells)</td><td>• Abundant <strong>Keratin Pearls</strong> (Epithelial pearls with concentric lamellar rings of keratin)<br>• Distinct intercellular bridges / prickles intact<br>• Minimal nuclear pleomorphism; rare, normal basal mitoses</td></tr><tr><td><strong>Grade 2</strong></td><td>Moderately Differentiated (50%–75% differentiated cells)</td><td>• Immature, abortive keratin pearls; prominent single-cell dyskeratosis<br>• Less obvious intercellular bridges<br>• Moderate nuclear pleomorphism; frequent normal and atypical mitoses</td></tr><tr><td><strong>Grade 3</strong></td><td>Poorly Differentiated (25%–50% differentiated cells)</td><td>• Keratin pearls are virtually <strong>absent</strong>; minimal individual cell keratinization<br>• Predominance of sheets, nests, and cords of highly atypical cells<br>• Marked nuclear-cytoplasmic pleomorphism; abundant bizarre mitoses</td></tr><tr><td><strong>Grade 4</strong></td><td>Anaplastic / Undifferentiated (0%–25% differentiated cells)</td><td>• Complete loss of squamous characteristics; no keratinization or bridges<br>• Multinucleated, highly bizarre, gigantiform tumor cells<br>• Resembles sarcoma, melanoma, or lymphoma; requires IHC (Cytokeratin AE1/AE3)</td></tr></tbody></table></div>
 <h3 class="section-title">4. AJCC 8th Edition TNM Staging System (Incorporating DOI & ENE)</h3>
 <p class="content-para">The 8th Edition of the AJCC Cancer Staging Manual revolutionized head and neck cancer staging by integrating <strong>Depth of Invasion (DOI)</strong> into the T-category and <strong>Extranodal Extension (ENE)</strong> into the N-category.</p>
 <h4 class="sub-heading">Primary Tumor (T) Staging</h4>
@@ -1289,28 +1233,24 @@ li {
 <li><strong>N3b</strong>: Metastasis in any lymph node with <strong>Extranodal Extension (ENE^+)</strong>!</li>
 </ul>
 <h3 class="section-title">5. Comprehensive Multidisciplinary Management</h3>
-<p class="content-para">```</p>
-<p class="content-para">OSCC MANAGEMENT ALGORITHM</p>
-<p class="content-para">│</p>
-<p class="content-para">TNM Staging & Biopsy Workup</p>
-<p class="content-para">│</p>
-<p class="content-para">┌───────────────────────┴───────────────────────┐</p>
-<p class="content-para">▼ ▼</p>
-<p class="content-para">EARLY STAGE (Stage I & II: T1-2, N0) ADVANCED STAGE (Stage III & IV: T3-4, N+)</p>
-<p class="content-para">│ │</p>
-<p class="content-para">• Wide Local Excision with • Composite Resection:</p>
-<p class="content-para">1.0 to 1.5 cm clear margins (Commando operation: Wide glossectomy +</p>
-<p class="content-para">• Elective Neck Dissection (Levels I-III) Marginal/segmental mandibulectomy +</p>
-<p class="content-para">indicated if DOI > 4 mm Comprehensive Neck Dissection)</p>
-<p class="content-para">• Primary closure or local flap • Microvascular Free Tissue Transfer:</p>
-<ul class="content-list">
-<li>Radial forearm free flap (RFFF)</li>
-<li>Free fibula osteocutaneous flap</li>
-</ul>
-<p class="content-para">• Adjuvant Chemo-Radiation:</p>
-<p class="content-para">(Cisplatin 100 mg/m^2 q3w +</p>
-<p class="content-para">60-66 Gy IMRT Radiotherapy)</p>
-<p class="content-para">```</p>
+<div class="clinical-flowchart-card" style="margin: 16px 0; border: 1.5px solid #c4b5fd; border-left: 5px solid #7c3aed; border-radius: 10px; background: #fdf4ff; padding: 14px 18px; break-inside: avoid; page-break-inside: avoid;"><div class="flowchart-header" style="font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #6d28d9; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M2 12h20"/></svg>CLINICAL ALGORITHM / SCHEMATIC FLOWCHART</div><pre class="flowchart-pre" style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 8pt; line-height: 1.45; overflow-x: auto; color: #1e1b4b; white-space: pre; background: transparent; border: none; padding: 0;"><code>OSCC MANAGEMENT ALGORITHM
+ │
+ TNM Staging &amp; Biopsy Workup
+ │
+ ┌───────────────────────┴───────────────────────┐
+ ▼ ▼
+ EARLY STAGE (Stage I &amp; II: T1-2, N0) ADVANCED STAGE (Stage III &amp; IV: T3-4, N+)
+ │ │
+ • Wide Local Excision with • Composite Resection:
+ 1.0 to 1.5 cm clear margins (Commando operation: Wide glossectomy +
+ • Elective Neck Dissection (Levels I-III) Marginal/segmental mandibulectomy +
+ indicated if DOI &gt; 4 mm Comprehensive Neck Dissection)
+ • Primary closure or local flap • Microvascular Free Tissue Transfer:
+ - Radial forearm free flap (RFFF)
+ - Free fibula osteocutaneous flap
+ • Adjuvant Chemo-Radiation:
+ (Cisplatin 100 mg/m^2 q3w +
+ 60-66 Gy IMRT Radiotherapy)</code></pre></div>
 </div>
 <div class="chapter-container" id="chap15_mesenchymal_tumors">
         <span class="chapter-badge">Soft Tissue & Mesenchymal Pathology • 15-Mark Essay Model</span>
@@ -1388,14 +1328,14 @@ li {
 <li><strong>Critical pH of Root Dentin / Cementum</strong>: <strong>pH 6.2 to 6.7</strong> (root surfaces demineralize much more rapidly than enamel!).</li>
 </ul>
 <h3 class="section-title">2. Major Theories of Etiopathogenesis</h3>
-<p class="content-para">```</p>
-<p class="content-para">THE KEYES-JORDAN TRIAD (1969)</p>
-<p class="content-para">[ HOST ]</p>
-<p class="content-para">(Tooth & Saliva)</p>
-<p class="content-para">/ / / / CARIES /________ [ MICROFLORA ] [ SUBSTRATE ]</p>
-<p class="content-para">(S. mutans Biofilm) (Dietary Sucrose)</p>
-<p class="content-para">+ [ TIME FACTOR ]</p>
-<p class="content-para">```</p>
+<div class="clinical-flowchart-card" style="margin: 16px 0; border: 1.5px solid #c4b5fd; border-left: 5px solid #7c3aed; border-radius: 10px; background: #fdf4ff; padding: 14px 18px; break-inside: avoid; page-break-inside: avoid;"><div class="flowchart-header" style="font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #6d28d9; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M2 12h20"/></svg>CLINICAL ALGORITHM / SCHEMATIC FLOWCHART</div><pre class="flowchart-pre" style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 8pt; line-height: 1.45; overflow-x: auto; color: #1e1b4b; white-space: pre; background: transparent; border: none; padding: 0;"><code>THE KEYES-JORDAN TRIAD (1969)
+ 
+ [ HOST ]
+ (Tooth &amp; Saliva)
+ / / / / CARIES /________ [ MICROFLORA ] [ SUBSTRATE ]
+ (S. mutans Biofilm) (Dietary Sucrose)
+ 
+ + [ TIME FACTOR ]</code></pre></div>
 <ol class="content-list-ordered" start="1">
 <li value="1"><strong>Miller's Chemico-Parasitic (Acidogenic) Theory (W.D. Miller, 1890)</strong>:</li>
 <ul class="content-list nested-list" style="margin-top: 4px; margin-bottom: 8px; padding-left: 20px;">
@@ -1409,18 +1349,16 @@ li {
 </ol>
 <h3 class="section-title">3. Detailed Histopathology of Enamel Caries (Smooth Surface)</h3>
 <p class="content-para">In ground sections viewed under polarized light microscopy, an advancing cone-shaped smooth surface enamel carious lesion (with apex pointing toward the DEJ and base on the external tooth surface) exhibits <strong>Four Distinct Zones</strong>:</p>
-<p class="content-para">```</p>
-<p class="content-para">ADVANCING FRONT (PULPAL SIDE) ──► ──► ──► EXTERNAL TOOTH SURFACE</p>
-<p class="content-para">│ │ │ │</p>
-<p class="content-para">▼ ▼ ▼ ▼</p>
-<p class="content-para">ZONE 1: TRANSLUCENT ZONE 2: DARK ZONE 3: BODY OF ZONE 4: SURFACE</p>
-<p class="content-para">ZONE ZONE THE LESION ZONE</p>
-<p class="content-para">• 1% Pore Volume • 2-4% Pores • 5-25% Pores • < 1% Pore Volume</p>
-<p class="content-para">• Deepest front • Remineral- • Greatest mineral • Intact aprismatic</p>
-<p class="content-para">• Magnesium/Carbonate ization loss enamel</p>
-<p class="content-para">loss • Air-trapping • Striae of • High fluoride</p>
-<p class="content-para">in micropores Retzius marked remineralization</p>
-<p class="content-para">```</p>
+<div class="clinical-flowchart-card" style="margin: 16px 0; border: 1.5px solid #c4b5fd; border-left: 5px solid #7c3aed; border-radius: 10px; background: #fdf4ff; padding: 14px 18px; break-inside: avoid; page-break-inside: avoid;"><div class="flowchart-header" style="font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #6d28d9; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M2 12h20"/></svg>CLINICAL ALGORITHM / SCHEMATIC FLOWCHART</div><pre class="flowchart-pre" style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 8pt; line-height: 1.45; overflow-x: auto; color: #1e1b4b; white-space: pre; background: transparent; border: none; padding: 0;"><code>ADVANCING FRONT (PULPAL SIDE) ──► ──► ──► EXTERNAL TOOTH SURFACE
+ │ │ │ │
+ ▼ ▼ ▼ ▼
+ZONE 1: TRANSLUCENT ZONE 2: DARK ZONE 3: BODY OF ZONE 4: SURFACE
+ ZONE ZONE THE LESION ZONE
+• 1% Pore Volume • 2-4% Pores • 5-25% Pores • &lt; 1% Pore Volume
+• Deepest front • Remineral- • Greatest mineral • Intact aprismatic
+• Magnesium/Carbonate ization loss enamel
+ loss • Air-trapping • Striae of • High fluoride
+ in micropores Retzius marked remineralization</code></pre></div>
 <ol class="content-list-ordered" start="1">
 <li value="1"><strong>Zone 1: The Translucent Zone</strong>:</li>
 <ul class="content-list nested-list" style="margin-top: 4px; margin-bottom: 8px; padding-left: 20px;">
@@ -1696,20 +1634,18 @@ li {
 <li><strong>Morphology</strong>: A chronic, indurated, ragged ulcer with <strong>Undermined Edges</strong> (mucosa overhangs the necrotic floor), covered by pale yellowish-gray slough. Palpation reveals a soft to rubbery base (lacks the stony hard induration of carcinoma).</li>
 </ul>
 <h4 class="sub-heading">The Tuberculous Granuloma (Tubercle)</h4>
-<p class="content-para">```</p>
-<p class="content-para">TUBERCULOUS EPITHELIOID GRANULOMA</p>
-<p class="content-para">┌────────────────────────────────────────────────────────────────────────┐</p>
-<p class="content-para">│ 1. Central Zone: <strong>Caseous Necrosis</strong> (Acellular, eosinophilic, │</p>
-<p class="content-para">│ cheesy debris devoid of cellular architecture). │</p>
-<p class="content-para">│ 2. Middle Zone: <strong>Epithelioid Cells</strong> (Transformed macrophages with │</p>
-<p class="content-para">│ slipper-shaped nuclei and abundant pink cytoplasm) intermingled │</p>
-<p class="content-para">│ with <strong>Langhans Multinucleated Giant Cells</strong> (horseshoe-shaped │</p>
-<p class="content-para">│ arrangement of 15 to 30 nuclei at the cell periphery). │</p>
-<p class="content-para">│ 3. Outer Zone: Collar of mature <strong>T-Lymphocytes</strong> and fibroblasts. │</p>
-<p class="content-para">│ 4. Special Stain: <strong>Ziehl-Neelsen (ZN) stain</strong> reveals bright red, │</p>
-<p class="content-para">│ beaded acid-fast bacilli against a blue background. │</p>
-<p class="content-para">└────────────────────────────────────────────────────────────────────────┘</p>
-<p class="content-para">```</p>
+<div class="clinical-flowchart-card" style="margin: 16px 0; border: 1.5px solid #c4b5fd; border-left: 5px solid #7c3aed; border-radius: 10px; background: #fdf4ff; padding: 14px 18px; break-inside: avoid; page-break-inside: avoid;"><div class="flowchart-header" style="font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #6d28d9; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M2 12h20"/></svg>CLINICAL ALGORITHM / SCHEMATIC FLOWCHART</div><pre class="flowchart-pre" style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 8pt; line-height: 1.45; overflow-x: auto; color: #1e1b4b; white-space: pre; background: transparent; border: none; padding: 0;"><code>TUBERCULOUS EPITHELIOID GRANULOMA
+ ┌────────────────────────────────────────────────────────────────────────┐
+ │ 1. Central Zone: **Caseous Necrosis** (Acellular, eosinophilic, │
+ │ cheesy debris devoid of cellular architecture). │
+ │ 2. Middle Zone: **Epithelioid Cells** (Transformed macrophages with │
+ │ slipper-shaped nuclei and abundant pink cytoplasm) intermingled │
+ │ with **Langhans Multinucleated Giant Cells** (horseshoe-shaped │
+ │ arrangement of 15 to 30 nuclei at the cell periphery). │
+ │ 3. Outer Zone: Collar of mature **T-Lymphocytes** and fibroblasts. │
+ │ 4. Special Stain: **Ziehl-Neelsen (ZN) stain** reveals bright red, │
+ │ beaded acid-fast bacilli against a blue background. │
+ └────────────────────────────────────────────────────────────────────────┘</code></pre></div>
 <h3 class="section-title">2. Oral Syphilis & Congenital Manifestations</h3>
 <p class="content-para"><strong>Etiology</strong>: <em>Treponema pallidum</em>, an actively motile microaerophilic spirochete visualized via darkfield microscopy or silver impregnation (Warthin-Starry stain).</p>
 <h4 class="sub-heading">Stages of Acquired Syphilis</h4>
@@ -1731,19 +1667,17 @@ li {
 </ul>
 </ol>
 <h4 class="sub-heading">Congenital Syphilis: Hutchinson's Triad</h4>
-<p class="content-para">```</p>
-<p class="content-para">HUTCHINSON'S TRIAD</p>
-<p class="content-para">│</p>
-<p class="content-para">┌────────────────────────┼────────────────────────┐</p>
-<p class="content-para">▼ ▼ ▼</p>
-<p class="content-para">DENTAL ANOMALIES 8th NERVE DEAFNESS INTERSTITIAL KERATITIS</p>
-<p class="content-para">• Hutchinson's Incisors • Sensorineural • Corneal inflammation</p>
-<p class="content-para">(Screwdriver-shaped, bilateral hearing leading to corneal</p>
-<p class="content-para">notched incisal edge) loss clouding and blindness</p>
-<p class="content-para">• Mulberry Molars</p>
-<p class="content-para">(Moon's / Fournier molars</p>
-<p class="content-para">with hypoplastic cusps)</p>
-<p class="content-para">```</p>
+<div class="clinical-flowchart-card" style="margin: 16px 0; border: 1.5px solid #c4b5fd; border-left: 5px solid #7c3aed; border-radius: 10px; background: #fdf4ff; padding: 14px 18px; break-inside: avoid; page-break-inside: avoid;"><div class="flowchart-header" style="font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #6d28d9; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M2 12h20"/></svg>CLINICAL ALGORITHM / SCHEMATIC FLOWCHART</div><pre class="flowchart-pre" style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 8pt; line-height: 1.45; overflow-x: auto; color: #1e1b4b; white-space: pre; background: transparent; border: none; padding: 0;"><code>HUTCHINSON'S TRIAD
+ │
+ ┌────────────────────────┼────────────────────────┐
+ ▼ ▼ ▼
+ DENTAL ANOMALIES 8th NERVE DEAFNESS INTERSTITIAL KERATITIS
+ • Hutchinson's Incisors • Sensorineural • Corneal inflammation
+ (Screwdriver-shaped, bilateral hearing leading to corneal
+ notched incisal edge) loss clouding and blindness
+ • Mulberry Molars
+ (Moon's / Fournier molars
+ with hypoplastic cusps)</code></pre></div>
 <h3 class="section-title">3. Cervicofacial Actinomycosis ('Lumpy Jaw')</h3>
 <p class="content-para"><strong>Etiology</strong>: <em>Actinomyces israelii</em>, an anaerobic, Gram-positive, branching, non-acid-fast filamentous bacterium that is an endogenous saprophyte of the oral cavity (periodontal pockets, calculus, tonsillar crypts).</p>
 <h4 class="sub-heading">Pathogenesis & Clinical Features</h4>
@@ -1762,28 +1696,26 @@ li {
 <h3 class="section-title">4. Oral Candidiasis: Clinical Classification & Diagnostic Tests</h3>
 <p class="content-para"><strong>Etiology</strong>: <em>Candida albicans</em> (dimorphic fungus switching from harmless yeast blastospores to invasive pathogenic pseudohyphae/hyphae).</p>
 <h4 class="sub-heading">Comprehensive Clinical Classification</h4>
-<p class="content-para">```</p>
-<p class="content-para">ORAL CANDIDIASIS SPECTRUM</p>
-<p class="content-para">┌─────────────────────────────────┬─────────────────────────────────┐</p>
-<p class="content-para">│ PRIMARY CANDIDIASIS │ SECONDARY CANDIDIASIS │</p>
-<p class="content-para">├─────────────────────────────────┼─────────────────────────────────┤</p>
-<p class="content-para">│ 1. Pseudomembranous ("Thrush") │ • Chronic Mucocutaneous │</p>
-<p class="content-para">│ (Curd-like white plaques; │ Candidiasis (CMC) │</p>
-<p class="content-para">│ scrapes off -> raw surface) │ • Candida Endocrinopathy │</p>
-<p class="content-para">│ 2. Erythematous (Atrophic) │ Syndrome │</p>
-<p class="content-para">│ • Acute (Antibiotic sore │ │</p>
-<p class="content-para">│ mouth; diffuse red tongue) │ │</p>
-<p class="content-para">│ • Chronic (Denture stomatitis│ │</p>
-<p class="content-para">│ under maxillary denture) │ │</p>
-<p class="content-para">│ • Median Rhomboid Glossitis │ │</p>
-<p class="content-para">│ 3. Hyperplastic (Leukoplakia) │ │</p>
-<p class="content-para">│ (Firm white plaque; does NOT │ │</p>
-<p class="content-para">│ scrape off; dysplastic risk)│ │</p>
-<p class="content-para">│ 4. Candida-Associated Lesions: │ │</p>
-<p class="content-para">│ • Angular Cheilitis (Perleche│ │</p>
-<p class="content-para">│ • Linear Gingival Erythema │ │</p>
-<p class="content-para">└─────────────────────────────────┴─────────────────────────────────┘</p>
-<p class="content-para">```</p>
+<div class="clinical-flowchart-card" style="margin: 16px 0; border: 1.5px solid #c4b5fd; border-left: 5px solid #7c3aed; border-radius: 10px; background: #fdf4ff; padding: 14px 18px; break-inside: avoid; page-break-inside: avoid;"><div class="flowchart-header" style="font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #6d28d9; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M2 12h20"/></svg>CLINICAL ALGORITHM / SCHEMATIC FLOWCHART</div><pre class="flowchart-pre" style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 8pt; line-height: 1.45; overflow-x: auto; color: #1e1b4b; white-space: pre; background: transparent; border: none; padding: 0;"><code>ORAL CANDIDIASIS SPECTRUM
+ ┌─────────────────────────────────┬─────────────────────────────────┐
+ │ PRIMARY CANDIDIASIS │ SECONDARY CANDIDIASIS │
+ ├─────────────────────────────────┼─────────────────────────────────┤
+ │ 1. Pseudomembranous ("Thrush") │ • Chronic Mucocutaneous │
+ │ (Curd-like white plaques; │ Candidiasis (CMC) │
+ │ scrapes off -&gt; raw surface) │ • Candida Endocrinopathy │
+ │ 2. Erythematous (Atrophic) │ Syndrome │
+ │ • Acute (Antibiotic sore │ │
+ │ mouth; diffuse red tongue) │ │
+ │ • Chronic (Denture stomatitis│ │
+ │ under maxillary denture) │ │
+ │ • Median Rhomboid Glossitis │ │
+ │ 3. Hyperplastic (Leukoplakia) │ │
+ │ (Firm white plaque; does NOT │ │
+ │ scrape off; dysplastic risk)│ │
+ │ 4. Candida-Associated Lesions: │ │
+ │ • Angular Cheilitis (Perleche│ │
+ │ • Linear Gingival Erythema │ │
+ └─────────────────────────────────┴─────────────────────────────────┘</code></pre></div>
 <h4 class="sub-heading">Diagnostic Stains & Microscopic Findings</h4>
 <ul class="content-list">
 <li><strong>Exfoliative Cytology / PAS Stain</strong>: Periodic acid-Schiff stain demonstrates bright magenta-red branching pseudohyphae and budding blastospores infiltrating the parakeratin layer of stratified squamous epithelium.</li>
@@ -1807,22 +1739,20 @@ li {
 <p class="content-para"><strong>Etiology</strong>: Herpes Simplex Virus Type 1 (HSV-1), a double-stranded DNA enveloped neurotropic virus.</p>
 <h4 class="sub-heading">Comparison: Primary vs. Recurrent HSV-1</h4>
 <div class="table-responsive"><table class="data-table"><thead><tr><th>Feature</th><th>Primary Herpetic Gingivostomatitis</th><th>Recurrent Intraoral Herpes</th></tr></thead><tbody><tr><td><strong>Target Population</strong></td><td>Children (6 months to 5 years)</td><td>Adults / Immunocompromised</td></tr><tr><td><strong>Systemic Signs</strong></td><td>High fever, malaise, lymphadenopathy</td><td>Absent (localized tingling/prodrome)</td></tr><tr><td><strong>Mucosal Distribution</strong></td><td><strong>Both Keratinized & Non-Keratinized</strong> (diffuse)</td><td><strong>Strictly Keratinized Mucosa</strong> (Hard palate & attached gingiva)</td></tr><tr><td><strong>Gingival Involv.</strong></td><td><strong>Severe, generalized acute marginal gingivitis</strong></td><td>Absent or localized adjacent to ulcers</td></tr><tr><td><strong>Lesion Morphology</strong></td><td>Large confluent ragged erosions</td><td>Crops of tiny pinhead ulcers (1–2 mm) coalescing</td></tr><tr><td><strong>Duration</strong></td><td>10 to 14 days</td><td>7 to 10 days</td></tr></tbody></table></div>
-<p class="content-para">```</p>
-<p class="content-para">HERPES SIMPLEX VIRUS LIFE CYCLE</p>
-<p class="content-para">PRIMARY ORAL INFECTION (Gingivostomatitis)</p>
-<p class="content-para">│</p>
-<p class="content-para">▼</p>
-<p class="content-para">Retrograde Axonal Transport via Sensory Nerves</p>
-<p class="content-para">│</p>
-<p class="content-para">▼</p>
-<p class="content-para">LATENCY IN TRIGEMINAL GANGLION (Gasserian ganglion)</p>
-<p class="content-para">│</p>
-<p class="content-para">▼ (Triggers: UV radiation, stress, trauma, fever)</p>
-<p class="content-para">Anterograde Axonal Transport to Epithelial Surfaces</p>
-<p class="content-para">│</p>
-<p class="content-para">▼</p>
-<p class="content-para">RECURRENT ATTACK (Herpes Labialis / Palatal Herpes)</p>
-<p class="content-para">```</p>
+<div class="clinical-flowchart-card" style="margin: 16px 0; border: 1.5px solid #c4b5fd; border-left: 5px solid #7c3aed; border-radius: 10px; background: #fdf4ff; padding: 14px 18px; break-inside: avoid; page-break-inside: avoid;"><div class="flowchart-header" style="font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #6d28d9; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M2 12h20"/></svg>CLINICAL ALGORITHM / SCHEMATIC FLOWCHART</div><pre class="flowchart-pre" style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 8pt; line-height: 1.45; overflow-x: auto; color: #1e1b4b; white-space: pre; background: transparent; border: none; padding: 0;"><code>HERPES SIMPLEX VIRUS LIFE CYCLE
+ PRIMARY ORAL INFECTION (Gingivostomatitis)
+ │
+ ▼
+ Retrograde Axonal Transport via Sensory Nerves
+ │
+ ▼
+ LATENCY IN TRIGEMINAL GANGLION (Gasserian ganglion)
+ │
+ ▼ (Triggers: UV radiation, stress, trauma, fever)
+ Anterograde Axonal Transport to Epithelial Surfaces
+ │
+ ▼
+ RECURRENT ATTACK (Herpes Labialis / Palatal Herpes)</code></pre></div>
 <h3 class="section-title">2. Cytopathology: The Tzanck Smear Technique</h3>
 <p class="content-para"><strong>Diagnostic Protocol</strong>: Unroof an intact early vesicle, scrape the cellular floor with a sterile scalpel blade, smear onto a glass slide, fix with 95% alcohol, and stain with Giemsa, Wright, or Papanicolaou stain.</p>
 <h4 class="sub-heading">The Cytopathic Triad of Herpes Viruses (HSV & VZV)</h4>
@@ -1856,32 +1786,30 @@ li {
         
 <h3 class="section-title">1. Pemphigus Vulgaris vs. Mucous Membrane Pemphigoid: Master Distinction</h3>
 <h4 class="sub-heading">Pathological & Immunological Comparison</h4>
-<p class="content-para">```</p>
-<p class="content-para">PEMPHIGUS VULGARIS MUCOUS MEMBRANE PEMPHIGOID</p>
-<p class="content-para">┌──────────────────────────────────────────────┬──────────────────────────────────────────────┐</p>
-<p class="content-para">│ 1. TARGET ANTIGEN: Desmoglein 3 & 1 │ 1. TARGET ANTIGEN: BP180, BP230, Laminin 332 │</p>
-<p class="content-para">│ (Desmosomal cadherins) │ (Hemidesmosomes / Basement membrane zone) │</p>
-<p class="content-para">│ │ │</p>
-<p class="content-para">│ 2. LEVEL OF SPLIT: Intraepithelial │ 2. LEVEL OF SPLIT: Subepithelial │</p>
-<p class="content-para">│ (SUPRABASAL CLEAVAGE) │ (Full-thickness epithelial detachment) │</p>
-<p class="content-para">│ │ │</p>
-<p class="content-para">│ 3. BULLA TYPE: Flaccid, extremely fragile, │ 3. BULLA TYPE: Tense, durable, persists for │</p>
-<p class="content-para">│ ruptures instantly -> ragged erosions │ hours/days before rupturing │</p>
-<p class="content-para">│ │ │</p>
-<p class="content-para">│ 4. HISTOLOGY: │ 4. HISTOLOGY: │</p>
-<p class="content-para">│ • Suprabasal cleft │ • Subepithelial separation from dermis │</p>
-<p class="content-para">│ • Acantholytic Tzanck Cells │ • Intact full-thickness epithelial roof │</p>
-<p class="content-para">│ • "Row of Tombstones" on basement memb. │ • Mixed dense inflammatory infiltrate │</p>
-<p class="content-para">│ │ │</p>
-<p class="content-para">│ 5. DIRECT IMMUNOFLUORESCENCE (DIF): │ 5. DIRECT IMMUNOFLUORESCENCE (DIF): │</p>
-<p class="content-para">│ • Intercellular <strong>"FISHNET" / "CHICKEN- │ • Smooth, unbroken </strong>LINEAR BAND** of │</p>
-<p class="content-para">│ WIRE"** deposition of IgG & C3 │ IgG & C3 along the Basement Membrane │</p>
-<p class="content-para">│ │ │</p>
-<p class="content-para">│ 6. NIKOLSKY SIGN: Positive │ 6. NIKOLSKY SIGN: Positive │</p>
-<p class="content-para">│ 7. COMPLICATIONS: Fatal fluid loss/infection │ 7. COMPLICATIONS: Ocular <strong>Symblepharon</strong>, │</p>
-<p class="content-para">│ without systemic corticosteroids │ entropion, trichiasis, and blindness │</p>
-<p class="content-para">└──────────────────────────────────────────────┴──────────────────────────────────────────────┘</p>
-<p class="content-para">```</p>
+<div class="clinical-flowchart-card" style="margin: 16px 0; border: 1.5px solid #c4b5fd; border-left: 5px solid #7c3aed; border-radius: 10px; background: #fdf4ff; padding: 14px 18px; break-inside: avoid; page-break-inside: avoid;"><div class="flowchart-header" style="font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #6d28d9; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M2 12h20"/></svg>CLINICAL ALGORITHM / SCHEMATIC FLOWCHART</div><pre class="flowchart-pre" style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 8pt; line-height: 1.45; overflow-x: auto; color: #1e1b4b; white-space: pre; background: transparent; border: none; padding: 0;"><code>PEMPHIGUS VULGARIS MUCOUS MEMBRANE PEMPHIGOID
+ ┌──────────────────────────────────────────────┬──────────────────────────────────────────────┐
+ │ 1. TARGET ANTIGEN: Desmoglein 3 &amp; 1 │ 1. TARGET ANTIGEN: BP180, BP230, Laminin 332 │
+ │ (Desmosomal cadherins) │ (Hemidesmosomes / Basement membrane zone) │
+ │ │ │
+ │ 2. LEVEL OF SPLIT: Intraepithelial │ 2. LEVEL OF SPLIT: Subepithelial │
+ │ (SUPRABASAL CLEAVAGE) │ (Full-thickness epithelial detachment) │
+ │ │ │
+ │ 3. BULLA TYPE: Flaccid, extremely fragile, │ 3. BULLA TYPE: Tense, durable, persists for │
+ │ ruptures instantly -&gt; ragged erosions │ hours/days before rupturing │
+ │ │ │
+ │ 4. HISTOLOGY: │ 4. HISTOLOGY: │
+ │ • Suprabasal cleft │ • Subepithelial separation from dermis │
+ │ • Acantholytic Tzanck Cells │ • Intact full-thickness epithelial roof │
+ │ • "Row of Tombstones" on basement memb. │ • Mixed dense inflammatory infiltrate │
+ │ │ │
+ │ 5. DIRECT IMMUNOFLUORESCENCE (DIF): │ 5. DIRECT IMMUNOFLUORESCENCE (DIF): │
+ │ • Intercellular **"FISHNET" / "CHICKEN- │ • Smooth, unbroken **LINEAR BAND** of │
+ │ WIRE"** deposition of IgG &amp; C3 │ IgG &amp; C3 along the Basement Membrane │
+ │ │ │
+ │ 6. NIKOLSKY SIGN: Positive │ 6. NIKOLSKY SIGN: Positive │
+ │ 7. COMPLICATIONS: Fatal fluid loss/infection │ 7. COMPLICATIONS: Ocular **Symblepharon**, │
+ │ without systemic corticosteroids │ entropion, trichiasis, and blindness │
+ └──────────────────────────────────────────────┴──────────────────────────────────────────────┘</code></pre></div>
 <h3 class="section-title">2. Clinical Examination: The Nikolsky Sign</h3>
 <p class="content-para"><strong>Definition</strong>: A clinical test indicating loss of epithelial cohesion (acantholysis or basement membrane uncoupling).</p>
 <h4 class="sub-heading">Technique & Interpretation</h4>
@@ -1939,20 +1867,18 @@ li {
 <li><strong>Radiograph</strong>: Ground-glass, orange-peel (peau d'orange), or fingerprint appearance with poorly defined, smoky borders that <strong>blend imperceptibly</strong> into normal surrounding bone (no corticated rim).</li>
 </ul>
 <h4 class="sub-heading">The "Chinese Character" Histological Pattern</h4>
-<p class="content-para">```</p>
-<p class="content-para">HISTOPATHOLOGY OF FIBROUS DYSPLASIA</p>
-<p class="content-para">┌────────────────────────────────────────────────────────────────────────┐</p>
-<p class="content-para">│ • Moderately cellular, uniform fibrous stroma composed of benign │</p>
-<p class="content-para">│ spindle-shaped fibroblasts arranged in whorls or bundles. │</p>
-<p class="content-para">│ • Trabeculae of immature <strong>Woven Bone</strong> shaped like curvilinear │</p>
-<p class="content-para">│ C-shapes, V-shapes, and fishhooks (<strong>Chinese Character Pattern</strong>). │</p>
-<p class="content-para">│ • <strong>ABSENCE OF OSTEOBLASTIC RIMMING</strong>: The bony trabeculae arise │</p>
-<p class="content-para">│ directly from the fibrous stroma via metaplasia, without a neat │</p>
-<p class="content-para">│ single-file border of osteoblasts along their margins. │</p>
-<p class="content-para">│ • Polarized light microscopy confirms the woven (non-lamellar) │</p>
-<p class="content-para">│ nature of the trabeculae. │</p>
-<p class="content-para">└────────────────────────────────────────────────────────────────────────┘</p>
-<p class="content-para">```</p>
+<div class="clinical-flowchart-card" style="margin: 16px 0; border: 1.5px solid #c4b5fd; border-left: 5px solid #7c3aed; border-radius: 10px; background: #fdf4ff; padding: 14px 18px; break-inside: avoid; page-break-inside: avoid;"><div class="flowchart-header" style="font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #6d28d9; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M2 12h20"/></svg>CLINICAL ALGORITHM / SCHEMATIC FLOWCHART</div><pre class="flowchart-pre" style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 8pt; line-height: 1.45; overflow-x: auto; color: #1e1b4b; white-space: pre; background: transparent; border: none; padding: 0;"><code>HISTOPATHOLOGY OF FIBROUS DYSPLASIA
+ ┌────────────────────────────────────────────────────────────────────────┐
+ │ • Moderately cellular, uniform fibrous stroma composed of benign │
+ │ spindle-shaped fibroblasts arranged in whorls or bundles. │
+ │ • Trabeculae of immature **Woven Bone** shaped like curvilinear │
+ │ C-shapes, V-shapes, and fishhooks (**Chinese Character Pattern**). │
+ │ • **ABSENCE OF OSTEOBLASTIC RIMMING**: The bony trabeculae arise │
+ │ directly from the fibrous stroma via metaplasia, without a neat │
+ │ single-file border of osteoblasts along their margins. │
+ │ • Polarized light microscopy confirms the woven (non-lamellar) │
+ │ nature of the trabeculae. │
+ └────────────────────────────────────────────────────────────────────────┘</code></pre></div>
 <h3 class="section-title">2. Paget's Disease of Bone (Osteitis Deformans)</h3>
 <p class="content-para"><strong>Definition</strong>: A chronic, progressive metabolic disorder of bone remodeling characterized by excessive bone resorption followed by disorganized, excessive bone formation, resulting in structurally weak, expanded, highly vascularized bones.</p>
 <h4 class="sub-heading">Clinical Features & Dental Manifestations</h4>
@@ -1963,29 +1889,21 @@ li {
 <li><strong>Neurological Signs</strong>: Narrowing of cranial foramina causes cranial nerve compression (blindness, hearing loss, trigeminal neuralgia).</li>
 </ul>
 <h4 class="sub-heading">The Three Radiographic & Histological Phases</h4>
-<p class="content-para">```</p>
-<p class="content-para">PAGET'S DISEASE TRIPHASIC CYCLE</p>
-<ol class="content-list-ordered" start="1">
-<li value="1">INITIAL OSTEOLYTIC PHASE</li>
-</ol>
-<p class="content-para">• Massive osteoclastic resorption; bone replaced by vascular fibrous tissue.</p>
-<p class="content-para">• Radiograph: Large radiolucent areas (Osteoporosis circumscripta).</p>
-<p class="content-para">│</p>
-<p class="content-para">▼</p>
-<ol class="content-list-ordered" start="2">
-<li value="2">MIXED PHASE</li>
-</ol>
-<p class="content-para">• Vigorous osteoblastic bone formation attempts to repair resorption.</p>
-<p class="content-para">• Radiograph: Irregular radio-opacities emerging within radiolucencies.</p>
-<p class="content-para">│</p>
-<p class="content-para">▼</p>
-<ol class="content-list-ordered" start="3">
-<li value="3">FINAL OSTEOBLASTIC / SCLEROTIC PHASE</li>
-</ol>
-<p class="content-para">• Dense, disordered bone deposition; vascularity decreases.</p>
-<p class="content-para">• Radiograph: Classic <strong>"COTTON-WOOL" APPEARANCE</strong> (dense sclerotic clumps).</p>
-<p class="content-para">• Teeth show striking generalized <strong>HYPERCEMENTOSIS</strong> and loss of lamina dura.</p>
-<p class="content-para">```</p>
+<div class="clinical-flowchart-card" style="margin: 16px 0; border: 1.5px solid #c4b5fd; border-left: 5px solid #7c3aed; border-radius: 10px; background: #fdf4ff; padding: 14px 18px; break-inside: avoid; page-break-inside: avoid;"><div class="flowchart-header" style="font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #6d28d9; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M2 12h20"/></svg>CLINICAL ALGORITHM / SCHEMATIC FLOWCHART</div><pre class="flowchart-pre" style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 8pt; line-height: 1.45; overflow-x: auto; color: #1e1b4b; white-space: pre; background: transparent; border: none; padding: 0;"><code>PAGET'S DISEASE TRIPHASIC CYCLE
+ 1. INITIAL OSTEOLYTIC PHASE
+ • Massive osteoclastic resorption; bone replaced by vascular fibrous tissue.
+ • Radiograph: Large radiolucent areas (Osteoporosis circumscripta).
+ │
+ ▼
+ 2. MIXED PHASE
+ • Vigorous osteoblastic bone formation attempts to repair resorption.
+ • Radiograph: Irregular radio-opacities emerging within radiolucencies.
+ │
+ ▼
+ 3. FINAL OSTEOBLASTIC / SCLEROTIC PHASE
+ • Dense, disordered bone deposition; vascularity decreases.
+ • Radiograph: Classic **"COTTON-WOOL" APPEARANCE** (dense sclerotic clumps).
+ • Teeth show striking generalized **HYPERCEMENTOSIS** and loss of lamina dura.</code></pre></div>
 <h4 class="sub-heading">The Mosaic (Jigsaw Puzzle) Pattern</h4>
 <ul class="content-list">
 <li>Histology reveals thick trabeculae of lamellar bone traversed by numerous deeply basophilic, scalloped, irregular <strong>Reversal Lines</strong>.</li>
@@ -2055,66 +1973,62 @@ li {
 <li value="2"><strong>Age Estimation</strong>: Pediatric (dental eruption, Schour & Massler chart, Demirjian's method) and Adult age estimation (Gustafson's, Johanson's, Kvaal's methods).</li>
 <li value="3"><strong>Bite Mark Analysis & Medicolegal Assessment</strong>: Evaluation of physical assault, child abuse, elder abuse, and sexual offenses.</li>
 </ol>
-<p class="content-para">```</p>
-<p class="content-para">POST-MORTEM DENTAL IDENTIFICATION CYCLE</p>
-<p class="content-para">│</p>
-<p class="content-para">ANTE-MORTEM (AM) RECORDS POST-MORTEM (PM) AUTOPSY</p>
-<p class="content-para">• Dental charts / Odontograms • Post-mortem jaw resection / flap</p>
-<p class="content-para">• Radiographs (IOPA, OPG) • Specialized dental photography</p>
-<p class="content-para">• Casts, photographs, implants • Post-mortem radiographs</p>
-<p class="content-para">│ │</p>
-<p class="content-para">└───────────────┬───────────────┘</p>
-<p class="content-para">│</p>
-<p class="content-para">▼</p>
-<p class="content-para">COMPARATIVE MATCHING</p>
-<p class="content-para">│</p>
-<p class="content-para">┌────────────────────────────┼────────────────────────────┐</p>
-<p class="content-para">▼ ▼ ▼</p>
-<p class="content-para">POSITIVE IDENTIFICATION POSSIBLE MATCH EXCLUSION</p>
-<p class="content-para">Absolute consistency across Consistent features Inconsistent dental</p>
-<p class="content-para">restorations, root morphology present; no contradictions restoration / anatomy</p>
-<p class="content-para">and missing teeth; no but incomplete records (e.g., tooth present PM</p>
-<p class="content-para">unexplainable differences that was extracted AM)</p>
-<p class="content-para">```</p>
+<div class="clinical-flowchart-card" style="margin: 16px 0; border: 1.5px solid #c4b5fd; border-left: 5px solid #7c3aed; border-radius: 10px; background: #fdf4ff; padding: 14px 18px; break-inside: avoid; page-break-inside: avoid;"><div class="flowchart-header" style="font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #6d28d9; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M2 12h20"/></svg>CLINICAL ALGORITHM / SCHEMATIC FLOWCHART</div><pre class="flowchart-pre" style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 8pt; line-height: 1.45; overflow-x: auto; color: #1e1b4b; white-space: pre; background: transparent; border: none; padding: 0;"><code>POST-MORTEM DENTAL IDENTIFICATION CYCLE
+ │
+ ANTE-MORTEM (AM) RECORDS POST-MORTEM (PM) AUTOPSY
+ • Dental charts / Odontograms • Post-mortem jaw resection / flap
+ • Radiographs (IOPA, OPG) • Specialized dental photography
+ • Casts, photographs, implants • Post-mortem radiographs
+ │ │
+ └───────────────┬───────────────┘
+ │
+ ▼
+ COMPARATIVE MATCHING
+ │
+ ┌────────────────────────────┼────────────────────────────┐
+ ▼ ▼ ▼
+ POSITIVE IDENTIFICATION POSSIBLE MATCH EXCLUSION
+ Absolute consistency across Consistent features Inconsistent dental
+ restorations, root morphology present; no contradictions restoration / anatomy
+ and missing teeth; no but incomplete records (e.g., tooth present PM
+ unexplainable differences that was extracted AM)</code></pre></div>
 <h3 class="section-title">2. Gustafson's Method of Age Estimation</h3>
 <p class="content-para">Introduced by Gösta Gustafson in 1950; utilizes longitudinal ground sections (~1 mm thickness) of single-rooted human teeth to evaluate 6 age-associated regressive dental changes.</p>
 <h4 class="sub-heading">The Six Dental Age Parameters (Scored 0, 1, 2, or 3)</h4>
-<p class="content-para">```</p>
-<p class="content-para">┌───────────────┬────────────────────────────┬─────────────────────────────┐</p>
-<p class="content-para">│ CRITERION │ PARAMETER │ PHYSIOLOGICAL BASIS │</p>
-<p class="content-para">├───────────────┼────────────────────────────┼─────────────────────────────┤</p>
-<p class="content-para">│ Attrition (A) │ A0: No wear │ Masticatory wear of enamel │</p>
-<p class="content-para">│ │ A1: Enamel wear only │ and dentin with aging │</p>
-<p class="content-para">│ │ A2: Dentin exposed │ │</p>
-<p class="content-para">│ │ A3: Pulp exposed │ │</p>
-<p class="content-para">├───────────────┼────────────────────────────┼─────────────────────────────┤</p>
-<p class="content-para">│ Periodontitis │ P0: No attachment loss │ Age-related apical migration│</p>
-<p class="content-para">│ (P) │ P1: Early attachment loss │ of the epithelial attachment│</p>
-<p class="content-para">│ │ P2: Loss along 1/3 of root │ and alveolar bone loss │</p>
-<p class="content-para">│ │ P3: Loss along > 2/3 of root│ │</p>
-<p class="content-para">├───────────────┼────────────────────────────┼─────────────────────────────┤</p>
-<p class="content-para">│ Secondary │ S0: Normal pulp chamber │ Continuous centrifugal │</p>
-<p class="content-para">│ Dentin (S) │ S1: Slightly reduced pulp │ deposition of secondary │</p>
-<p class="content-para">│ │ S2: Moderately reduced pulp│ dentin reducing pulp volume │</p>
-<p class="content-para">│ │ S3: Pulp virtually closed │ │</p>
-<p class="content-para">├───────────────┼────────────────────────────┼─────────────────────────────┤</p>
-<p class="content-para">│ Cementum │ C0: Normal cementum layer │ Continuous apposition of │</p>
-<p class="content-para">│ Apposition (C)│ C1: Slightly thickened │ hypercementosis around the │</p>
-<p class="content-para">│ │ C2: Marked cementum layers │ apex of the root │</p>
-<p class="content-para">│ │ C3: Massive hypercementosis│ │</p>
-<p class="content-para">├───────────────┼────────────────────────────┼─────────────────────────────┤</p>
-<p class="content-para">│ Root │ R0: No resorption │ Cementoclasia and root │</p>
-<p class="content-para">│ Resorption (R)│ R1: Isolated microscopic │ dentin surface resorption │</p>
-<p class="content-para">│ │ R2: Deeper resorption bays │ │</p>
-<p class="content-para">│ │ R3: Extensive resorption │ │</p>
-<p class="content-para">├───────────────┼────────────────────────────┼─────────────────────────────┤</p>
-<p class="content-para">│ Root Dentin │ T0: No transparency │ Obliteration of dentinal │</p>
-<p class="content-para">│ Transparency │ T1: Apical root transparent│ tubules by hydroxyapatite; │</p>
-<p class="content-para">│ (T) │ T2: Middle third involved │ <strong>Highest correlation</strong> with│</p>
-<p class="content-para">│ │ T3: > 2/3 of root rendered │ chronological age! │</p>
-<p class="content-para">│ │ completely transparent │ │</p>
-<p class="content-para">└───────────────┴────────────────────────────┴─────────────────────────────┘</p>
-<p class="content-para">```</p>
+<div class="clinical-flowchart-card" style="margin: 16px 0; border: 1.5px solid #c4b5fd; border-left: 5px solid #7c3aed; border-radius: 10px; background: #fdf4ff; padding: 14px 18px; break-inside: avoid; page-break-inside: avoid;"><div class="flowchart-header" style="font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #6d28d9; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M2 12h20"/></svg>CLINICAL ALGORITHM / SCHEMATIC FLOWCHART</div><pre class="flowchart-pre" style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 8pt; line-height: 1.45; overflow-x: auto; color: #1e1b4b; white-space: pre; background: transparent; border: none; padding: 0;"><code>┌───────────────┬────────────────────────────┬─────────────────────────────┐
+ │ CRITERION │ PARAMETER │ PHYSIOLOGICAL BASIS │
+ ├───────────────┼────────────────────────────┼─────────────────────────────┤
+ │ Attrition (A) │ A0: No wear │ Masticatory wear of enamel │
+ │ │ A1: Enamel wear only │ and dentin with aging │
+ │ │ A2: Dentin exposed │ │
+ │ │ A3: Pulp exposed │ │
+ ├───────────────┼────────────────────────────┼─────────────────────────────┤
+ │ Periodontitis │ P0: No attachment loss │ Age-related apical migration│
+ │ (P) │ P1: Early attachment loss │ of the epithelial attachment│
+ │ │ P2: Loss along 1/3 of root │ and alveolar bone loss │
+ │ │ P3: Loss along &gt; 2/3 of root│ │
+ ├───────────────┼────────────────────────────┼─────────────────────────────┤
+ │ Secondary │ S0: Normal pulp chamber │ Continuous centrifugal │
+ │ Dentin (S) │ S1: Slightly reduced pulp │ deposition of secondary │
+ │ │ S2: Moderately reduced pulp│ dentin reducing pulp volume │
+ │ │ S3: Pulp virtually closed │ │
+ ├───────────────┼────────────────────────────┼─────────────────────────────┤
+ │ Cementum │ C0: Normal cementum layer │ Continuous apposition of │
+ │ Apposition (C)│ C1: Slightly thickened │ hypercementosis around the │
+ │ │ C2: Marked cementum layers │ apex of the root │
+ │ │ C3: Massive hypercementosis│ │
+ ├───────────────┼────────────────────────────┼─────────────────────────────┤
+ │ Root │ R0: No resorption │ Cementoclasia and root │
+ │ Resorption (R)│ R1: Isolated microscopic │ dentin surface resorption │
+ │ │ R2: Deeper resorption bays │ │
+ │ │ R3: Extensive resorption │ │
+ ├───────────────┼────────────────────────────┼─────────────────────────────┤
+ │ Root Dentin │ T0: No transparency │ Obliteration of dentinal │
+ │ Transparency │ T1: Apical root transparent│ tubules by hydroxyapatite; │
+ │ (T) │ T2: Middle third involved │ **Highest correlation** with│
+ │ │ T3: &gt; 2/3 of root rendered │ chronological age! │
+ │ │ completely transparent │ │
+ └───────────────┴────────────────────────────┴─────────────────────────────┘</code></pre></div>
 <h4 class="sub-heading">The Formula & Calculation</h4>
 <p class="content-para">ext{Total Score } (X) = A + P + S + C + R + T</p>
 <p class="content-para">\mathbf{	ext{Estimated Age}} = 11.43 + (4.56 imes X)</p>
@@ -2130,25 +2044,23 @@ li {
 <li><strong>Permanent & Unchanging</strong>: The pattern is established by the 6th week of intrauterine life and remains unchanged throughout adulthood.</li>
 </ul>
 <h4 class="sub-heading">Suzuki & Tsuchihashi Groove Classification (1970)</h4>
-<p class="content-para">```</p>
-<p class="content-para">SUZUKI & TSUCHIHASHI LIP PRINT TYPES</p>
-<p class="content-para">┌──────────┬─────────────────────────────┬────────────────────────────────┐</p>
-<p class="content-para">│ TYPE │ DESIGNATION │ VISUAL DESCRIPTION │</p>
-<p class="content-para">├──────────┼─────────────────────────────┼────────────────────────────────┤</p>
-<p class="content-para">│ Type I │ Complete Vertical │ Clear straight vertical grooves│</p>
-<p class="content-para">│ │ │ running across entire lip │</p>
-<p class="content-para">│ Type I' │ Incomplete Vertical │ Partial vertical grooves │</p>
-<p class="content-para">│ │ │ not spanning full lip height │</p>
-<p class="content-para">│ Type II │ Branched / Bifurcated │ Grooves fork or branch into a │</p>
-<p class="content-para">│ │ │ "Y-shape" │</p>
-<p class="content-para">│ Type III │ Intersected │ Grooves cross each other in an │</p>
-<p class="content-para">│ │ │ "X-pattern" │</p>
-<p class="content-para">│ Type IV │ Reticular │ Multiple intersecting grooves │</p>
-<p class="content-para">│ │ │ forming a net or meshwork │</p>
-<p class="content-para">│ Type V │ Undetermined / Irregular │ Grooves that cannot be placed │</p>
-<p class="content-para">│ │ │ into Types I to IV │</p>
-<p class="content-para">└──────────┴─────────────────────────────┴────────────────────────────────┘</p>
-<p class="content-para">```</p>
+<div class="clinical-flowchart-card" style="margin: 16px 0; border: 1.5px solid #c4b5fd; border-left: 5px solid #7c3aed; border-radius: 10px; background: #fdf4ff; padding: 14px 18px; break-inside: avoid; page-break-inside: avoid;"><div class="flowchart-header" style="font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #6d28d9; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M2 12h20"/></svg>CLINICAL ALGORITHM / SCHEMATIC FLOWCHART</div><pre class="flowchart-pre" style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 8pt; line-height: 1.45; overflow-x: auto; color: #1e1b4b; white-space: pre; background: transparent; border: none; padding: 0;"><code>SUZUKI &amp; TSUCHIHASHI LIP PRINT TYPES
+ ┌──────────┬─────────────────────────────┬────────────────────────────────┐
+ │ TYPE │ DESIGNATION │ VISUAL DESCRIPTION │
+ ├──────────┼─────────────────────────────┼────────────────────────────────┤
+ │ Type I │ Complete Vertical │ Clear straight vertical grooves│
+ │ │ │ running across entire lip │
+ │ Type I' │ Incomplete Vertical │ Partial vertical grooves │
+ │ │ │ not spanning full lip height │
+ │ Type II │ Branched / Bifurcated │ Grooves fork or branch into a │
+ │ │ │ "Y-shape" │
+ │ Type III │ Intersected │ Grooves cross each other in an │
+ │ │ │ "X-pattern" │
+ │ Type IV │ Reticular │ Multiple intersecting grooves │
+ │ │ │ forming a net or meshwork │
+ │ Type V │ Undetermined / Irregular │ Grooves that cannot be placed │
+ │ │ │ into Types I to IV │
+ └──────────┴─────────────────────────────┴────────────────────────────────┘</code></pre></div>
 <h3 class="section-title">4. Palatal Rugoscopy & Bite Mark Analysis</h3>
 <h4 class="sub-heading">Palatal Rugoscopy</h4>
 <ul class="content-list">
@@ -2160,20 +2072,16 @@ li {
 <li><em>Fragmentary Rugae</em>: Length < 3	ext{ mm}.</li>
 </ul>
 <h4 class="sub-heading">Bite Mark Analysis Protocol (ABFO Guidelines)</h4>
-<p class="content-para">```</p>
-<p class="content-para">BITE MARK INVESTIGATION PROTOCOL</p>
-<p class="content-para">│</p>
-<p class="content-para">┌─────────────────────────────────┼─────────────────────────────────┐</p>
-<p class="content-para">▼ ▼ ▼</p>
-<p class="content-para">SALIVARY DNA SWABBING METRIC PHOTOGRAPHY DENTAL CAST COMPARISON</p>
-<p class="content-para">• Double-swab technique: • Camera strictly perpendicular • Impressions of suspect's</p>
-<ol class="content-list-ordered" start="1">
-<li value="1">Wet swab (sterile saline) to surface (zero distortion) dentition in polyvinyl</li>
-<li value="2">Dry swab to collect • Include <strong>ABFO No. 2 Scale</strong> siloxane</li>
-</ol>
-<p class="content-para">residual epithelial cells in every forensic frame • Fabricate stone models</p>
-<p class="content-para">• Recovers amylase and suspect • Ultraviolet & alternate light • Transparent acetate sheet</p>
-<p class="content-para">nuclear / mitochondrial DNA source (ALS) photography overlays or 3D digital scans</p>
-<p class="content-para">```</p>
+<div class="clinical-flowchart-card" style="margin: 16px 0; border: 1.5px solid #c4b5fd; border-left: 5px solid #7c3aed; border-radius: 10px; background: #fdf4ff; padding: 14px 18px; break-inside: avoid; page-break-inside: avoid;"><div class="flowchart-header" style="font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #6d28d9; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M2 12h20"/></svg>CLINICAL ALGORITHM / SCHEMATIC FLOWCHART</div><pre class="flowchart-pre" style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 8pt; line-height: 1.45; overflow-x: auto; color: #1e1b4b; white-space: pre; background: transparent; border: none; padding: 0;"><code>BITE MARK INVESTIGATION PROTOCOL
+ │
+ ┌─────────────────────────────────┼─────────────────────────────────┐
+ ▼ ▼ ▼
+SALIVARY DNA SWABBING METRIC PHOTOGRAPHY DENTAL CAST COMPARISON
+• Double-swab technique: • Camera strictly perpendicular • Impressions of suspect's
+ 1. Wet swab (sterile saline) to surface (zero distortion) dentition in polyvinyl
+ 2. Dry swab to collect • Include **ABFO No. 2 Scale** siloxane
+ residual epithelial cells in every forensic frame • Fabricate stone models
+• Recovers amylase and suspect • Ultraviolet &amp; alternate light • Transparent acetate sheet
+ nuclear / mitochondrial DNA source (ALS) photography overlays or 3D digital scans</code></pre></div>
 </div>
 </body></html>

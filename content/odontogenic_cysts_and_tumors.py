@@ -92,17 +92,10 @@ Under high-power microscopy, diagnostic ameloblastic epithelium exhibits:
 4. **Hyperchromatic, Elongated Nuclei**.
 5. **Central Core of Stellate Reticulum-like Cells**: Loosely arranged, star-shaped cells with cytoplasmic processes anastomosing across intercellular fluid spaces.
 
-```
-       ┌────────────────────────────────────────────────────────┐
-       │     PERIPHERAL TALL COLUMNAR AMELOBLAST-LIKE CELLS      │
-       │  • Palisaded nuclei (Reversed polarity away from BM)   │
-       │  • Subnuclear clear vacuoles                           │
-       ├────────────────────────────────────────────────────────┤
-       │            CENTRAL STELLATE RETICULUM                  │
-       │  • Star-shaped cells with loose intercellular bridges  │
-       │  • Prone to microcystic degeneration & cyst formation  │
-       └────────────────────────────────────────────────────────┘
-```
+| Architectural Zone | Diagnostic Histological Features (The Vickers-Gorlin Sign) |
+| :--- | :--- |
+| **Peripheral Layer: Tall Columnar Cells** | • Palisaded basal nuclei arranged in a picket-fence pattern<br>• **Reversed nuclear polarity** (nuclei polarized away from basement membrane toward cell center)<br>• Subnuclear clear cytoplasmic vacuolization<br>• Hyperchromatic, elongated columnar nuclei |
+| **Central Core: Stellate Reticulum-like Network** | • Star-shaped anastomosing cells with loose intercellular cytoplasmic bridges<br>• Fluid-filled intercellular spaces closely mimicking the dental enamel organ<br>• High propensity for liquefactive microcystic degeneration<br>• May exhibit squamous metaplasia (Acanthomatous) or granular change |
 
 ### Major Histological Variants
 1. **Follicular Ameloblastoma (Most Common)**: Discrete islands and follicles of odontogenic epithelium embedded in a mature cellular fibrous stroma. Central stellate cells frequently undergo liquefactive necrosis, forming intra-follicular microcysts.

@@ -227,6 +227,13 @@ pre {{
     overflow-x: auto;
     white-space: pre-wrap;
     line-height: 1.4;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}}
+
+.clinical-flowchart-card, .formula-card, .pearl-box, .layman-box, table, tr, pre, code {{
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
 }}
 
 ul, ol {{
@@ -2672,10 +2679,12 @@ def generate_interactive_dashboard(chapters):
                         <div class="types-grid">
                             ${{cls.types.map(t => `
                                 <div class="type-card">
-                                    <span class="type-card-badge">${{t.badge}}</span>
+                                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                                        <span class="type-card-badge">${{t.badge || 'Histopathologic Criteria'}}</span>
+                                        ${{t.hemodynamics && t.hemodynamics !== 'Pathognomonic Microscopic Sign' ? `<span class="type-card-stat">${{t.hemodynamics}}</span>` : ''}}
+                                    </div>
                                     <div class="type-card-title">${{t.name}}</div>
-                                    <div class="type-card-stat">${{t.hemodynamics}}</div>
-                                    <div class="type-card-summary">${{t.summary}}</div>
+                                    <div class="type-card-summary">${{parseMarkdown(t.summary)}}</div>
                                 </div>
                             `).join('')}}
                         </div>
@@ -2852,7 +2861,13 @@ def generate_interactive_dashboard(chapters):
             }}
 
             function formatInline(str) {{
-                return str
+                let s = str;
+                const count = (s.match(/\*\*/g) || []).length;
+                if (count % 2 !== 0) {{
+                    const lastIdx = s.lastIndexOf('**');
+                    s = s.substring(0, lastIdx) + s.substring(lastIdx + 2);
+                }}
+                return s
                     .replace(/\*\*(.*?)\*\*/g, '<strong style="color:var(--text-primary); font-weight:700;">$1</strong>')
                     .replace(/(?<!\*)\*([^*]+?)\*(?!\*)/g, '<em>$1</em>')
                     .replace(/`([^`]+)`/g, '<code class="inline-code">$1</code>')
@@ -2991,6 +3006,11 @@ def generate_interactive_dashboard(chapters):
             else completedTopics[chId] = true;
             localStorage.setItem('oral_pathology_completed_topics', JSON.stringify(completedTopics));
             renderSidebar();
+            if (currentChapterIdx === -1) {{
+                renderDashboard();
+            }} else {{
+                renderChapterView();
+            }}
         }}
 
         function onSearchInput() {{
@@ -3185,6 +3205,7 @@ def main():
             "--headless",
             "--disable-gpu",
             "--run-all-compositor-stages-before-draw",
+            "--no-pdf-header-footer",
             f"--print-to-pdf={pdf_path}",
             f"file:///{print_html_path.replace(os.sep, '/')}"
         ]

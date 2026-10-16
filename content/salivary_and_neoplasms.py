@@ -645,33 +645,12 @@ HABIT CESSATION                 MEDICAL THERAPY                 SURGICAL / SURGE
                 "title": "3. Broders Histopathological Grading of OSCC",
                 "content": """Introduced by Albert Compton Broders in 1920; classifies OSCC into 4 grades based on the percentage of differentiated keratinizing cells versus undifferentiated, atypical cells.
 
-```
-                         BRODERS HISTOLOGICAL GRADES
-  ┌─────────┬──────────────────────┬───────────────────────────────────────────┐
-  │ GRADE   │ DIFFERENTIATION      │ MICROSCOPIC FEATURES                      │
-  ├─────────┼──────────────────────┼───────────────────────────────────────────┤
-  │ Grade 1 │ Well-Differentiated  │ • 75% to 100% differentiated cells        │
-  │         │                      │ • Abundant **Keratin Pearls** (Epithelial │
-  │         │                      │   pearls with concentric rings of keratin)│
-  │         │                      │ • Distinct intercellular prickles/bridges │
-  │         │                      │ • Minimal nuclear pleomorphism; rare mitosis│
-  ├─────────┼──────────────────────┼───────────────────────────────────────────┤
-  │ Grade 2 │ Moderately Diff.     │ • 50% to 75% differentiated cells         │
-  │         │                      │ • Immature keratin pearls; single cell    │
-  │         │                      │   dyskeratosis                            │
-  │         │                      │ • Moderate nuclear atypia; atypical mitoses│
-  ├─────────┼──────────────────────┼───────────────────────────────────────────┤
-  │ Grade 3 │ Poorly Differentiated│ • 25% to 50% differentiated cells         │
-  │         │                      │ • Keratin pearls are virtually ABSENT     │
-  │         │                      │ • Predominance of sheets of atypical cells│
-  │         │                      │ • Marked pleomorphism; abundant mitoses   │
-  ├─────────┼──────────────────────┼───────────────────────────────────────────┤
-  │ Grade 4 │ Anaplastic / Undiff. │ • 0% to 25% differentiated cells          │
-  │         │                      │ • Total loss of squamous features         │
-  │         │                      │ • Multinucleated bizarre giant tumor cells│
-  │         │                      │ • Resembles sarcoma or lymphoma           │
-  └─────────┴──────────────────────┴───────────────────────────────────────────┘
-```"""
+| Grade | Degree of Differentiation | Key Microscopic Features & Cellular Hallmarks |
+| :--- | :--- | :--- |
+| **Grade 1** | Well-Differentiated (75%–100% differentiated cells) | • Abundant **Keratin Pearls** (Epithelial pearls with concentric lamellar rings of keratin)<br>• Distinct intercellular bridges / prickles intact<br>• Minimal nuclear pleomorphism; rare, normal basal mitoses |
+| **Grade 2** | Moderately Differentiated (50%–75% differentiated cells) | • Immature, abortive keratin pearls; prominent single-cell dyskeratosis<br>• Less obvious intercellular bridges<br>• Moderate nuclear pleomorphism; frequent normal and atypical mitoses |
+| **Grade 3** | Poorly Differentiated (25%–50% differentiated cells) | • Keratin pearls are virtually **absent**; minimal individual cell keratinization<br>• Predominance of sheets, nests, and cords of highly atypical cells<br>• Marked nuclear-cytoplasmic pleomorphism; abundant bizarre mitoses |
+| **Grade 4** | Anaplastic / Undifferentiated (0%–25% differentiated cells) | • Complete loss of squamous characteristics; no keratinization or bridges<br>• Multinucleated, highly bizarre, gigantiform tumor cells<br>• Resembles sarcoma, melanoma, or lymphoma; requires IHC (Cytokeratin AE1/AE3) |"""
             },
             {
                 "title": "4. AJCC 8th Edition TNM Staging System (Incorporating DOI & ENE)",

@@ -167,6 +167,49 @@ def parse_markdown_to_html(md_text: str) -> str:
         return ""
     
     text = clean_latex(md_text.strip())
+
+    # Pre-process and protect code blocks (``` ... ```)
+    code_blocks = {}
+    def save_code_block(match):
+        raw_code = match.group(1).strip()
+        esc = raw_code.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+        key = f"__CODE_BLOCK_{len(code_blocks)}__"
+        card = (
+            '<div class="clinical-flowchart-card" style="margin: 16px 0; border: 1.5px solid #c4b5fd; '
+            'border-left: 5px solid #7c3aed; border-radius: 10px; background: #fdf4ff; '
+            'padding: 14px 18px; break-inside: avoid; page-break-inside: avoid;">'
+            '<div class="flowchart-header" style="font-size: 8pt; font-weight: 700; text-transform: uppercase; '
+            'letter-spacing: 1.2px; color: #6d28d9; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">'
+            '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M2 12h20"/></svg>'
+            'CLINICAL ALGORITHM / SCHEMATIC FLOWCHART</div>'
+            f'<pre class="flowchart-pre" style="margin: 0; font-family: \'JetBrains Mono\', monospace; font-size: 8pt; '
+            f'line-height: 1.45; overflow-x: auto; color: #1e1b4b; white-space: pre; background: transparent; border: none; padding: 0;"><code>{esc}</code></pre>'
+            '</div>'
+        )
+        code_blocks[key] = card
+        return f"\n\n{key}\n\n"
+
+    text = re.sub(r'```(?:[a-zA-Z0-9_\-]+)?\n?([\s\S]*?)```', save_code_block, text)
+
+    # Pre-process formulas ($$...$$)
+    formula_blocks = {}
+    def save_formula(match):
+        f_raw = match.group(1).strip()
+        key = f"__FORMULA_BLOCK_{len(formula_blocks)}__"
+        card = (
+            '<div class="formula-card" style="margin: 14px 0; border: 1.5px solid #e9d5ff; '
+            'border-left: 4px solid #d97706; border-radius: 8px; background: #fdf4ff; '
+            'padding: 12px 16px; break-inside: avoid; page-break-inside: avoid;">'
+            '<div style="font-size: 8pt; font-weight: 700; color: #d97706; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;">'
+            'CLINICAL FORMULA / EQUATION</div>'
+            f'<div style="font-family: \'JetBrains Mono\', monospace; font-size: 10pt; font-weight: 600; color: #1e1b4b;">{clean_latex(f_raw)}</div>'
+            '</div>'
+        )
+        formula_blocks[key] = card
+        return f"\n\n{key}\n\n"
+
+    text = re.sub(r'\$\$([\s\S]*?)\$\$', save_formula, text)
+
     lines = text.split("\n")
     output = []
     
@@ -197,7 +240,6 @@ def parse_markdown_to_html(md_text: str) -> str:
             return ""
         
         headers = [c.strip() for c in table_lines[0].split("|")[1:-1]]
-        # find separator index
         start_row = 1
         if len(table_lines) > 1 and "---" in table_lines[1]:
             start_row = 2
@@ -225,6 +267,23 @@ def parse_markdown_to_html(md_text: str) -> str:
     for line in lines:
         s_line = line.strip()
 
+        # Check for placeholder blocks
+        if s_line.startswith("__CODE_BLOCK_") and s_line.endswith("__"):
+            if in_table:
+                in_table = False
+                output.append(flush_table())
+            output.extend(close_lists())
+            output.append(code_blocks.get(s_line, ""))
+            continue
+
+        if s_line.startswith("__FORMULA_BLOCK_") and s_line.endswith("__"):
+            if in_table:
+                in_table = False
+                output.append(flush_table())
+            output.extend(close_lists())
+            output.append(formula_blocks.get(s_line, ""))
+            continue
+
         # Check for table line
         if s_line.startswith("|") and s_line.endswith("|"):
             output.extend(close_lists())
@@ -236,7 +295,6 @@ def parse_markdown_to_html(md_text: str) -> str:
             output.append(flush_table())
 
         if not s_line:
-            # Do not close lists prematurely on empty blank lines between items
             continue
 
         # Check for ordered list: "1. ", "2. ", etc.
