@@ -2051,7 +2051,6 @@ def generate_interactive_dashboard(chapters):
                 <div class="brand-wordmark">PATHOLOGY PRO</div>
                 <div class="brand-subtitle">Clinical Monograph · Paper III</div>
             </div>
-            <button class="mobile-sidebar-close-btn" onclick="toggleSidebar(false)" aria-label="Close Sidebar" style="margin-left: auto;">{ICONS["close"]}</button>
         </div>
 
         <div class="sidebar-back-row">
@@ -3342,44 +3341,10 @@ def generate_interactive_dashboard(chapters):
             document.getElementById('modal').style.display = 'none';
         }}
 
-        let focusTimerSeconds = 25 * 60;
-        let focusTimerInterval = null;
-        let isFocusTimerRunning = false;
-
         function toggleStudyFocusTimer() {{
-            const btn = document.getElementById('btnFocusTimer');
-            const disp = document.getElementById('focusTimerDisplay');
-            if (!btn || !disp) return;
-
-            if (isFocusTimerRunning) {{
-                clearInterval(focusTimerInterval);
-                isFocusTimerRunning = false;
-                btn.classList.remove('running');
-            }} else {{
-                if (focusTimerSeconds <= 0) focusTimerSeconds = 25 * 60;
-                isFocusTimerRunning = true;
-                btn.classList.add('running');
-                focusTimerInterval = setInterval(() => {{
-                    focusTimerSeconds--;
-                    if (focusTimerSeconds <= 0) {{
-                        clearInterval(focusTimerInterval);
-                        isFocusTimerRunning = false;
-                        btn.classList.remove('running');
-                        focusTimerSeconds = 25 * 60;
-                        alert('Focus session complete! Time for a short rest.');
-                    }}
-                    updateFocusTimerUI();
-                }}, 1000);
+            if (window.BdsTimer) {{
+                window.BdsTimer.toggle();
             }}
-            updateFocusTimerUI();
-        }}
-
-        function updateFocusTimerUI() {{
-            const disp = document.getElementById('focusTimerDisplay');
-            if (!disp) return;
-            const m = Math.floor(focusTimerSeconds / 60);
-            const s = focusTimerSeconds % 60;
-            disp.textContent = (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
         }}
 
         function launchExamSimFromDashboard() {{
@@ -3458,6 +3423,7 @@ def generate_interactive_dashboard(chapters):
             renderDashboard();
         }}
     </script>
+    <script src="portal-core/core-engine.js"></script>
 </body>
 </html>
 """

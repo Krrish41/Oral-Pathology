@@ -1711,7 +1711,6 @@
                 <div class="brand-wordmark">PATHOLOGY PRO</div>
                 <div class="brand-subtitle">Clinical Monograph · Paper III</div>
             </div>
-            <button class="mobile-sidebar-close-btn" onclick="toggleSidebar(false)" aria-label="Close Sidebar" style="margin-left: auto;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
         </div>
 
         <div class="sidebar-back-row">
@@ -3002,44 +3001,10 @@
             document.getElementById('modal').style.display = 'none';
         }
 
-        let focusTimerSeconds = 25 * 60;
-        let focusTimerInterval = null;
-        let isFocusTimerRunning = false;
-
         function toggleStudyFocusTimer() {
-            const btn = document.getElementById('btnFocusTimer');
-            const disp = document.getElementById('focusTimerDisplay');
-            if (!btn || !disp) return;
-
-            if (isFocusTimerRunning) {
-                clearInterval(focusTimerInterval);
-                isFocusTimerRunning = false;
-                btn.classList.remove('running');
-            } else {
-                if (focusTimerSeconds <= 0) focusTimerSeconds = 25 * 60;
-                isFocusTimerRunning = true;
-                btn.classList.add('running');
-                focusTimerInterval = setInterval(() => {
-                    focusTimerSeconds--;
-                    if (focusTimerSeconds <= 0) {
-                        clearInterval(focusTimerInterval);
-                        isFocusTimerRunning = false;
-                        btn.classList.remove('running');
-                        focusTimerSeconds = 25 * 60;
-                        alert('Focus session complete! Time for a short rest.');
-                    }
-                    updateFocusTimerUI();
-                }, 1000);
+            if (window.BdsTimer) {
+                window.BdsTimer.toggle();
             }
-            updateFocusTimerUI();
-        }
-
-        function updateFocusTimerUI() {
-            const disp = document.getElementById('focusTimerDisplay');
-            if (!disp) return;
-            const m = Math.floor(focusTimerSeconds / 60);
-            const s = focusTimerSeconds % 60;
-            disp.textContent = (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
         }
 
         function launchExamSimFromDashboard() {
@@ -3118,5 +3083,6 @@
             renderDashboard();
         }
     </script>
+    <script src="portal-core/core-engine.js"></script>
 </body>
 </html>
