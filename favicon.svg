@@ -1,18 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#d946ef"/>
-      <stop offset="100%" stop-color="#a21caf"/>
+    <linearGradient id="pathBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#581c87"/>
+      <stop offset="100%" stop-color="#1e102d"/>
     </linearGradient>
   </defs>
-  <rect width="512" height="512" rx="112" fill="url(#bg)" stroke="rgba(255,255,255,0.22)" stroke-width="16"/>
-  <!-- Microscope Vector Matching User Spec -->
-  <g transform="translate(64, 64) scale(16)" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M6 18h8"/>
-    <path d="M3 22h18"/>
-    <path d="M14 22a7 7 0 1 0 0-14h-1"/>
-    <path d="M9 14h2"/>
-    <path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"/>
-    <path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/>
+  <rect width="512" height="512" rx="112" fill="url(#pathBg)" stroke="rgba(255,255,255,0.20)" stroke-width="16"/>
+  <!-- Laboratory Microscope -->
+  <g fill="none" stroke="#f8fafc" stroke-linecap="round" stroke-linejoin="round" stroke-width="24">
+    <!-- Base Foot -->
+    <path d="M140 420 H372" stroke-width="28"/>
+    <!-- Microscope Curved Arm -->
+    <path d="M290 420 C290 340 370 330 370 230 C370 170 320 150 280 150"/>
+    <!-- Stage Platform -->
+    <path d="M190 310 H310" stroke-width="26" stroke="#c084fc"/>
+    <!-- Condenser under stage -->
+    <rect x="236" y="322" width="28" height="24" rx="4" fill="#c084fc" fill-opacity="0.3" stroke="#ffffff" stroke-width="16"/>
+    <!-- Body Tube with angled eyepiece -->
+    <path d="M280 150 L200 230" stroke-width="32" stroke="#ffffff"/>
+    <!-- Eyepiece Tube & Lens -->
+    <path d="M296 134 L324 106" stroke-width="28"/>
+    <rect x="316" y="90" width="28" height="20" rx="4" transform="rotate(-45 330 100)" fill="#e9d5ff" stroke="none"/>
+    <!-- Revolving Nosepiece & Objective Lens -->
+    <circle cx="196" cy="234" r="16" fill="#c084fc" stroke="#ffffff" stroke-width="18"/>
+    <path d="M190 246 L180 276" stroke-width="22" stroke="#ffffff"/>
   </g>
 </svg>
