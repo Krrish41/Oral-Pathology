@@ -2190,6 +2190,8 @@ def generate_interactive_dashboard(chapters):
         let currentSpeechUtterance = null;
         let speechKeepaliveTimer = null;
         let speechTickerTimer = null;
+        let chapterAudioQueue = [];
+        let chapterQueueIdx = 0;
 
         function initVoiceList() {{
             if (!('speechSynthesis' in window)) return;
@@ -2292,6 +2294,12 @@ def generate_interactive_dashboard(chapters):
                 return;
             }}
 
+            if (currentChapterIdx < 0) {{
+                selectChapter(0);
+                setTimeout(speakCurrentChapterSection, 250);
+                return;
+            }}
+
             if (window.speechSynthesis.paused) {{
                 window.speechSynthesis.resume();
                 isAudioPlaying = true;
@@ -2305,23 +2313,70 @@ def generate_interactive_dashboard(chapters):
             }}
         }}
 
+        function buildChapterAudioQueue(ch) {{
+            const queue = [];
+            if (ch.clinical_pearl) {{
+                queue.push({{
+                    title: 'Histopathological Pearl',
+                    text: `${{ch.title}}. Category: ${{ch.category}}. Histopathological Pearl: ${{ch.clinical_pearl}}.`
+                }});
+            }}
+            if (Array.isArray(ch.sections)) {{
+                ch.sections.forEach(sec => {{
+                    queue.push({{
+                        title: sec.title,
+                        text: `${{sec.title}}. ${{sec.content}}`
+                    }});
+                }});
+            }}
+            return queue;
+        }}
+
         function speakCurrentChapterSection() {{
             if (!('speechSynthesis' in window)) return;
             window.speechSynthesis.cancel();
             clearInterval(speechTickerTimer);
             clearInterval(speechKeepaliveTimer);
 
+            if (currentChapterIdx < 0) {{
+                selectChapter(0);
+                setTimeout(speakCurrentChapterSection, 250);
+                return;
+            }}
+
             const ch = CHAPTERS[currentChapterIdx];
             if (!ch) return;
 
+            chapterAudioQueue = buildChapterAudioQueue(ch);
+            chapterQueueIdx = 0;
+            playQueueItem(ch);
+        }}
+
+        function playQueueItem(ch) {{
+            if (!('speechSynthesis' in window)) return;
+            window.speechSynthesis.cancel();
+            clearInterval(speechTickerTimer);
+            clearInterval(speechKeepaliveTimer);
+
+            if (chapterQueueIdx >= chapterAudioQueue.length) {{
+                if (currentChapterIdx + 1 < CHAPTERS.length) {{
+                    currentChapterIdx++;
+                    renderChapterView();
+                    speakCurrentChapterSection();
+                }} else {{
+                    isAudioPlaying = false;
+                    updateAudioUI();
+                }}
+                return;
+            }}
+
+            const item = chapterAudioQueue[chapterQueueIdx];
             const titleEl = document.getElementById('audioDockTrackTitle');
             const chTitleEl = document.getElementById('audioDockChapterTitle');
-            if (titleEl) titleEl.innerText = ch.title;
-            if (chTitleEl) chTitleEl.innerText = ch.category;
+            if (titleEl) titleEl.innerText = `${{item.title}} (${{chapterQueueIdx + 1}}/${{chapterAudioQueue.length}})`;
+            if (chTitleEl) chTitleEl.innerText = ch.title;
 
-            const textToSpeak = `${{ch.title}}. Category: ${{ch.category}}. Histopathological Pearl: ${{ch.clinical_pearl}}. ${{ch.sections.map(s => s.title + '. ' + s.content).join(' ')}}`;
-            const cleanText = cleanMedicalTextForSpeech(textToSpeak);
-
+            const cleanText = cleanMedicalTextForSpeech(item.text);
             const utterance = new SpeechSynthesisUtterance(cleanText);
             utterance.rate = audioPlaybackSpeed || 1.0;
 
@@ -2333,7 +2388,7 @@ def generate_interactive_dashboard(chapters):
             }}
 
             const words = cleanText.split(/\\s+/).length;
-            const estDurationSec = Math.max(10, (words / (150 * (audioPlaybackSpeed || 1.0))) * 60);
+            const estDurationSec = Math.max(5, (words / (150 * (audioPlaybackSpeed || 1.0))) * 60);
             let elapsedSec = 0;
 
             const durEl = document.getElementById('audioDuration');
@@ -2362,14 +2417,8 @@ def generate_interactive_dashboard(chapters):
             utterance.onend = () => {{
                 clearInterval(speechTickerTimer);
                 clearInterval(speechKeepaliveTimer);
-                if (currentChapterIdx + 1 < CHAPTERS.length) {{
-                    currentChapterIdx++;
-                    renderChapterView();
-                    speakCurrentChapterSection();
-                }} else {{
-                    isAudioPlaying = false;
-                    updateAudioUI();
-                }}
+                chapterQueueIdx++;
+                playQueueItem(ch);
             }};
 
             utterance.onerror = () => {{
@@ -2395,8 +2444,8 @@ def generate_interactive_dashboard(chapters):
                     pill.classList.remove('active');
                 }}
             }});
-            if (isAudioPlaying) {{
-                speakCurrentChapterSection();
+            if (isAudioPlaying && CHAPTERS[currentChapterIdx]) {{
+                playQueueItem(CHAPTERS[currentChapterIdx]);
             }}
         }}
 
@@ -2405,7 +2454,11 @@ def generate_interactive_dashboard(chapters):
         }}
 
         function prevAudioTrack() {{
-            if (currentChapterIdx > 0) {{
+            if (chapterQueueIdx > 0) {{
+                chapterQueueIdx--;
+                const ch = CHAPTERS[currentChapterIdx];
+                if (ch) playQueueItem(ch);
+            }} else if (currentChapterIdx > 0) {{
                 currentChapterIdx--;
                 renderChapterView();
                 if (isAudioPlaying) speakCurrentChapterSection();
@@ -2413,7 +2466,11 @@ def generate_interactive_dashboard(chapters):
         }}
 
         function nextAudioTrack() {{
-            if (currentChapterIdx + 1 < CHAPTERS.length) {{
+            if (chapterQueueIdx + 1 < chapterAudioQueue.length) {{
+                chapterQueueIdx++;
+                const ch = CHAPTERS[currentChapterIdx];
+                if (ch) playQueueItem(ch);
+            }} else if (currentChapterIdx + 1 < CHAPTERS.length) {{
                 currentChapterIdx++;
                 renderChapterView();
                 if (isAudioPlaying) speakCurrentChapterSection();
@@ -2441,6 +2498,9 @@ def generate_interactive_dashboard(chapters):
             if (dock) {{
                 if (isAudioPlaying) dock.classList.add('is-playing');
                 else dock.classList.remove('is-playing');
+            }}
+            if (window.CoreEngine && CoreEngine.setAudioPlayingState) {{
+                CoreEngine.setAudioPlayingState(isAudioPlaying);
             }}
         }}
 
@@ -3204,15 +3264,17 @@ def generate_interactive_dashboard(chapters):
             return finalHtml;
         }}
 
-        function toggleTopicComplete(chId) {{
-            if (completedTopics[chId]) delete completedTopics[chId];
-            else completedTopics[chId] = true;
-            localStorage.setItem('bds.pathology.progress', JSON.stringify(completedTopics));
-            localStorage.setItem('oral_pathology_completed_topics', JSON.stringify(completedTopics));
-            if (window.CoreEngine) {{
-                CoreEngine.renderTopicList();
+        function toggleTopicComplete(chId, state) {{
+            const willBeDone = (state !== undefined) ? !!state : !completedTopics[chId];
+            if (willBeDone) completedTopics[chId] = true;
+            else delete completedTopics[chId];
+            try {{
+                localStorage.setItem('bds.pathology.progress', JSON.stringify(completedTopics));
+                localStorage.setItem('oral_pathology_completed_topics', JSON.stringify(completedTopics));
+            }} catch(e) {{}}
+            if (window.CoreEngine && CoreEngine.updateProgressDisplays) {{
+                CoreEngine.updateProgressDisplays();
             }}
-            renderSidebar();
             if (currentChapterIdx === -1) {{
                 renderDashboard();
             }} else {{
@@ -3453,6 +3515,9 @@ def generate_interactive_dashboard(chapters):
                 searchPlaceholder: 'Search lesions, signs, stains...',
                 topics: CHAPTERS,
                 currentTopicIndex: currentChapterIdx,
+                onToggleAudioWalk: () => {{
+                    togglePlayPauseAudio();
+                }},
                 onOpenDashboard: () => {{
                     showDashboard(true);
                 }},
@@ -3476,7 +3541,7 @@ def generate_interactive_dashboard(chapters):
                     setTimeout(() => switchTab('types'), 120);
                 }},
                 onToggleComplete: (id, isDone) => {{
-                    toggleTopicComplete(id);
+                    toggleTopicComplete(id, isDone);
                 }},
                 onResetStatusFilter: () => {{
                     setCategoryFilter('All');
