@@ -18,11 +18,12 @@ from content.odontogenic_cysts_and_tumors import CHAPTERS as c1
 from content.salivary_and_neoplasms import CHAPTERS as c2
 from content.caries_and_developmental import CHAPTERS as c3
 from content.infections_blood_bone_forensic import CHAPTERS as c4
+from content.cheat_sheet import CHAPTERS as c5
 from content.formatter import ICONS, FAVICON_SVG, clean_latex, parse_markdown_to_html
 from content.interactive_data import COMPARISON_MATRICES, SPOTTER_CARDS, VIVA_QUIZ
 from content.diagrams_data import generate_svg_schematic, LAYMAN_ANALOGIES, FLASHCARDS
 
-ALL_CHAPTERS = c1 + c2 + c3 + c4
+ALL_CHAPTERS = c1 + c2 + c3 + c4 + c5
 
 def generate_markdown(chapters):
     md_lines = []
@@ -2214,8 +2215,7 @@ def generate_interactive_dashboard(chapters):
                 sorted.forEach(v => {{
                     const opt = document.createElement('option');
                     opt.value = v.name;
-                    const isPremium = v.name.includes('Natural') || v.name.includes('Online') || v.name.includes('Enhanced');
-                    opt.textContent = `${{isPremium ? '✨ ' : ''}}${{v.name.replace(/Microsoft |Google /g, '')}} (${{v.lang}})`;
+                    opt.textContent = `${{v.name.replace(/Microsoft |Google /g, '')}} (${{v.lang}})`;
                     if (v.name === currentVal) opt.selected = true;
                     select.appendChild(opt);
                 }});
@@ -2692,15 +2692,15 @@ def generate_interactive_dashboard(chapters):
                             </svg>
                         </div>
                         <div>
-                            <div style="font-size: 0.72rem; font-weight: 700; color: var(--accent-primary); text-transform: uppercase; letter-spacing: 0.08em;">Cornerstone Neoplasm Protocol</div>
-                            <div style="font-size: 1.15rem; font-weight: 800; color: var(--text-primary);">Chapter 1: Ameloblastoma &amp; Histological Variants</div>
+                            <div style="font-size: 0.72rem; font-weight: 700; color: var(--accent-primary); text-transform: uppercase; letter-spacing: 0.08em;">Emergency &amp; High-Yield Protocol</div>
+                            <div style="font-size: 1.15rem; font-weight: 800; color: var(--text-primary);">Chapter 21: Rapid Revision Master Cheat Sheet</div>
                             <div style="font-size: 0.84rem; color: var(--text-secondary); margin-top: 2px;">
-                                Follicular &amp; plexiform criteria, Vickers-Gorlin criteria, Unicystic vs Solid-multicystic algorithms &amp; surgical margins.
+                                Pathognomonic histopathology buzzwords, odontogenic cyst/tumor matrices, Vickers-Gorlin criteria &amp; syndromic associations.
                             </div>
                         </div>
                     </div>
-                    <button class="nav-btn nav-btn-primary" onclick="selectChapter(0)" style="padding: 10px 20px; font-size: 0.88rem;">
-                        Open Chapter 1 →
+                    <button class="nav-btn nav-btn-primary" onclick="selectChapter(20)" style="padding: 10px 20px; font-size: 0.88rem;">
+                        Launch Master Cheat Sheet →
                     </button>
                 </div>
 
@@ -2742,9 +2742,13 @@ def generate_interactive_dashboard(chapters):
                             <button class="filter-chip ${{currentDashFilter === 'completed' ? 'active' : ''}}" onclick="setDashFilter('completed')">Completed (${{completed}})</button>
                             <button class="filter-chip ${{currentDashFilter === 'notes' ? 'active' : ''}}" onclick="setDashFilter('notes')">Has Notes (${{notesCount}})</button>
                         </div>
-                        <div style="display: flex; align-items: center; gap: 6px;">
-                            <button class="filter-chip" data-testid="exam-simulator" onclick="launchExamSimFromDashboard()" style="cursor: pointer;">⏱️ Exam Simulator</button>
-                            <button class="filter-chip" data-testid="spotters" onclick="openDiagramSpotterFromDashboard()" style="cursor: pointer;">🎯 Spotters</button>
+                        <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;" data-testid="modules">
+                            <button class="filter-chip" data-testid="voice-walk" onclick="togglePlayPauseAudio()" style="cursor: pointer;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:4px;" aria-hidden="true"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>Voice Walk</button>
+                            <button class="filter-chip" data-testid="exam-simulator" onclick="launchExamSimFromDashboard()" style="cursor: pointer;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:4px;" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Exam Simulator</button>
+                            <button class="filter-chip" data-testid="spotters" onclick="openDiagramSpotterFromDashboard()" style="cursor: pointer;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:4px;" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>Spotters</button>
+                            <button class="filter-chip" data-testid="flashcards" onclick="openFlashcardsFromDashboard()" style="cursor: pointer;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:4px;" aria-hidden="true"><rect width="18" height="14" x="3" y="5" rx="2"/><line x1="7" y1="15" x2="7.01" y2="15"/></svg>Flashcards</button>
+                            <button class="filter-chip" data-testid="schematics" onclick="openDiagramSpotterFromDashboard()" style="cursor: pointer;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:4px;" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Schematics</button>
+                            <button class="filter-chip" data-testid="cheat-sheet" onclick="selectChapter(20)" style="cursor: pointer;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:4px;" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>Cheat Sheet</button>
                         </div>
                     </div>
                 </div>
@@ -2772,7 +2776,7 @@ def generate_interactive_dashboard(chapters):
                         </div>
                         <div class="dash-card-footer-row">
                             <button class="toggle-complete-btn ${{isDone ? 'is-completed' : ''}}" onclick="toggleTopicComplete('${{ch.id}}')">
-                                ${{isDone ? '✓ Completed' : '○ Mark Done'}}
+                                ${{isDone ? 'Completed' : 'Mark Done'}}
                             </button>
                             <button class="nav-btn nav-btn-primary" onclick="selectChapter(${{idx}})" style="padding: 6px 14px; font-size: 0.8rem;">
                                 Study →
@@ -3042,7 +3046,7 @@ def generate_interactive_dashboard(chapters):
                             <div class="sim-history-pane" style="margin-top: 20px; padding: 14px; background: rgba(0,0,0,0.18); border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
                                 <details>
                                     <summary style="font-size: 0.82rem; font-weight: 700; color: var(--text-secondary); cursor: pointer;">
-                                        📜 Past Evaluation Attempts &amp; Score Logs
+                                        Past Evaluation Attempts &amp; Score Logs
                                     </summary>
                                     <div id="simHistoryList" style="margin-top: 10px;"></div>
                                 </details>
@@ -3537,8 +3541,7 @@ def generate_interactive_dashboard(chapters):
                     setTimeout(() => switchTab('quiz'), 120);
                 }},
                 onOpenCheatSheet: () => {{
-                    selectChapter(currentChapterIdx >= 0 ? currentChapterIdx : 0);
-                    setTimeout(() => switchTab('types'), 120);
+                    selectChapter(20);
                 }},
                 onToggleComplete: (id, isDone) => {{
                     toggleTopicComplete(id, isDone);
