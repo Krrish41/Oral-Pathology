@@ -1646,6 +1646,9 @@ def generate_interactive_dashboard(chapters):
             .mobile-bottom-bar {{
                 display: flex;
             }}
+            .tab-btn[data-tab="diagrams"] {{
+                display: none !important;
+            }}
             .content-area {{
                 padding: 16px 16px 140px 16px;
             }}
