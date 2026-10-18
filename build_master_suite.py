@@ -1093,6 +1093,16 @@ def generate_interactive_dashboard(chapters):
             font-size: 0.88rem;
             color: var(--text-secondary);
             line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }}
+        .type-card-summary.expanded {{
+            display: block;
+            -webkit-line-clamp: unset;
+            overflow: visible;
         }}
 
         /* Diagrams Gallery */
@@ -2068,15 +2078,15 @@ def generate_interactive_dashboard(chapters):
             {ICONS["menu"]}
             <span>Topics</span>
         </button>
-        <button class="mobile-bottom-tab active" onclick="switchTab('master')">
+        <button class="mobile-bottom-tab active" data-tab="master" onclick="switchTab('master')">
             {ICONS["master_answer"]}
             <span>15-Mark</span>
         </button>
-        <button class="mobile-bottom-tab" onclick="switchTab('diagrams')">
+        <button class="mobile-bottom-tab" data-tab="diagrams" onclick="switchTab('diagrams')">
             {ICONS["diagrams"]}
             <span>Spotters</span>
         </button>
-        <button class="mobile-bottom-tab" onclick="switchTab('viva')">
+        <button class="mobile-bottom-tab" data-tab="viva" onclick="switchTab('viva')">
             {ICONS["viva"]}
             <span>Viva</span>
         </button>
@@ -2274,7 +2284,11 @@ def generate_interactive_dashboard(chapters):
             if (dock) dock.classList.remove('hidden');
 
             if (!('speechSynthesis' in window)) {{
-                alert('Speech synthesis is not supported in this browser.');
+                if (window.CoreEngine && CoreEngine.showToast) {{
+                    CoreEngine.showToast('Speech synthesis is not supported in this browser.', 'error');
+                }} else {{
+                    console.warn('Speech synthesis is not supported in this browser.');
+                }}
                 return;
             }}
 
@@ -2737,29 +2751,29 @@ def generate_interactive_dashboard(chapters):
                 </div>
 
                 <div class="tab-bar-container">
-                    <div class="tab-bar">
-                        <button class="tab-btn ${{activeTab === 'master' ? 'active' : ''}}" onclick="switchTab('master')">
+                    <div class="tab-bar" role="tablist" aria-label="Curriculum Topic Sections">
+                        <button class="tab-btn ${{activeTab === 'master' ? 'active' : ''}}" data-tab="master" role="tab" aria-selected="${{activeTab === 'master' ? 'true' : 'false'}}" tabindex="${{activeTab === 'master' ? '0' : '-1'}}" onclick="switchTab('master')">
                             {ICONS["master_answer"]} 15-Mark Master Answer
                         </button>
-                        <button class="tab-btn ${{activeTab === 'layman' ? 'active' : ''}}" onclick="switchTab('layman')">
+                        <button class="tab-btn ${{activeTab === 'layman' ? 'active' : ''}}" data-tab="layman" role="tab" aria-selected="${{activeTab === 'layman' ? 'true' : 'false'}}" tabindex="${{activeTab === 'layman' ? '0' : '-1'}}" onclick="switchTab('layman')">
                             {ICONS["layman"]} Layman's Intuition
                         </button>
-                        <button class="tab-btn ${{activeTab === 'types' ? 'active' : ''}}" onclick="switchTab('types')">
+                        <button class="tab-btn ${{activeTab === 'types' ? 'active' : ''}}" data-tab="types" role="tab" aria-selected="${{activeTab === 'types' ? 'true' : 'false'}}" tabindex="${{activeTab === 'types' ? '0' : '-1'}}" onclick="switchTab('types')">
                             {ICONS["dashboard"]} Histopathology Explorer
                         </button>
-                        <button class="tab-btn ${{activeTab === 'diagrams' ? 'active' : ''}}" data-testid="schematics" onclick="switchTab('diagrams')">
+                        <button class="tab-btn ${{activeTab === 'diagrams' ? 'active' : ''}}" data-tab="diagrams" role="tab" aria-selected="${{activeTab === 'diagrams' ? 'true' : 'false'}}" tabindex="${{activeTab === 'diagrams' ? '0' : '-1'}}" data-testid="schematics" onclick="switchTab('diagrams')">
                             {ICONS["diagrams"]} Microscopic Spotters
                         </button>
-                        <button class="tab-btn ${{activeTab === 'viva' ? 'active' : ''}}" onclick="switchTab('viva')">
+                        <button class="tab-btn ${{activeTab === 'viva' ? 'active' : ''}}" data-tab="viva" role="tab" aria-selected="${{activeTab === 'viva' ? 'true' : 'false'}}" tabindex="${{activeTab === 'viva' ? '0' : '-1'}}" onclick="switchTab('viva')">
                             {ICONS["viva"]} Examiner Viva Pearls
                         </button>
-                        <button class="tab-btn ${{activeTab === 'quiz' ? 'active' : ''}}" data-testid="flashcards" onclick="switchTab('quiz')">
+                        <button class="tab-btn ${{activeTab === 'quiz' ? 'active' : ''}}" data-tab="quiz" role="tab" aria-selected="${{activeTab === 'quiz' ? 'true' : 'false'}}" tabindex="${{activeTab === 'quiz' ? '0' : '-1'}}" data-testid="flashcards" onclick="switchTab('quiz')">
                             {ICONS["quiz"]} Active Recall Flashcards
                         </button>
-                        <button class="tab-btn ${{activeTab === 'exam' ? 'active' : ''}}" data-testid="exam-simulator" onclick="switchTab('exam')">
+                        <button class="tab-btn ${{activeTab === 'exam' ? 'active' : ''}}" data-tab="exam" role="tab" aria-selected="${{activeTab === 'exam' ? 'true' : 'false'}}" tabindex="${{activeTab === 'exam' ? '0' : '-1'}}" data-testid="exam-simulator" onclick="switchTab('exam')">
                             {ICONS["cheat_sheet"]} Exam Rubric Simulator
                         </button>
-                        <button class="tab-btn ${{activeTab === 'notes' ? 'active' : ''}}" onclick="switchTab('notes')">
+                        <button class="tab-btn ${{activeTab === 'notes' ? 'active' : ''}}" data-tab="notes" role="tab" aria-selected="${{activeTab === 'notes' ? 'true' : 'false'}}" tabindex="${{activeTab === 'notes' ? '0' : '-1'}}" onclick="switchTab('notes')">
                             {ICONS["notes"]} My Pathology Notes
                         </button>
                     </div>
@@ -2774,18 +2788,43 @@ def generate_interactive_dashboard(chapters):
         function switchTab(tab) {{
             activeTab = tab;
             document.querySelectorAll('.tab-btn').forEach(btn => {{
-                if (btn.innerText.toLowerCase().includes(tab.toLowerCase())) btn.classList.add('active');
-                else btn.classList.remove('active');
+                const bTab = btn.getAttribute('data-tab');
+                const isMatch = bTab === tab;
+                btn.classList.toggle('active', isMatch);
+                btn.setAttribute('aria-selected', isMatch ? 'true' : 'false');
+                btn.setAttribute('tabindex', isMatch ? '0' : '-1');
+                if (isMatch) {{
+                    btn.scrollIntoView({{ behavior: 'smooth', block: 'nearest', inline: 'center' }});
+                }}
             }});
             document.querySelectorAll('.mobile-bottom-tab').forEach(btn => {{
-                if (btn.innerText.toLowerCase().includes(tab.toLowerCase())) btn.classList.add('active');
-                else btn.classList.remove('active');
+                const bTab = btn.getAttribute('data-tab');
+                btn.classList.toggle('active', bTab === tab);
             }});
+
+            // Sync URL query (?tab=...)
+            try {{
+                const url = new URL(window.location.href);
+                if (url.hash.includes('?')) {{
+                    const parts = url.hash.split('?');
+                    const params = new URLSearchParams(parts[1]);
+                    params.set('tab', tab);
+                    url.hash = parts[0] + '?' + params.toString();
+                }} else {{
+                    url.hash = url.hash + '?tab=' + tab;
+                }}
+                history.replaceState(null, '', url.toString());
+            }} catch(e) {{}}
 
             const ch = CHAPTERS[currentChapterIdx];
             const container = document.getElementById('tabContentContainer');
             if (container && ch) {{
                 container.innerHTML = getTabHTML(ch, tab);
+                container.scrollTop = 0;
+            }}
+
+            if (tab === 'exam' && ch && window.BdsSimulator) {{
+                setTimeout(() => window.BdsSimulator.renderHistoryList('pathology', ch.id), 20);
             }}
         }}
 
@@ -2825,14 +2864,17 @@ def generate_interactive_dashboard(chapters):
                     <div>
                         <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 14px;">${{cls.title}}</h3>
                         <div class="types-grid">
-                            ${{cls.types.map(t => `
-                                <div class="type-card">
+                            ${{cls.types.map((t, tIdx) => `
+                                <div class="type-card" id="typeCard_${{tIdx}}">
                                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
                                         <span class="type-card-badge">${{t.badge || 'Histopathologic Criteria'}}</span>
                                         ${{t.hemodynamics && t.hemodynamics !== 'Pathognomonic Microscopic Sign' ? `<span class="type-card-stat">${{t.hemodynamics}}</span>` : ''}}
                                     </div>
                                     <div class="type-card-title">${{t.name}}</div>
-                                    <div class="type-card-summary">${{parseMarkdown(t.summary)}}</div>
+                                    <div class="type-card-summary" id="typeSummary_${{tIdx}}">${{parseMarkdown(t.summary)}}</div>
+                                    <button type="button" class="type-card-expand-btn" onclick="toggleTypeCardExpand(${{tIdx}})" aria-expanded="false" style="margin-top:8px; background:none; border:none; color:var(--accent-primary, #c084fc); font-size:0.75rem; font-weight:700; cursor:pointer; padding:0; display:inline-flex; align-items:center; gap:4px;">
+                                        Read full criteria ▾
+                                    </button>
                                 </div>
                             `).join('')}}
                         </div>
@@ -2891,46 +2933,59 @@ def generate_interactive_dashboard(chapters):
                 return `
                     <div class="master-essay-content">
                         <div class="exam-sim-card">
-                            <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 8px;">25-Minute Timed University Exam Simulator</h3>
-                            <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px;">Evaluate your structured 15-mark essay against the university examiner 10-point scoring matrix.</p>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                                <div>
+                                    <h3 style="font-size: 1.25rem; font-weight: 700; margin: 0 0 4px 0;">25-Minute Timed University Exam Simulator</h3>
+                                    <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0;">Evaluate your structured 15-mark essay against the university examiner 10-point scoring matrix.</p>
+                                </div>
+                                <div id="simSaveStatus" style="font-size: 0.78rem; font-family: 'JetBrains Mono', monospace; color: var(--text-muted);"></div>
+                            </div>
                             <div class="rubric-row">
                                 <div class="rubric-info">
                                     <h4>1. Definition, Origin &amp; WHO Classification (2 Marks)</h4>
                                     <p>Exact cell of origin, embryonic tissue remnants, and standard WHO classification table.</p>
                                 </div>
-                                <div class="rubric-slider"><input type="range" min="0" max="10" value="8" oninput="updateRubricScore()"></div>
+                                <div class="rubric-slider"><input type="range" id="rubric_range_1" min="0" max="10" value="8" oninput="updateRubricScore()"></div>
                             </div>
                             <div class="rubric-row">
                                 <div class="rubric-info">
                                     <h4>2. Pathogenesis &amp; Molecular Genetics (3 Marks)</h4>
                                     <p>Mutations (BRAF, PTCH1, GNAS, TP53), signaling pathways, and Layman's explanation.</p>
                                 </div>
-                                <div class="rubric-slider"><input type="range" min="0" max="10" value="8" oninput="updateRubricScore()"></div>
+                                <div class="rubric-slider"><input type="range" id="rubric_range_2" min="0" max="10" value="8" oninput="updateRubricScore()"></div>
                             </div>
                             <div class="rubric-row">
                                 <div class="rubric-info">
                                     <h4>3. Clinical &amp; Radiographic Hallmarks (3 Marks)</h4>
                                     <p>Age, sex, site predilection, expansion pattern (BL vs AP), and radiographic multilocularity.</p>
                                 </div>
-                                <div class="rubric-slider"><input type="range" min="0" max="10" value="8" oninput="updateRubricScore()"></div>
+                                <div class="rubric-slider"><input type="range" id="rubric_range_3" min="0" max="10" value="8" oninput="updateRubricScore()"></div>
                             </div>
                             <div class="rubric-row">
                                 <div class="rubric-info">
                                     <h4>4. Pathognomonic Histopathology (4 Marks)</h4>
                                     <p>Detailed architectural pattern, cell morphology, special stains, and DIF findings.</p>
                                 </div>
-                                <div class="rubric-slider"><input type="range" min="0" max="10" value="9" oninput="updateRubricScore()"></div>
+                                <div class="rubric-slider"><input type="range" id="rubric_range_4" min="0" max="10" value="9" oninput="updateRubricScore()"></div>
                             </div>
                             <div class="rubric-row">
                                 <div class="rubric-info">
                                     <h4>5. Management &amp; Recurrence Risk (3 Marks)</h4>
                                     <p>Enucleation vs resection margins, Carnoy's solution, and long-term surveillance protocol.</p>
                                 </div>
-                                <div class="rubric-slider"><input type="range" min="0" max="10" value="8" oninput="updateRubricScore()"></div>
+                                <div class="rubric-slider"><input type="range" id="rubric_range_5" min="0" max="10" value="8" oninput="updateRubricScore()"></div>
                             </div>
-                            <div style="margin-top: 24px; display: flex; justify-content: space-between; align-items: center;">
+                            <div style="margin-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; padding-top: 16px; border-top: 1px solid var(--border-color);">
                                 <div style="font-size: 1.1rem; font-weight: 700;">Simulated Exam Score: <span id="examScoreTotal" style="color: var(--accent-primary);">12.5 / 15 Marks (Honors)</span></div>
-                                <button class="nav-btn nav-btn-primary" onclick="alert('Score calculated based on 10-point university rubric standard.')">Save Evaluation</button>
+                                <button class="nav-btn nav-btn-primary btn-save-evaluation" id="btnSaveEvaluation" onclick="saveOralPathologyEvaluation('${{ch.id}}')" style="min-height: 44px; padding: 0 18px; font-weight: 700;">Save Evaluation</button>
+                            </div>
+                            <div class="sim-history-pane" style="margin-top: 20px; padding: 14px; background: rgba(0,0,0,0.18); border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+                                <details>
+                                    <summary style="font-size: 0.82rem; font-weight: 700; color: var(--text-secondary); cursor: pointer;">
+                                        📜 Past Evaluation Attempts &amp; Score Logs
+                                    </summary>
+                                    <div id="simHistoryList" style="margin-top: 10px;"></div>
+                                </details>
                             </div>
                         </div>
                     </div>
@@ -3265,6 +3320,59 @@ def generate_interactive_dashboard(chapters):
             const scaled = ((total / (sliders.length * 10)) * 15).toFixed(1);
             document.getElementById('examScoreTotal').innerText = `${{scaled}} / 15 Marks (${{scaled >= 11 ? 'Honors' : 'Pass'}})`;
         }}
+
+        function toggleTypeCardExpand(idx) {{
+            const sumEl = document.getElementById('typeSummary_' + idx);
+            const cardEl = document.getElementById('typeCard_' + idx);
+            if (!sumEl || !cardEl) return;
+            const btn = cardEl.querySelector('.type-card-expand-btn');
+            const isExpanded = sumEl.classList.contains('expanded');
+            if (isExpanded) {{
+                sumEl.classList.remove('expanded');
+                if (btn) btn.innerHTML = 'Read full criteria ▾';
+            }} else {{
+                sumEl.classList.add('expanded');
+                if (btn) btn.innerHTML = 'Collapse criteria ▴';
+            }}
+        }}
+
+        function saveOralPathologyEvaluation(topicId) {{
+            const totalEl = document.getElementById('examScoreTotal');
+            const totalText = totalEl ? totalEl.textContent : '12.5';
+            const match = totalText.match(/([0-9.]+)\s*\/\s*15/);
+            const scoreVal = match ? parseFloat(match[1]) : 12.5;
+
+            let gradeLabel = 'Pass';
+            if (scoreVal >= 12.0) gradeLabel = 'Honors / Distinction';
+            else if (scoreVal >= 10.0) gradeLabel = 'First Class';
+            else if (scoreVal < 7.5) gradeLabel = 'Needs Revision';
+
+            const scores = {{}};
+            for (let i = 1; i <= 5; i++) {{
+                const slider = document.getElementById('rubric_range_' + i);
+                if (slider) scores['criteria_' + i] = parseFloat(slider.value) || 0;
+            }}
+
+            if (window.BdsSimulator) {{
+                window.BdsSimulator.saveEvaluation('pathology', topicId, {{
+                    total: scoreVal,
+                    outOf: 15,
+                    gradeLabel: gradeLabel,
+                    scores: scores
+                }});
+            }}
+        }}
+
+        window.applyLoadedEvaluationScores = function(scores) {{
+            if (!scores) return;
+            for (let i = 1; i <= 5; i++) {{
+                const slider = document.getElementById('rubric_range_' + i);
+                if (slider && scores['criteria_' + i] !== undefined) {{
+                    slider.value = scores['criteria_' + i];
+                }}
+            }}
+            updateRubricScore();
+        }};
 
         function openPdfModal() {{
             document.getElementById('pdfModal').style.display = 'flex';
