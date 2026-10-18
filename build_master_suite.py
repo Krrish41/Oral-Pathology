@@ -2017,30 +2017,6 @@ def generate_interactive_dashboard(chapters):
             color: #10b981;
         }}
 
-        /* Back to BDS Clinical Vault Link */
-        .back-to-vault-link {{
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.72rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: var(--text-muted);
-            text-decoration: none;
-            padding: 5px 10px;
-            border-radius: 6px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid var(--border-color);
-            transition: all 0.2s ease;
-            white-space: nowrap;
-        }}
-        .back-to-vault-link:hover {{
-            color: var(--accent-primary);
-            border-color: var(--accent-primary);
-            background: var(--accent-light);
-        }}
-
         /* Focus Timer Pill */
         .focus-timer-pill {{
             display: inline-flex;
