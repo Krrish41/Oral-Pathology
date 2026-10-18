@@ -12,6 +12,7 @@ import os
 import sys
 import json
 import subprocess
+import re
 
 from content.odontogenic_cysts_and_tumors import CHAPTERS as c1
 from content.salivary_and_neoplasms import CHAPTERS as c2
@@ -318,12 +319,28 @@ def generate_interactive_dashboard(chapters):
         for c in cards:
             viva_list.append(c["q"])
 
+        # Compute readMinutes and tags
+        word_count = len(clean_latex(ch["clinical_pearl"]).split())
+        for kp in ch.get("key_points", []):
+            word_count += len(clean_latex(kp).split())
+        for sec in ch["sections"]:
+            word_count += len(clean_latex(sec["content"]).split())
+        read_minutes = max(5, round(word_count / 180))
+
+        clean_title = re.sub(r'^(Chapter\s*\d+[:.]*|\d+[\.:\s]+)', '', ch["title"], flags=re.IGNORECASE).strip()
+        slug = re.sub(r'[^a-zA-Z0-9]+', '-', clean_title).strip('-').lower()
+        tags = [t.strip() for t in ch["category"].replace('&', ',').split(',') if t.strip()]
+
         enriched_chapters.append({
             "id": ch["id"],
+            "slug": slug,
             "title": ch["title"],
             "category": ch["category"],
             "badge": ch["badge"],
             "reading_time": ch["reading_time"],
+            "readMinutes": read_minutes,
+            "readingTime": f"{read_minutes} min read",
+            "tags": tags,
             "clinical_pearl": ch["clinical_pearl"],
             "key_points": ch.get("key_points", []),
             "sections": ch["sections"],
@@ -370,6 +387,7 @@ def generate_interactive_dashboard(chapters):
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="portal-core/core-shell.css">
+    <script src="portal-core/core-engine.js"></script>
     <style>
         :root {{
             /* Per-portal Accent: Oral Pathology Calm Orchid */
@@ -2055,89 +2073,12 @@ def generate_interactive_dashboard(chapters):
     </style>
 </head>
 <body class="dark">
-    <div id="sidebar-backdrop" onclick="toggleSidebar(false)"></div>
-
-    <!-- Docked Sidebar (Spec 2.6) -->
-    <aside class="sidebar" id="sidebar">
-        <div class="brand-block" onclick="showDashboard()">
-            <img src="favicon.svg" alt="Pathology Pro Logo" class="brand-logo-tile" width="40" height="40">
-            <div class="brand-text-stack">
-                <div class="brand-wordmark">PATHOLOGY PRO</div>
-                <div class="brand-subtitle">Clinical Monograph · Paper III</div>
-            </div>
-        </div>
-
-        <div class="sidebar-back-row">
-            <a href="https://krrish41.github.io/bds-vault/#pathology" class="back-to-vault-btn" data-testid="back-to-vault" aria-label="Back to BDS Clinical Vault">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-                <span>BDS Clinical Vault</span>
-            </a>
-        </div>
-
-        <div class="sidebar-header" style="border-bottom: none; padding-bottom: 0;">
-            <div style="display: flex; gap: 8px; margin-bottom: 12px;">
-                <button class="nav-btn nav-btn-primary" id="sidebarDashBtn" onclick="showDashboard()" style="flex: 1; justify-content: center; font-weight: 700;">
-                    {ICONS["dashboard"]} Dashboard
-                </button>
-            </div>
-            <div class="search-box">
-                <input type="text" id="searchInput" data-testid="search" class="search-input" placeholder="Search lesions, signs, stains..." oninput="onSearchInput()">
-                <button class="search-kbd-btn" data-testid="palette" onclick="document.getElementById('searchInput').focus()" title="Command palette (Ctrl+K)"><kbd class="kbd-label">Ctrl K</kbd></button>
-            </div>
-            <div class="category-scroll" id="categoryPillBar">
-                <button class="filter-chip active" onclick="setCategoryFilter('All')">All Topics</button>
-                <button class="filter-chip" onclick="setCategoryFilter('Tumor')">Tumors</button>
-                <button class="filter-chip" onclick="setCategoryFilter('Cyst')">Cysts</button>
-                <button class="filter-chip" onclick="setCategoryFilter('Salivary')">Salivary</button>
-                <button class="filter-chip" onclick="setCategoryFilter('Oncology')">Oncology</button>
-                <button class="filter-chip" onclick="setCategoryFilter('Caries')">Caries</button>
-                <button class="filter-chip" onclick="setCategoryFilter('Developmental')">Developmental</button>
-                <button class="filter-chip" onclick="setCategoryFilter('Infectious')">Infections</button>
-                <button class="filter-chip" onclick="setCategoryFilter('Forensic')">Forensic</button>
-            </div>
-        </div>
-        <div class="topic-list" id="sidebarTopicList" tabindex="0" aria-label="Curriculum topics list">
-            <!-- Dynamically rendered -->
-        </div>
-    </aside>
+    <!-- Docked Sidebar Render Target -->
+    <aside class="portal-sidebar" id="sidebar" data-testid="sidebar"></aside>
 
     <!-- Main View Column -->
     <div class="main-column" id="mainView">
-        <div class="top-bar" data-testid="topbar">
-            <div class="top-bar-left">
-                <button class="mobile-menu-btn" onclick="toggleSidebar(true)" aria-label="Open Topics Menu">{ICONS["menu"]}</button>
-                <div class="brand" onclick="showDashboard()" style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
-                    <img src="favicon.svg" alt="Pathology Pro" class="brand-logo-tile" width="32" height="32" style="width: 32px; height: 32px; border-radius: 8px;">
-                    <div class="brand-title-group" style="display: flex; flex-direction: column;">
-                        <div style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary); letter-spacing: 0.02em; line-height: 1.2;">PATHOLOGY PRO</div>
-                        <span style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; letter-spacing: 0.05em;">Clinical Monograph · Paper III</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="top-right-tools">
-                <button class="nav-btn" data-testid="audio-walkthrough" data-action="voice-walk" onclick="togglePlayPauseAudio()" title="Continuous Audio Walk (1x-2x)">
-                    {ICONS["headphones"]}
-                    <span class="btn-label">Audio Walk</span>
-                </button>
-                <div class="focus-timer-pill" data-testid="focus-timer">
-                    <button class="nav-btn btn-focus-timer" id="btnFocusTimer" onclick="toggleStudyFocusTimer()" title="25m Focus Study Timer" aria-label="Focus Study Timer">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                        <span id="focusTimerDisplay">25:00</span>
-                    </button>
-                </div>
-                <button class="nav-btn" data-testid="palette" onclick="openCmdkFromDashboard()" title="Command Palette">
-                    <kbd class="kbd-label" style="font-family: monospace; font-size: 0.72rem; padding: 2px 6px; background: rgba(255,255,255,0.08); border-radius: 4px;">Ctrl K</kbd>
-                </button>
-                <button class="nav-btn" data-testid="open-pdf" onclick="openPdfModal()" title="View Master PDF">
-                    {ICONS["pdf"]}
-                    <span class="btn-label">Master PDF</span>
-                </button>
-                <button class="nav-btn" data-testid="theme-toggle" onclick="toggleTheme()" id="themeToggleBtn" aria-label="Toggle dark/light mode">
-                    {ICONS["moon"]}
-                </button>
-            </div>
-        </div>
+        <header class="portal-topbar" id="portalTopBar" data-testid="topbar"></header>
 
         <!-- Main Content Viewer -->
         <main class="content-area" id="mainContent">
@@ -2611,9 +2552,15 @@ def generate_interactive_dashboard(chapters):
                     history.pushState(null, '', `#/topic/${{slug}}`);
                 }}
             }}
-            const dashBtn = document.getElementById('sidebarDashBtn');
-            if (dashBtn) dashBtn.classList.remove('nav-btn-primary');
-            renderSidebar();
+            if (window.CoreEngine) {{
+                CoreEngine.currentTopicIndex = idx;
+                CoreEngine.updateViewHeading(CHAPTERS[idx].title, CHAPTERS[idx].category, idx + 1);
+                const activeRow = document.querySelector(`.topic-row[data-topic-id="${{CHAPTERS[idx].id}}"]`);
+                if (activeRow) {{
+                    document.querySelectorAll('.topic-row').forEach(r => r.classList.remove('active'));
+                    activeRow.classList.add('active');
+                }}
+            }}
             renderChapterView();
             toggleMobileSidebar(false);
             window.scrollTo({{ top: 0, behavior: 'smooth' }});
@@ -2624,9 +2571,11 @@ def generate_interactive_dashboard(chapters):
             if (updateHash && window.location.hash && window.location.hash !== '#/' && window.location.hash !== '#') {{
                 history.pushState(null, '', '#/');
             }}
-            const dashBtn = document.getElementById('sidebarDashBtn');
-            if (dashBtn) dashBtn.classList.add('nav-btn-primary');
-            renderSidebar();
+            if (window.CoreEngine) {{
+                CoreEngine.currentTopicIndex = -1;
+                CoreEngine.updateViewHeading('Dashboard');
+                CoreEngine.toggleSidebar(false);
+            }}
             renderDashboard();
             toggleMobileSidebar(false);
             window.scrollTo({{ top: 0, behavior: 'smooth' }});
@@ -3229,6 +3178,9 @@ def generate_interactive_dashboard(chapters):
             else completedTopics[chId] = true;
             localStorage.setItem('bds.pathology.progress', JSON.stringify(completedTopics));
             localStorage.setItem('oral_pathology_completed_topics', JSON.stringify(completedTopics));
+            if (window.CoreEngine) {{
+                CoreEngine.renderTopicList();
+            }}
             renderSidebar();
             if (currentChapterIdx === -1) {{
                 renderDashboard();
@@ -3394,42 +3346,61 @@ def generate_interactive_dashboard(chapters):
             if (btn) btn.innerHTML = isDark ? '{ICONS["sun"]}' : '{ICONS["moon"]}';
         }}
 
-        // Keyboard Shortcuts
+        const PATHOLOGY_LOGO_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><defs><linearGradient id="pathBgCard" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#581c87"/><stop offset="100%" stop-color="#1e102d"/></linearGradient></defs><rect width="512" height="512" rx="112" fill="url(#pathBgCard)" stroke="rgba(255,255,255,0.20)" stroke-width="16"/><g fill="none" stroke="#f8fafc" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"><path d="M140 420 H372" stroke-width="28"/><path d="M290 420 C290 340 370 330 370 230 C370 170 320 150 280 150"/><path d="M190 310 H310" stroke-width="26" stroke="#c084fc"/><rect x="236" y="322" width="28" height="24" rx="4" fill="#c084fc" fill-opacity="0.3" stroke="#ffffff" stroke-width="16"/><path d="M280 150 L200 230" stroke-width="32" stroke="#ffffff"/><path d="M296 134 L324 106" stroke-width="28"/><rect x="316" y="90" width="28" height="20" rx="4" transform="rotate(-45 330 100)" fill="#e9d5ff" stroke="none"/><circle cx="196" cy="234" r="16" fill="#c084fc" stroke="#ffffff" stroke-width="18"/><path d="M190 246 L180 276" stroke-width="22" stroke="#ffffff"/></g></svg>`;
+
+        // Keyboard Shortcuts (Esc to close modals)
         window.addEventListener('keydown', e => {{
-            if ((e.key === '/' || ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k')) && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {{
-                e.preventDefault();
-                const search = document.getElementById('searchInput');
-                if (search) search.focus();
-            }} else if (e.key === 'Escape') {{
+            if (e.key === 'Escape') {{
                 closePdfModal();
                 closeDiagramModal();
                 toggleMobileSidebar(false);
             }}
         }});
 
-        // Initialization: Dark by default
-        const savedTheme = localStorage.getItem('bds.pathology.theme') || localStorage.getItem('oral_pathology_theme');
-        if (savedTheme === 'light') {{
-            document.body.classList.remove('dark');
-            document.body.classList.add('light');
-            const btn = document.getElementById('themeToggleBtn');
-            if (btn) btn.innerHTML = '{ICONS["moon"]}';
-        }} else {{
-            document.body.classList.add('dark');
-            document.body.classList.remove('light');
-            const btn = document.getElementById('themeToggleBtn');
-            if (btn) btn.innerHTML = '{ICONS["sun"]}';
-        }}
-        // Platform shortcut label (Ctrl K vs ⌘K)
-        try {{
-            const isMac = /Mac|iPod|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
-            document.querySelectorAll('.kbd-label').forEach(el => {{
-                el.textContent = isMac ? '⌘K' : 'Ctrl K';
+        // Initialize Shared Core Engine
+        if (window.CoreEngine) {{
+            CoreEngine.init({{
+                portalKey: 'pathology',
+                name: 'PATHOLOGY PRO',
+                subtitle: 'Paper III · Clinical monograph',
+                logoSvg: PATHOLOGY_LOGO_SVG,
+                hubUrl: 'https://krrish41.github.io/bds-vault/#pathology',
+                pdfUrl: 'Oral_Pathology_Master_Notes.pdf',
+                searchPlaceholder: 'Search lesions, signs, stains...',
+                topics: CHAPTERS,
+                currentTopicIndex: currentChapterIdx,
+                onOpenDashboard: () => {{
+                    showDashboard(true);
+                }},
+                onSelectTopic: (idx) => {{
+                    selectChapter(idx, true);
+                }},
+                onOpenSimulator: () => {{
+                    selectChapter(currentChapterIdx >= 0 ? currentChapterIdx : 0);
+                    setTimeout(() => switchTab('exam'), 120);
+                }},
+                onOpenSpotters: () => {{
+                    selectChapter(currentChapterIdx >= 0 ? currentChapterIdx : 0);
+                    setTimeout(() => switchTab('diagrams'), 120);
+                }},
+                onOpenFlashcards: () => {{
+                    selectChapter(currentChapterIdx >= 0 ? currentChapterIdx : 0);
+                    setTimeout(() => switchTab('quiz'), 120);
+                }},
+                onOpenCheatSheet: () => {{
+                    selectChapter(currentChapterIdx >= 0 ? currentChapterIdx : 0);
+                    setTimeout(() => switchTab('types'), 120);
+                }},
+                onToggleComplete: (id, isDone) => {{
+                    toggleTopicComplete(id);
+                }},
+                onResetStatusFilter: () => {{
+                    setCategoryFilter('All');
+                }}
             }});
-        }} catch(e) {{}}
+        }}
 
         initVoiceList();
-        renderSidebar();
         window.addEventListener('hashchange', handleHashRoute);
         if (window.location.hash && window.location.hash.startsWith('#/topic/')) {{
             handleHashRoute();
@@ -3437,7 +3408,6 @@ def generate_interactive_dashboard(chapters):
             renderDashboard();
         }}
     </script>
-    <script src="portal-core/core-engine.js"></script>
 </body>
 </html>
 """
@@ -3479,14 +3449,26 @@ def main():
         clean_title = re.sub(r'^(Chapter\s*\d+[:.]*|\d+[\.:\s]+)', '', title, flags=re.IGNORECASE).strip()
         slug = re.sub(r'[^a-zA-Z0-9]+', '-', clean_title).strip('-').lower()
         is_cheat_sheet = "cheat sheet" in title.lower() or "rapid revision" in title.lower()
+        word_count = len(clean_latex(ch["clinical_pearl"]).split())
+        for kp in ch.get("key_points", []):
+            word_count += len(clean_latex(kp).split())
+        for sec in ch["sections"]:
+            word_count += len(clean_latex(sec["content"]).split())
+        read_minutes = max(5, round(word_count / 180))
+        tags = [t.strip() for t in ch["category"].replace('&', ',').split(',') if t.strip()]
+
         topics_registry.append({
             "id": slug,
             "title": title,
             "portal": "pathology",
             "portalName": "Oral Pathology Pro",
             "paper": "Paper III · Pathology",
+            "category": ch.get("category", "Oral Pathology"),
             "chapter": idx + 1,
             "type": "cheat-sheet" if is_cheat_sheet else "essay",
+            "readMinutes": read_minutes,
+            "readingTime": f"{read_minutes} min read",
+            "tags": tags,
             "url": f"https://krrish41.github.io/Oral-Pathology/#/topic/{slug}",
             "order": idx + 1
         })

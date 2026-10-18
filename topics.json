@@ -5,8 +5,14 @@
     "portal": "pathology",
     "portalName": "Oral Pathology Pro",
     "paper": "Paper III \u00b7 Pathology",
+    "category": "Odontogenic Tumors",
     "chapter": 1,
     "type": "essay",
+    "readMinutes": 8,
+    "readingTime": "8 min read",
+    "tags": [
+      "Odontogenic Tumors"
+    ],
     "url": "https://krrish41.github.io/Oral-Pathology/#/topic/ameloblastoma-histological-variants",
     "order": 1
   },
@@ -16,8 +22,14 @@
     "portal": "pathology",
     "portalName": "Oral Pathology Pro",
     "paper": "Paper III \u00b7 Pathology",
+    "category": "Odontogenic Tumors",
     "chapter": 2,
     "type": "essay",
+    "readMinutes": 6,
+    "readingTime": "6 min read",
+    "tags": [
+      "Odontogenic Tumors"
+    ],
     "url": "https://krrish41.github.io/Oral-Pathology/#/topic/benign-odontogenic-tumors-ceot-aot-odontoma-myxoma",
     "order": 2
   },
@@ -27,8 +39,14 @@
     "portal": "pathology",
     "portalName": "Oral Pathology Pro",
     "paper": "Paper III \u00b7 Pathology",
+    "category": "Odontogenic Cysts",
     "chapter": 3,
     "type": "essay",
+    "readMinutes": 8,
+    "readingTime": "8 min read",
+    "tags": [
+      "Odontogenic Cysts"
+    ],
     "url": "https://krrish41.github.io/Oral-Pathology/#/topic/odontogenic-keratocyst-okc-kcot-gorlin-goltz-syndrome",
     "order": 3
   },
@@ -38,8 +56,14 @@
     "portal": "pathology",
     "portalName": "Oral Pathology Pro",
     "paper": "Paper III \u00b7 Pathology",
+    "category": "Odontogenic Cysts",
     "chapter": 4,
     "type": "essay",
+    "readMinutes": 6,
+    "readingTime": "6 min read",
+    "tags": [
+      "Odontogenic Cysts"
+    ],
     "url": "https://krrish41.github.io/Oral-Pathology/#/topic/dentigerous-cyst-inflammatory-odontogenic-cysts",
     "order": 4
   },
@@ -49,8 +73,14 @@
     "portal": "pathology",
     "portalName": "Oral Pathology Pro",
     "paper": "Paper III \u00b7 Pathology",
+    "category": "Oral Pathology",
     "chapter": 5,
     "type": "essay",
+    "readMinutes": 5,
+    "readingTime": "5 min read",
+    "tags": [
+      "Oral Pathology"
+    ],
     "url": "https://krrish41.github.io/Oral-Pathology/#/topic/non-odontogenic-developmental-cysts-of-the-oral-region",
     "order": 5
   },
@@ -60,8 +90,14 @@
     "portal": "pathology",
     "portalName": "Oral Pathology Pro",
     "paper": "Paper III \u00b7 Pathology",
+    "category": "Salivary Gland Pathology",
     "chapter": 6,
     "type": "essay",
+    "readMinutes": 11,
+    "readingTime": "11 min read",
+    "tags": [
+      "Salivary Gland Pathology"
+    ],
     "url": "https://krrish41.github.io/Oral-Pathology/#/topic/salivary-gland-neoplasms-pleomorphic-adenoma-warthin-s-mec-adcc",
     "order": 6
   },
@@ -71,8 +107,14 @@
     "portal": "pathology",
     "portalName": "Oral Pathology Pro",
     "paper": "Paper III \u00b7 Pathology",
+    "category": "Salivary Gland Pathology",
     "chapter": 7,
     "type": "essay",
+    "readMinutes": 8,
+    "readingTime": "8 min read",
+    "tags": [
+      "Salivary Gland Pathology"
+    ],
     "url": "https://krrish41.github.io/Oral-Pathology/#/topic/non-neoplastic-salivary-pathologies-mucocele-ranula-sialolithiasis-sjogren-s",
     "order": 7
   },
@@ -82,8 +124,15 @@
     "portal": "pathology",
     "portalName": "Oral Pathology Pro",
     "paper": "Paper III \u00b7 Pathology",
+    "category": "Oral Oncology & Epithelial Pathology",
     "chapter": 8,
     "type": "essay",
+    "readMinutes": 6,
+    "readingTime": "6 min read",
+    "tags": [
+      "Oral Oncology",
+      "Epithelial Pathology"
+    ],
     "url": "https://krrish41.github.io/Oral-Pathology/#/topic/oral-potentially-malignant-disorders-opmd-leukoplakia-erythroplakia",
     "order": 8
   },
@@ -93,8 +142,15 @@
     "portal": "pathology",
     "portalName": "Oral Pathology Pro",
     "paper": "Paper III \u00b7 Pathology",
+    "category": "Oral Mucosal & Connective Tissue Pathology",
     "chapter": 9,
     "type": "essay",
+    "readMinutes": 6,
+    "readingTime": "6 min read",
+    "tags": [
+      "Oral Mucosal",
+      "Connective Tissue Pathology"
+    ],
     "url": "https://krrish41.github.io/Oral-Pathology/#/topic/oral-submucous-fibrosis-osmf-oral-lichen-planus",
     "order": 9
   },
@@ -104,8 +160,15 @@
     "portal": "pathology",
     "portalName": "Oral Pathology Pro",
     "paper": "Paper III \u00b7 Pathology",
+    "category": "Oral Oncology & Epithelial Pathology",
     "chapter": 10,
     "type": "essay",
+    "readMinutes": 7,
+    "readingTime": "7 min read",
+    "tags": [
+      "Oral Oncology",
+      "Epithelial Pathology"
+    ],
     "url": "https://krrish41.github.io/Oral-Pathology/#/topic/oral-squamous-cell-carcinoma-oscc-etiology-broders-grading-tnm-staging",
     "order": 10
   },
@@ -115,8 +178,15 @@
     "portal": "pathology",
     "portalName": "Oral Pathology Pro",
     "paper": "Paper III \u00b7 Pathology",
+    "category": "Soft Tissue & Mesenchymal Pathology",
     "chapter": 11,
     "type": "essay",
+    "readMinutes": 5,
+    "readingTime": "5 min read",
+    "tags": [
+      "Soft Tissue",
+      "Mesenchymal Pathology"
+    ],
     "url": "https://krrish41.github.io/Oral-Pathology/#/topic/benign-malignant-mesenchymal-soft-tissue-tumors-of-the-oral-cavity",
     "order": 11
   },
@@ -126,8 +196,14 @@
     "portal": "pathology",
     "portalName": "Oral Pathology Pro",
     "paper": "Paper III \u00b7 Pathology",
+    "category": "Dental Caries",
     "chapter": 12,
     "type": "essay",
+    "readMinutes": 7,
+    "readingTime": "7 min read",
+    "tags": [
+      "Dental Caries"
+    ],
     "url": "https://krrish41.github.io/Oral-Pathology/#/topic/dental-caries-etiopathogenesis-histopathology-of-enamel-dentin",
     "order": 12
   },
@@ -137,8 +213,14 @@
     "portal": "pathology",
     "portalName": "Oral Pathology Pro",
     "paper": "Paper III \u00b7 Pathology",
+    "category": "Developmental Anomalies",
     "chapter": 13,
     "type": "essay",
+    "readMinutes": 7,
+    "readingTime": "7 min read",
+    "tags": [
+      "Developmental Anomalies"
+    ],
     "url": "https://krrish41.github.io/Oral-Pathology/#/topic/developmental-disturbances-of-tooth-structure-ai-di-dentin-dysplasia",
     "order": 13
   },
@@ -148,8 +230,14 @@
     "portal": "pathology",
     "portalName": "Oral Pathology Pro",
     "paper": "Paper III \u00b7 Pathology",
+    "category": "Developmental Anomalies",
     "chapter": 14,
     "type": "essay",
+    "readMinutes": 6,
+    "readingTime": "6 min read",
+    "tags": [
+      "Developmental Anomalies"
+    ],
     "url": "https://krrish41.github.io/Oral-Pathology/#/topic/developmental-disturbances-of-tooth-number-size-shape",
     "order": 14
   },
@@ -159,8 +247,14 @@
     "portal": "pathology",
     "portalName": "Oral Pathology Pro",
     "paper": "Paper III \u00b7 Pathology",
+    "category": "Developmental Anomalies",
     "chapter": 15,
     "type": "essay",
+    "readMinutes": 5,
+    "readingTime": "5 min read",
+    "tags": [
+      "Developmental Anomalies"
+    ],
     "url": "https://krrish41.github.io/Oral-Pathology/#/topic/developmental-anomalies-of-craniofacial-jaws-oral-soft-tissues",
     "order": 15
   },
@@ -170,8 +264,15 @@
     "portal": "pathology",
     "portalName": "Oral Pathology Pro",
     "paper": "Paper III \u00b7 Pathology",
+    "category": "Oral Microbiology & Infectious Diseases",
     "chapter": 16,
     "type": "essay",
+    "readMinutes": 6,
+    "readingTime": "6 min read",
+    "tags": [
+      "Oral Microbiology",
+      "Infectious Diseases"
+    ],
     "url": "https://krrish41.github.io/Oral-Pathology/#/topic/oral-bacterial-fungal-infections-tb-syphilis-actinomycosis-candidiasis",
     "order": 16
   },
@@ -181,8 +282,15 @@
     "portal": "pathology",
     "portalName": "Oral Pathology Pro",
     "paper": "Paper III \u00b7 Pathology",
+    "category": "Oral Microbiology & Infectious Diseases",
     "chapter": 17,
     "type": "essay",
+    "readMinutes": 5,
+    "readingTime": "5 min read",
+    "tags": [
+      "Oral Microbiology",
+      "Infectious Diseases"
+    ],
     "url": "https://krrish41.github.io/Oral-Pathology/#/topic/oral-viral-infections-hsv-vzv-ebv-oral-hairy-leukoplakia-hpv",
     "order": 17
   },
@@ -192,8 +300,15 @@
     "portal": "pathology",
     "portalName": "Oral Pathology Pro",
     "paper": "Paper III \u00b7 Pathology",
+    "category": "Oral Mucosal & Connective Tissue Pathology",
     "chapter": 18,
     "type": "essay",
+    "readMinutes": 6,
+    "readingTime": "6 min read",
+    "tags": [
+      "Oral Mucosal",
+      "Connective Tissue Pathology"
+    ],
     "url": "https://krrish41.github.io/Oral-Pathology/#/topic/vesiculobullous-immunological-diseases-pemphigus-pemphigoid-aphthae-em",
     "order": 18
   },
@@ -203,8 +318,15 @@
     "portal": "pathology",
     "portalName": "Oral Pathology Pro",
     "paper": "Paper III \u00b7 Pathology",
+    "category": "Bone Pathology & Skeletal Neoplasms",
     "chapter": 19,
     "type": "essay",
+    "readMinutes": 7,
+    "readingTime": "7 min read",
+    "tags": [
+      "Bone Pathology",
+      "Skeletal Neoplasms"
+    ],
     "url": "https://krrish41.github.io/Oral-Pathology/#/topic/metabolic-fibro-osseous-neoplastic-bone-diseases-of-the-jaws",
     "order": 19
   },
@@ -214,8 +336,15 @@
     "portal": "pathology",
     "portalName": "Oral Pathology Pro",
     "paper": "Paper III \u00b7 Pathology",
+    "category": "Forensic Odontology & Legal Dentistry",
     "chapter": 20,
     "type": "essay",
+    "readMinutes": 7,
+    "readingTime": "7 min read",
+    "tags": [
+      "Forensic Odontology",
+      "Legal Dentistry"
+    ],
     "url": "https://krrish41.github.io/Oral-Pathology/#/topic/forensic-odontology-gustafson-s-method-cheiloscopy-rugoscopy-bite-marks",
     "order": 20
   }
