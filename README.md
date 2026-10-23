@@ -34,7 +34,7 @@ This repository is **Paper III** in the 4-part BDS Clinical Vault 3rd Year exami
   - Active Recall viva voce quiz engine with immediate feedback and clinical pearls.
   - Touch-optimized responsive mobile layout with Dark Obsidian default (`#090a12`) and Light mode toggle.
 - **Master Exam Monograph (Typeset PDF)**: [`Oral_Pathology_Master_Notes.pdf`](https://krrish41.github.io/Oral-Pathology/Oral_Pathology_Master_Notes.pdf)
-  - 68-page, print-ready, 100% copyable and searchable typeset PDF compendium with histological schematics intact.
+  - 94-page, print-ready, 100% copyable and searchable typeset PDF compendium with histological schematics intact.
 - **Master Markdown Notes**: [`Oral_Pathology_Master_Notes.md`](Oral_Pathology_Master_Notes.md)
 
 ---

@@ -110,6 +110,105 @@ def generate_svg_schematic(ch_id, title):
             <text x="400" y="362" fill="#38bdf8" font-size="11" font-weight="600" text-anchor="middle">Recurrence Prevention: Enucleation + Carnoy's Solution (chemical cautery) or Cryotherapy to eradicate satellite cysts.</text>
         </svg>'''
 
+    elif "non_neoplastic" in ch_id:
+        return f'''<svg viewBox="0 0 800 390" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; font-family:'Plus Jakarta Sans',sans-serif; background:#0f172a; border-radius:12px;">
+            <rect width="800" height="390" fill="#0b1120" rx="12"/>
+            <text x="400" y="34" fill="#38bdf8" font-size="16" font-weight="700" text-anchor="middle">NON-NEOPLASTIC SALIVARY PATHOLOGY: RANULA &amp; SIALOLITHIASIS</text>
+            
+            <!-- Left: Ranula Anatomy & Plunging Mechanism -->
+            <g transform="translate(40, 65)">
+                <rect x="0" y="0" width="345" height="255" fill="#1e1b4b" stroke="#38bdf8" stroke-width="2" rx="10"/>
+                <rect x="0" y="0" width="345" height="36" fill="#0369a1" rx="10"/>
+                <text x="172" y="23" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">RANULA: ORAL vs PLUNGING (Sublingual Gland)</text>
+                
+                <text x="16" y="65" fill="#7dd3fc" font-size="11" font-weight="700">• Sublingual Gland Origin:</text>
+                <text x="24" y="85" fill="#cbd5e1" font-size="10.5">Continuous basal mucous secretion via ducts of Rivinus.</text>
+
+                <text x="16" y="115" fill="#7dd3fc" font-size="11" font-weight="700">• Simple Oral Ranula:</text>
+                <text x="24" y="135" fill="#cbd5e1" font-size="10.5">Confined ABOVE mylohyoid; translucent blue 'frog belly'.</text>
+
+                <text x="16" y="165" fill="#7dd3fc" font-size="11" font-weight="700">• Plunging Cervical Ranula:</text>
+                <text x="24" y="185" fill="#cbd5e1" font-size="10.5">Herniates through Mylohyoid Bouton into submandibular space.</text>
+
+                <rect x="16" y="205" width="313" height="38" fill="#0c4a6e" rx="6"/>
+                <text x="172" y="222" fill="#fde047" font-size="10" font-weight="700" text-anchor="middle">Curative Surgical Rule:</text>
+                <text x="172" y="236" fill="#bae6fd" font-size="9" text-anchor="middle">Transoral sublingual gland excision (&gt;95% cure vs 80% marsupialization failure).</text>
+            </g>
+
+            <!-- Right: Sialolithiasis of Wharton's Duct -->
+            <g transform="translate(415, 65)">
+                <rect x="0" y="0" width="345" height="255" fill="#1e293b" stroke="#f59e0b" stroke-width="2" rx="10"/>
+                <rect x="0" y="0" width="345" height="36" fill="#b45309" rx="10"/>
+                <text x="172" y="23" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">SIALOLITHIASIS: WHARTON'S DUCT (80-90%)</text>
+                
+                <text x="16" y="65" fill="#fde68a" font-size="11" font-weight="700">• Four Predisposition Pillars:</text>
+                <text x="24" y="85" fill="#cbd5e1" font-size="10">1. Anti-gravity ascending duct  2. Long, tortuous (5 cm)</text>
+                <text x="24" y="100" fill="#cbd5e1" font-size="10">3. High mucin viscosity       4. Alkaline pH, Ca/PO4 rich</text>
+
+                <text x="16" y="125" fill="#fde68a" font-size="11" font-weight="700">• Mealtime Syndrome:</text>
+                <text x="24" y="145" fill="#cbd5e1" font-size="10.5">Acute severe colicky pain &amp; tense gland swelling during meals.</text>
+
+                <text x="16" y="172" fill="#fde68a" font-size="11" font-weight="700">• Diagnostic Modalities:</text>
+                <text x="24" y="192" fill="#cbd5e1" font-size="10.5">True occlusal radiograph (radiopaque in 80%) &amp; Sialendoscopy.</text>
+
+                <rect x="16" y="205" width="313" height="38" fill="#78350f" rx="6"/>
+                <text x="172" y="222" fill="#fde047" font-size="10" font-weight="700" text-anchor="middle">Interventional Protocol:</text>
+                <text x="172" y="236" fill="#fef3c7" font-size="9" text-anchor="middle">Sialendoscopic basket / Ho:YAG laser lithotripsy (&lt;7mm).</text>
+            </g>
+
+            <rect x="40" y="335" width="720" height="36" fill="#1e293b" rx="6"/>
+            <text x="400" y="357" fill="#38bdf8" font-size="11" font-weight="600" text-anchor="middle">Clinical Pearl: Extravasation Mucocele has NO true epithelial lining (granulation tissue + muciphages; requires excision of feeder glands).</text>
+        </svg>'''
+
+    elif "craniofacial" in ch_id or "soft_tissue_anomalies" in ch_id:
+        return f'''<svg viewBox="0 0 800 390" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; font-family:'Plus Jakarta Sans',sans-serif; background:#0f172a; border-radius:12px;">
+            <rect width="800" height="390" fill="#0b1120" rx="12"/>
+            <text x="400" y="34" fill="#ec4899" font-size="16" font-weight="700" text-anchor="middle">CRANIOFACIAL &amp; ORAL ANOMALIES: CLEFT PALATE &amp; CHERUBISM</text>
+            
+            <!-- Left: Cleft Lip & Palate Embryology -->
+            <g transform="translate(40, 65)">
+                <rect x="0" y="0" width="345" height="255" fill="#1e1b4b" stroke="#ec4899" stroke-width="2" rx="10"/>
+                <rect x="0" y="0" width="345" height="36" fill="#be185d" rx="10"/>
+                <text x="172" y="23" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">CLEFT EMBRYOLOGY &amp; SURGICAL TIMELINE</text>
+                
+                <text x="16" y="65" fill="#fbcfe8" font-size="11" font-weight="700">• Cleft Lip (6th Week IUL):</text>
+                <text x="24" y="85" fill="#cbd5e1" font-size="10.5">Failure of fusion: Maxillary + Medial Nasal process.</text>
+
+                <text x="16" y="115" fill="#fbcfe8" font-size="11" font-weight="700">• Cleft Palate (8th-10th Week IUL):</text>
+                <text x="24" y="135" fill="#cbd5e1" font-size="10.5">Failure of Secondary Palatal Shelves horizontal fusion.</text>
+
+                <text x="16" y="165" fill="#fbcfe8" font-size="11" font-weight="700">• Cheiloplasty 'Rule of 10s':</text>
+                <text x="24" y="185" fill="#cbd5e1" font-size="10.5">10 weeks, 10 lbs, 10 g/dL Hb, WBC &lt; 10,000 (Millard flap).</text>
+
+                <rect x="16" y="205" width="313" height="38" fill="#831843" rx="6"/>
+                <text x="172" y="222" fill="#fde047" font-size="10" font-weight="700" text-anchor="middle">Palatoplasty &amp; Bone Grafting:</text>
+                <text x="172" y="236" fill="#fce7f3" font-size="9" text-anchor="middle">Palate repair at 9-18 mo; alveolar bone graft at 7-10 yr for canine.</text>
+            </g>
+
+            <!-- Right: Cherubism & Pierre Robin -->
+            <g transform="translate(415, 65)">
+                <rect x="0" y="0" width="345" height="255" fill="#1e293b" stroke="#a855f7" stroke-width="2" rx="10"/>
+                <rect x="0" y="0" width="345" height="36" fill="#7e22ce" rx="10"/>
+                <text x="172" y="23" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">CHERUBISM &amp; PIERRE ROBIN SEQUENCE</text>
+                
+                <text x="16" y="65" fill="#e9d5ff" font-size="11" font-weight="700">• Pierre Robin Sequence:</text>
+                <text x="24" y="85" fill="#cbd5e1" font-size="10.5">Micrognathia -&gt; Glossoptosis -&gt; U-Cleft Palate -&gt; Asphyxia.</text>
+
+                <text x="16" y="115" fill="#e9d5ff" font-size="11" font-weight="700">• Cherubism (SH3BP2 4p16.3):</text>
+                <text x="24" y="135" fill="#cbd5e1" font-size="10.5">Bilateral rami multilocular radiolucency; **CONDYLES SPARED**.</text>
+
+                <text x="16" y="165" fill="#e9d5ff" font-size="11" font-weight="700">• 'Eyes Upturned to Heaven' Sign:</text>
+                <text x="24" y="185" fill="#cbd5e1" font-size="10.5">Orbital floor expansion exposes sclera beneath iris.</text>
+
+                <rect x="16" y="205" width="313" height="38" fill="#581c87" rx="6"/>
+                <text x="172" y="222" fill="#fde047" font-size="10" font-weight="700" text-anchor="middle">Histology &amp; Pubertal Regression:</text>
+                <text x="172" y="236" fill="#f3e8ff" font-size="9" text-anchor="middle">Perivascular collagen cuffs on giant cells; self-heals after puberty!</text>
+            </g>
+
+            <rect x="40" y="335" width="720" height="36" fill="#1e293b" rx="6"/>
+            <text x="400" y="357" fill="#38bdf8" font-size="11" font-weight="600" text-anchor="middle">Lifesaving Rule: In Lingual Thyroid (&gt;70%), it is the patient's ONLY thyroid; never excise without a Technetium-99m scan!</text>
+        </svg>'''
+
     elif "salivary" in ch_id:
         return f'''<svg viewBox="0 0 800 390" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; font-family:'Plus Jakarta Sans',sans-serif; background:#0f172a; border-radius:12px;">
             <rect width="800" height="390" fill="#0b1120" rx="12"/>
@@ -442,3 +541,27 @@ FLASHCARDS = {
         {"q": "Why are teeth the single most reliable anatomical structure for post-mortem disaster victim identification (DVI)?", "a": "Enamel is the hardest tissue in the human body (96% mineralized), highly resistant to thermal destruction (up to 1,100°C), physical decomposition, and protects pulpal DNA."}
     ]
 }
+
+# Alias chapter IDs to match content module definitions
+_ID_ALIASES = {
+    "chap3_odontogenic_keratocyst": "chap3_okc_gorlin",
+    "chap4_dentigerous_and_jaw_cysts": "chap4_dentigerous_inflammatory_cysts",
+    "chap10_salivary_tumors": "chap6_salivary_neoplasms",
+    "chap11_non_neoplastic_salivary": "chap7_non_neoplastic_salivary",
+    "chap12_opmd_leukoplakia_erythroplakia": "chap8_opmd_leukoplakia",
+    "chap13_osmf_lichen_planus": "chap9_osmf_lichen_planus",
+    "chap14_oral_squamous_cell_carcinoma": "chap10_oscc",
+    "chap15_mesenchymal_tumors": "chap11_mesenchymal_soft_tissue",
+    "chap6_dental_caries": "chap12_dental_caries",
+    "chap7_developmental_tooth_structure": "chap13_developmental_tooth_structure",
+    "chap8_disturbances_number_size_shape": "chap14_developmental_number_size",
+    "chap9_craniofacial_and_soft_tissue_anomalies": "chap15_developmental_jaws_soft_tissues",
+    "chap18_vesiculobullous_immunological": "chap18_vesiculobullous_diseases",
+    "chap19_bone_pathology_fibrous_paget": "chap19_bone_diseases",
+}
+
+for _cid, _alias in _ID_ALIASES.items():
+    if _alias in LAYMAN_ANALOGIES and _cid not in LAYMAN_ANALOGIES:
+        LAYMAN_ANALOGIES[_cid] = LAYMAN_ANALOGIES[_alias]
+    if _alias in FLASHCARDS and _cid not in FLASHCARDS:
+        FLASHCARDS[_cid] = FLASHCARDS[_alias]
